@@ -1,0 +1,19 @@
+{
+  "name": "24v_cinema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haeseoklee/24V_cinema.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haeseoklee/24V_cinema/issues"
+  },
+  "homepage": "https://github.com/haeseoklee/24V_cinema#readme"
+}
