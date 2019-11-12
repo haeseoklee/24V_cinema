@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <% include ./header.ejs %>
 </head>
 <body>
-    <h1>메인 페이지</h1>
+    
+    <% include ./nav.ejs %>
     <% if (!isAuthenticated) { %>
-        <h4><a href="http://localhost:3000/user/login">로그인</a></h4>
-        <h4><a href="http://localhost:3000/user/join">회원가입</a></h4>
-    <% }  else {%>
-        <h4><a href="http://localhost:3000/user/logout">로그아웃</a></h4>
+        <a href="/user/login">로그인 </a><a href="/user/join">회원가입</a>
+    <% }  else { %>
+        <a href="/user/logout">로그아웃 </a><a href="/user/mypage">마이페이지</a>
+        <% if (id) { %>
+            <%= id %> 번째로 가입한 유저님 환영합니다.
+        <% } %>
     <% } %>
     
-    <hr>
-    <a href="">예매</a>
-    <a href="">시간표</a>
-    <a href="">영화</a>
-    <a href="">메뉴</a>
-    <br>
-    <% if (id) { %>
-    <%= id %> 번째로 가입한 유저님 환영합니다.
-    <% }%>
+    
+    
 </body>
 </html>
