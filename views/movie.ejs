@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./header.ejs %>
+</head>
+<body>
+    <% include ./nav.ejs %>
+    <% resData.data.forEach(function(item){%>
+        <%= item.title %>
+        <img src="<%=item.img%>" alt="<%=item.title%>">
+    <% }) %>
+</body>
+</html>
+

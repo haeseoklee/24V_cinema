@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <% include ./header.ejs %>
+</head>
+<body>
+    <% include ./nav.ejs %>
+    <h1>회원가입</h1>
+    <form action="/user/join" method="post">
+    email: <input type="text" name="email">
+    password: <input type="password" name="password">
+    <input type="submit" value="회원가입">
+    </form>
+</body>
+</html>
