@@ -5,6 +5,13 @@ CREATE TABLE customer (
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
     ph INT NOT NULL
+    membership_id INT NOT NULL,
+    FOREIGN KEY (membership_id) REFERENCES membership (id)
+);
+
+CREATE TABLE membership(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    rank VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE coupon (
@@ -82,4 +89,33 @@ CREATE TABLE menu_order(
     orderlist_id INT NOT NULL,
     FOREIGN KEY (menu_id) REFERENCES menu (id),
     FOREIGN KEY (orderlist_id) REFERENCES orderlist (id)
+);
+
+CREATE TABLE seat(
+    screen_id INT NOT NULL,
+    seat_no VARCHAR(10) NOT NULL,
+    is_able TINYINT NOT NULL,
+    FOREIGN KEY (screen_id) REFERENCES screen (id),
+    PRIMARY KEY (screen_id, seat_no)
+);
+
+CREATE TABLE selected_seat(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    resv_id INT NOT NULL,
+    screen_id INT NOT NULL,
+    seat_no VARCHAR(10) NOT NULL,
+    FOREIGN KEY (resv_id) REFERENCES reservation (id),
+    FOREIGN KEY (screen_id, seat_no) REFERENCES seat (screen_id, seat_no)
+);
+
+CREATE TABLE pay(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    origin_pay INT NOT NULL,
+    disc_pay INT NOT NULL,
+    customer_id INT NOT NULL,
+    orderlist_id INT NOT NULL,
+    resv_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer (id),
+    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id),
+    FOREIGN KEY (resv_id) REFERENCES reservation (id)
 );
