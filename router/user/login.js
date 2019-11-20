@@ -12,7 +12,6 @@ router.get('/', function(req, res){
     } else {
         res.redirect('/');
     }
-    
 });
 
 router.post('/', function(req, res, next){ 
@@ -23,7 +22,7 @@ router.post('/', function(req, res, next){
         }
         req.login(user, function(err){
             if (err) return next(err);
-            return res.json(user); 
+            return res.json(user);
         }); 
     });
     passport_auth(req, res, next);

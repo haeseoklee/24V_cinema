@@ -4,18 +4,8 @@
     <% include ./header.ejs %>
 </head>
 <body>
+    <% include ./nav.ejs%>
     
-    <% include ./nav.ejs %>
-    <% if (!isAuthenticated) { %>
-        <a href="/user/login">로그인 </a><a href="/user/join">회원가입</a>
-    <% }  else { %>
-        <a href="/user/logout">로그아웃 </a><a href="/user/mypage">마이페이지</a>
-        <% if (id) { %>
-            <%= id %> 번째로 가입한 유저님 환영합니다.
-        <% } %>
-    <% } %>
-    
-    
-    
+    <% include ./footer.ejs %>
 </body>
 </html>

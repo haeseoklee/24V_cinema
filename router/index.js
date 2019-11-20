@@ -9,6 +9,7 @@ var ticket = require('./ticket/index');
 var movie = require('./movie/index');
 var cinema = require('./cinema/index');
 var market = require('./market/index');
+var api = require('./api/index');
 
 router.use('/', main);
 router.use('/user', user);
@@ -17,5 +18,6 @@ router.use('/ticket', ticket);
 router.use('/movie', movie);
 router.use('/cinema', cinema);
 router.use('/market', market);
+router.use('/api', api);
 
 module.exports = router;

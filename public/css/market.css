@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+}
+
+#main{
+    text-align: center;
+    display: inline-block;
+}
+
+
+article{
+    text-align : center;
+    display: inline-block;
+    width : 220px;
+    height : 296px;
+    margin : 30px 15px 30px 15px;
+}

@@ -2,13 +2,28 @@
 <html lang="en">
 <head>
     <% include ./header.ejs %>
+    <link href="/css/movie.css" rel="stylesheet" />
 </head>
 <body>
-    <% include ./nav.ejs %>
-    <% resData.data.forEach(function(item){%>
-        <%= item.title %>
-        <img src="<%=item.img%>" alt="<%=item.title%>">
-    <% }) %>
+    <% include ./nav.ejs%>
+
+    <div id="title">
+        <h2>상영중인 영화</h2>
+    </div>
+    <hr/>
+    <div id ="main"> 
+        <% resData.data.forEach(function(item){ %>
+        <article>
+            <div>
+                <img src="<%=item.img%>" alt="<%=item.title%>">
+            </div>
+            <p><%= item.title %></br> <!--영화이름-->
+                2019 .11.21 개봉 <!--개봉일-->
+            </p>
+        </article>
+        <% }) %>
+    </div>
+    <% include ./footer.ejs %>
 </body>
 </html>
 
