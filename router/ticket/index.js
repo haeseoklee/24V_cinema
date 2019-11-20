@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/booking', function(req, res){
-    res.render();
+    res.render('booking.ejs');
 });
 
 router.post('/booking', function(req, res){

@@ -7,12 +7,12 @@ var db = require('../../db/db');
 
 
 router.get('/', function(req, res){
+
     if (!req.isAuthenticated()) {
         res.render('login.ejs');
     } else {
         res.redirect('/');
     }
-    
 });
 
 router.post('/', function(req, res, next){ 

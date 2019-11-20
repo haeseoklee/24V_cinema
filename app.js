@@ -26,7 +26,7 @@ app.use(function(req, res, next){
     res.locals.isAuthenticated = req.isAuthenticated();
     res.locals.id = req.user || null;
     next();
-   })
+});
 app.use(express.static('public'));
 app.use(express.json());
 app.use(router);
