@@ -20,6 +20,16 @@ JOIN movie ON timetable.movie_id = movie.id
 JOIN selected_seat ON reservation.id = resv_id 
 WHERE customer.name="이해석";
 
+-- 예매내역 확인(좌석제외)
+SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
+ DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
+ cinema, screen.name as screen, type FROM reservation
+JOIN timetable ON reservation.timetable_id = timetable.id
+JOIN customer ON reservation.customer_id = customer.id
+JOIN screen ON timetable.screen_id = screen.id
+JOIN movie ON timetable.movie_id = movie.id
+WHERE customer.name="이해석";
+
 -- 전화번호로 예매내역 확인
 SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
  DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
@@ -94,3 +104,12 @@ GROUP BY customer.email HAVING customer.email = "jhj967878@naver.com";
 
 -- 매점 총 매출
 SELECT sum(origin_pay-disc_pay) FROM pay;
+
+-- 영화, 지점으로 타임테이블 아이디 알아내기
+
+SELECT timetable.id, cinema.cinema, screen.name as screen
+, type, starttime FROM timetable
+JOIN movie ON movie_id = movie.id 
+JOIN screen ON screen_id = screen.id
+JOIN cinema ON screen.cinema = cinema.cinema 
+WHERE movie.title = "조커" AND cinema.cinema = "SU";

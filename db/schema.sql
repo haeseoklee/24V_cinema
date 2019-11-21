@@ -1,32 +1,29 @@
+CREATE TABLE membership(
+    ranking VARCHAR(30) NOT NULL PRIMARY KEY,
+    benefit INT NOT NULL
+);
+
 CREATE TABLE customer (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
     email VARCHAR(30) NOT NULL,
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
-    ph INT NOT NULL
-    membership_id INT NOT NULL,
-    FOREIGN KEY (membership_id) REFERENCES membership (id)
-);
-
-CREATE TABLE membership(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    rank VARCHAR(30) NOT NULL
+    ph INT NOT NULL,
+    membership_id VARCHAR(30) NOT NULL,
+    FOREIGN KEY (membership_id) REFERENCES membership (ranking)
 );
 
 CREATE TABLE coupon (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    benefit INT NOT NULL,
-    period INT NOT NULL
+    benefit INT NOT NULL
 );
 
 CREATE TABLE customer_coupon (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
     coupon_id INT NOT NULL,
-    registerday DATE,
-    deadline DATE,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (coupon_id) REFERENCES coupon (id)
 );
@@ -34,14 +31,23 @@ CREATE TABLE customer_coupon (
 CREATE TABLE movie (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL,
-    img VARCHAR(100) NOT NULL
+    img VARCHAR(100) NOT NULL,
+    director VARCHAR(30) NOT NULL,
+    genre VARCHAR(30) NOT NULL,
+    runtime TIME NOT NULL,
+    story TEXT NOT NULL
+);
+
+CREATE TABLE cinema(
+    cinema VARCHAR(10) NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE screen(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name INT NOT NULL,
     type VARCHAR(45) NOT NULL,
-    cinema VARCHAR(45) NOT NULL
+    cinema VARCHAR(10) NOT NULL,
+    FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
 
 CREATE TABLE timetable(
@@ -58,7 +64,7 @@ CREATE TABLE reservation(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     timetable_id INT NOT NULL,
     customer_id INT NOT NULL,
-    resv_date DATETIME NOT NULL,
+    resv_date TIMESTAMP NOT NULL,
     FOREIGN KEY (timetable_id) REFERENCES timetable (id),
     FOREIGN KEY (customer_id) REFERENCES customer (id)
 );
@@ -69,17 +75,12 @@ CREATE TABLE menu(
     price INT NOT NULL
 );
 
-CREATE TABLE snackbar(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    cinema VARCHAR(10) NOT NULL
-);
-
 CREATE TABLE orderlist(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
-    snackbar_id INT NOT NULL,
+    cinema VARCHAR(10) NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
-    FOREIGN KEY (snackbar_id) REFERENCES snackbar (id)
+    FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
 
 CREATE TABLE menu_order(
@@ -92,20 +93,20 @@ CREATE TABLE menu_order(
 );
 
 CREATE TABLE seat(
-    screen_id INT NOT NULL,
+    timetable_id INT NOT NULL,
     seat_no VARCHAR(10) NOT NULL,
     is_able TINYINT NOT NULL,
-    FOREIGN KEY (screen_id) REFERENCES screen (id),
-    PRIMARY KEY (screen_id, seat_no)
+    FOREIGN KEY (timetable_id) REFERENCES timetable (id),
+    PRIMARY KEY (timetable_id, seat_no)
 );
 
 CREATE TABLE selected_seat(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     resv_id INT NOT NULL,
-    screen_id INT NOT NULL,
+    timetable_id INT NOT NULL,
     seat_no VARCHAR(10) NOT NULL,
     FOREIGN KEY (resv_id) REFERENCES reservation (id),
-    FOREIGN KEY (screen_id, seat_no) REFERENCES seat (screen_id, seat_no)
+    FOREIGN KEY (timetable_id, seat_no) REFERENCES seat (timetable_id, seat_no)
 );
 
 CREATE TABLE pay(
