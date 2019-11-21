@@ -471,3 +471,12 @@ UPDATE seat SET is_able=0 WHERE timetable_id=3 AND seat_no='A02';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A01';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A02';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A03';
+
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (28000,1000,1,1,1);
+
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (24500,1000,2,2,2);
+
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (24000,0,3,3,3);
