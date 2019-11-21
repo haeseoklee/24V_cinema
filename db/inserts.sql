@@ -164,76 +164,76 @@ INSERT INTO cinema(cinema) VALUES ('GJ');
 INSERT INTO cinema(cinema) VALUES ('BS');
 
 
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','SU');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','SU');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','SU');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','SU');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','SU');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','IC');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','IC');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','IC');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','IC');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','IC');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','DJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','DJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','DJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','DJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','DJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','DG');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','DG');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','DG');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','DG');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','DG');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','US');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','US');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','US');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','US');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','US');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','GJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','GJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','GJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','GJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','GJ');
-INSERT INTO screen (name,type,cinema)
-VALUES (1,'4DX','BS');
-INSERT INTO screen (name,type,cinema)
-VALUES (2,'IMAX','BS');
-INSERT INTO screen (name,type,cinema)
-VALUES (3,'스크린X','BS');
-INSERT INTO screen (name,type,cinema)
-VALUES (4,'3D','BS');
-INSERT INTO screen (name,type,cinema)
-VALUES (5,'2D','BS');
+INSERT INTO screen (name,cinema)
+VALUES (1,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (2,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (3,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (4,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (5,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (1,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (2,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (3,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (4,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (5,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (1,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (2,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (3,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (4,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (5,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (1,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (2,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (3,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (4,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (5,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (1,'US');
+INSERT INTO screen (name,cinema)
+VALUES (2,'US');
+INSERT INTO screen (name,cinema)
+VALUES (3,'US');
+INSERT INTO screen (name,cinema)
+VALUES (4,'US');
+INSERT INTO screen (name,cinema)
+VALUES (5,'US');
+INSERT INTO screen (name,cinema)
+VALUES (1,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (2,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (3,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (4,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (5,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (1,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (2,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (3,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (4,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (5,'BS');
 
 DELIMITER $$
 
@@ -244,143 +244,79 @@ BEGIN
 
     WHILE (i <= 30) DO
 
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (1, 5+i, '2019-11-16 08:00', '2019-11-16 09:46');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (1, 5+i, '2019-11-16 20:00', '2019-11-16 21:46');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 2+i, '2019-11-16 08:00', '2019-11-16 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 2+i, '2019-11-16 20:00', '2019-11-16 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 3+i, '2019-11-16 08:00', '2019-11-16 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 3+i, '2019-11-16 20:00', '2019-11-16 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 5+i, '2019-11-16 08:00', '2019-11-16 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 5+i, '2019-11-16 20:00', '2019-11-16 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 1+i, '2019-11-16 08:00', '2019-11-16 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 1+i, '2019-11-16 20:00', '2019-11-16 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 2+i, '2019-11-16 08:00', '2019-11-16 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 2+i, '2019-11-16 20:00', '2019-11-16 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 3+i, '2019-11-16 08:00', '2019-11-16 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 3+i, '2019-11-16 20:00', '2019-11-16 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 4+i, '2019-11-16 08:00', '2019-11-16 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 4+i, '2019-11-16 20:00', '2019-11-16 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 5+i, '2019-11-16 08:00', '2019-11-16 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 5+i, '2019-11-16 20:00', '2019-11-16 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (4, 5+i, '2019-11-16 08:00', '2019-11-16 09:58');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (4, 5+i, '2019-11-16 20:00', '2019-11-16 21:58');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (5, 5+i, '2019-11-16 08:00', '2019-11-16 09:53');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (5, 5+i, '2019-11-16 20:00', '2019-11-16 21:53');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (6, 5+i, '2019-11-16 08:00', '2019-11-16 09:45');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (6, 5+i, '2019-11-16 20:00', '2019-11-16 21:45');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (7, 5+i, '2019-11-16 08:00', '2019-11-16 09:39');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (7, 5+i, '2019-11-16 20:00', '2019-11-16 21:39');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 2+i, '2019-11-16 08:00', '2019-11-16 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 2+i, '2019-11-16 20:00', '2019-11-16 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 3+i, '2019-11-16 08:00', '2019-11-16 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 3+i, '2019-11-16 20:00', '2019-11-16 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 5+i, '2019-11-16 08:00', '2019-11-16 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 5+i, '2019-11-16 20:00', '2019-11-16 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (9, 5+i, '2019-11-16 08:00', '2019-11-16 09:48');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (9, 5+i, '2019-11-16 20:00', '2019-11-16 21:48');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (1, 5+i, '2019-11-16', '08:00', '2019-11-16', '09:46');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (1, 5+i, '2019-11-16', '20:00', '2019-11-16', '21:46');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (2, 4+i, '2019-11-16', '08:00', '2019-11-16', '10:03');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (2, 4+i, '2019-11-16', '20:00', '2019-11-16', '22:03');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (3, 3+i, '2019-11-16', '08:00', '2019-11-16', '09:43');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (3, 3+i, '2019-11-16', '20:00', '2019-11-16', '21:43');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (4, 2+i, '2019-11-16', '08:00', '2019-11-16', '09:58');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (4, 2+i, '2019-11-16', '20:00', '2019-11-16', '21:58');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (5, 1+i, '2019-11-16', '08:00', '2019-11-16', '09:53');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (5, 1+i, '2019-11-16', '20:00', '2019-11-16', '21:53');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (6, 5+i, '2019-11-16', '11:00', '2019-11-16', '12:45');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (6, 5+i, '2019-11-16', '16:00', '2019-11-16', '17:45');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (7, 4+i, '2019-11-16', '11:00', '2019-11-16', '12:39');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (7, 4+i, '2019-11-16', '16:00', '2019-11-16', '17:39');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (8, 3+i, '2019-11-16', '11:00', '2019-11-16', '12:52');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (8, 3+i, '2019-11-16', '16:00', '2019-11-16', '17:52');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (9, 2+i, '2019-11-16', '11:00', '2019-11-16', '12:48');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (9, 2+i, '2019-11-16', '16:00', '2019-11-16', '17:48');
 
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (1, 5+i, '2019-11-17 08:00', '2019-11-17 09:46');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (1, 5+i, '2019-11-17 20:00', '2019-11-17 21:46');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 2+i, '2019-11-17 08:00', '2019-11-17 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 2+i, '2019-11-17 20:00', '2019-11-17 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 3+i, '2019-11-17 08:00', '2019-11-17 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 3+i, '2019-11-17 20:00', '2019-11-17 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 5+i, '2019-11-17 08:00', '2019-11-17 10:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (2, 5+i, '2019-11-17 20:00', '2019-11-17 22:03');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 1+i, '2019-11-17 08:00', '2019-11-17 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 1+i, '2019-11-17 20:00', '2019-11-17 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 2+i, '2019-11-17 08:00', '2019-11-17 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 2+i, '2019-11-17 20:00', '2019-11-17 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 3+i, '2019-11-17 08:00', '2019-11-17 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 3+i, '2019-11-17 20:00', '2019-11-17 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 4+i, '2019-11-17 08:00', '2019-11-17 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 4+i, '2019-11-17 20:00', '2019-11-17 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 5+i, '2019-11-17 08:00', '2019-11-17 09:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (3, 5+i, '2019-11-17 20:00', '2019-11-17 21:43');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (4, 5+i, '2019-11-17 08:00', '2019-11-17 09:58');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (4, 5+i, '2019-11-17 20:00', '2019-11-17 21:58');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (5, 5+i, '2019-11-17 08:00', '2019-11-17 09:53');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (5, 5+i, '2019-11-17 20:00', '2019-11-17 21:53');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (6, 5+i, '2019-11-17 08:00', '2019-11-17 09:45');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (6, 5+i, '2019-11-17 20:00', '2019-11-17 21:45');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (7, 5+i, '2019-11-17 08:00', '2019-11-17 09:39');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (7, 5+i, '2019-11-17 20:00', '2019-11-17 21:39');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 2+i, '2019-11-17 08:00', '2019-11-17 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 2+i, '2019-11-17 20:00', '2019-11-17 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 3+i, '2019-11-17 08:00', '2019-11-17 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 3+i, '2019-11-17 20:00', '2019-11-17 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 5+i, '2019-11-17 08:00', '2019-11-17 09:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (8, 5+i, '2019-11-17 20:00', '2019-11-17 21:52');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (9, 5+i, '2019-11-17 08:00', '2019-11-17 09:48');
-        INSERT INTO timetable(movie_id, screen_id, starttime, endtime)
-        VALUES (9, 5+i, '2019-11-17 20:00', '2019-11-17 21:48');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (1, 5+i, '2019-11-17', '08:00', '2019-11-17', '09:46');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (1, 5+i, '2019-11-17', '20:00', '2019-11-17', '21:46');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (2, 4+i, '2019-11-17', '08:00', '2019-11-17', '10:03');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (2, 4+i, '2019-11-17', '20:00', '2019-11-17', '22:03');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (3, 3+i, '2019-11-17', '08:00', '2019-11-17', '09:43');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (3, 3+i, '2019-11-17', '20:00', '2019-11-17', '21:43');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (4, 2+i, '2019-11-17', '08:00', '2019-11-17', '09:58');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (4, 2+i, '2019-11-17', '20:00', '2019-11-17', '21:58');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (5, 1+i, '2019-11-17', '08:00', '2019-11-17', '09:53');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (5, 1+i, '2019-11-17', '20:00', '2019-11-17', '21:53');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (6, 5+i, '2019-11-17', '11:00', '2019-11-17', '12:45');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (6, 5+i, '2019-11-17', '16:00', '2019-11-17', '17:45');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (7, 4+i, '2019-11-17', '11:00', '2019-11-17', '12:39');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (7, 4+i, '2019-11-17', '16:00', '2019-11-17', '17:39');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (8, 3+i, '2019-11-17', '11:00', '2019-11-17', '12:52');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (8, 3+i, '2019-11-17', '16:00', '2019-11-17', '17:52');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (9, 2+i, '2019-11-17', '11:00', '2019-11-17', '12:48');
+        INSERT INTO timetable(movie_id, screen_id, startdate, starttime, enddate, endtime)
+        VALUES (9, 2+i, '2019-11-17', '16:00', '2019-11-17', '17:48');
         SET i = i + 5;
     END WHILE;
 END$$
@@ -423,8 +359,8 @@ BEGIN
 
     DECLARE i INT DEFAULT 1;
 
-    WHILE (i <= 476) DO
-       INSERT INTO seat(timetable_id, seat_no, is_able) VALUES (i, "A01", 1);
+    WHILE (i <= 252) DO
+        INSERT INTO seat(timetable_id, seat_no, is_able) VALUES (i, "A01", 1);
         INSERT INTO seat(timetable_id, seat_no, is_able) VALUES (i, "A02", 1);
         INSERT INTO seat(timetable_id, seat_no, is_able) VALUES (i, "A03", 1);
         INSERT INTO seat(timetable_id, seat_no, is_able) VALUES (i, "A04", 1);

@@ -45,7 +45,6 @@ CREATE TABLE cinema(
 CREATE TABLE screen(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name INT NOT NULL,
-    type VARCHAR(45) NOT NULL,
     cinema VARCHAR(10) NOT NULL,
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
@@ -54,8 +53,10 @@ CREATE TABLE timetable(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     movie_id INT NOT NULL,
     screen_id INT NOT NULL,
-    starttime DATETIME NOT NULL,
-    endtime DATETIME NOT NULL,
+    startdate DATE NOT NULL,
+    starttime TIME NOT NULL,
+    enddate DATE NOT NULL,
+    endtime TIME NOT NULL,
     FOREIGN KEY (movie_id) REFERENCES movie (id),
     FOREIGN KEY (screen_id) REFERENCES screen (id)
 );

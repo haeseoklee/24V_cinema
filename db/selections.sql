@@ -1,7 +1,7 @@
 -- 이메일로 예매내역 확인
 SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
  DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
- cinema, screen.name as screen, type, seat_no FROM reservation
+ cinema, screen.name as screen, seat_no FROM reservation
 JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN customer ON reservation.customer_id = customer.id
 JOIN screen ON timetable.screen_id = screen.id
@@ -12,7 +12,7 @@ WHERE email="interpret96@gmail.com";
 -- 이름으로 예매내역 확인
 SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
  DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
- cinema, screen.name as screen, type, seat_no FROM reservation
+ cinema, screen.name as screen, seat_no FROM reservation
 JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN customer ON reservation.customer_id = customer.id
 JOIN screen ON timetable.screen_id = screen.id
@@ -23,7 +23,7 @@ WHERE customer.name="이해석";
 -- 예매내역 확인(좌석제외)
 SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
  DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
- cinema, screen.name as screen, type FROM reservation
+ cinema, screen.name as screen FROM reservation
 JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN customer ON reservation.customer_id = customer.id
 JOIN screen ON timetable.screen_id = screen.id
@@ -33,7 +33,7 @@ WHERE customer.name="이해석";
 -- 전화번호로 예매내역 확인
 SELECT customer.name, title, DATE_FORMAT(starttime,'%Y-%m-%d %H:%i') as starttime,
  DATE_FORMAT(endtime,'%Y-%m-%d %H:%i') as endtime,
- cinema, screen.name as screen, type, seat_no FROM reservation
+ cinema, screen.name as screen, seat_no FROM reservation
 JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN customer ON reservation.customer_id = customer.id
 JOIN screen ON timetable.screen_id = screen.id
@@ -108,8 +108,16 @@ SELECT sum(origin_pay-disc_pay) FROM pay;
 -- 영화, 지점으로 타임테이블 아이디 알아내기
 
 SELECT timetable.id, cinema.cinema, screen.name as screen
-, type, starttime FROM timetable
+, starttime FROM timetable
 JOIN movie ON movie_id = movie.id 
 JOIN screen ON screen_id = screen.id
 JOIN cinema ON screen.cinema = cinema.cinema 
 WHERE movie.title = "조커" AND cinema.cinema = "SU";
+
+-- 지점과 날짜를 통해 타임테이블 뽑기
+SELECT movie.title, screen.cinema, starttime, 
+screen.name as screen FROM timetable
+JOIN MOVIE ON timetable.movie_id = movie.id 
+JOIN screen ON timetable.screen_id = screen.id 
+WHERE startdate = "2019-11-17" AND screen.cinema = "SU"
+ORDER BY starttime;
