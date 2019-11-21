@@ -32,8 +32,8 @@ VALUES (1,2);
 INSERT INTO customer_coupon (customer_id,coupon_id)
 VALUES (2,2);
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00", "2019-11-07", "15세 관람가",
 "'세상은 둘 중 하나야
 놀이터가 되던가, 생지옥이 되던가'
 바둑으로 모든 것을 잃은 아이 ‘귀수’
@@ -46,16 +46,16 @@ VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "
  사활을 건 대결!
  신의 한 수를 다시 두시겠습니까?");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('조커', '/movies/images/joker.jpg', "토드 필립스", "스릴러", "02:03:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('조커', '/movies/images/joker.jpg', "토드 필립스", "스릴러", "02:03:00", "2019-10-02", "15세 관람가",
 "'내 인생이 비극인줄 알았는데, 코미디였어'
 고담시의 광대 아서 플렉은 코미디언을 꿈꾸는 남자.
  하지만 모두가 미쳐가는 코미디 같은 세상에서
  맨 정신으로는 그가 설 자리가 없음을 깨닫게 되는데…
  이제껏 본 적 없는 진짜 ‘조커’를 만나라!");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00", "2019-11-21", "전체 관람가",
 "내 마법의 힘은 어디서 왔을까?
 나를 부르는 저 목소리는 누구지?
 어느 날 부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다.
@@ -67,8 +67,8 @@ VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "
  
  두려움을 깨고 새로운 운명을 만나다!");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드라마", "01:58:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드라마", "01:58:00", "2019-10-23", "12세 관람가",
 "1982년 봄에 태어나
  누군가의 딸이자 아내, 동료이자 엄마로
  2019년 오늘을 살아가는 ‘지영’(정유미).
@@ -83,8 +83,8 @@ VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드
  모두가 알지만 아무도 몰랐던
  당신과 나의 이야기");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00", "2019-11-13", "12세 관람가",
 "고발은 의무! 수사는 직진!
 할말은 하고 깔 건 깐다!
 일명 서울지검 ‘막프로’! 검찰 내에서 거침없이 막 나가는 문제적 검사로
@@ -98,8 +98,8 @@ VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", 
  
  대한민국 최대의 금융스캔들, 사건은 아직 끝나지 않았다!");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00", "2019-11-14", "12세 관람가",
 "다시 날 가슴 뛰게 만든 그 말
 '윤희에게, 잘 지내니?'
 평범한 일상을 살아가던 '윤희' 앞으로 도착한 한 통의 편지.
@@ -110,8 +110,8 @@ VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "
  끝없이 눈이 내리는 그곳에서
  첫사랑을 만날지도 모른다는 기대를 품는데…");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00", "2019-11-13", "15세 관람가",
 "좀비로 세상이 망한지 10년,
  자신들만의 재능을 발휘하고 생존 규칙을 지키며
  여전히 꿋꿋하게 살아가고 있는 희한한 가족
@@ -120,8 +120,8 @@ VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플�
  하지만 ‘좀비랜드’에 더욱 진화한 좀비가 나타나고
  이들은 새로운 인간 생존자들과 함께 사투를 시작하는데…");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", "애니메이션", "01:52:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", "애니메이션", "01:52:00", "2019-10-30", "15세 관람가",
 "'이제 비는 그치고, 우리의 세상이 빛나기 시작할 거야'
 비가 그치지 않던 어느 여름날,
  가출 소년 ‘호다카’는 수상한 잡지사에 취직하게 되고
@@ -139,8 +139,8 @@ VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", 
  
  흐리기만 했던 세상이 빛나기 시작했고, 그 끝에는 네가 있었다.");
 
-INSERT INTO movie (title, img, director, genre, runtime, story)
-VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00",
+INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
+VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00","2019-11-27", "15세 관람가",
 "6년 전 실종된 아들을 봤다는 연락을 받은 ‘정연’(이영애).
  숱하게 반복되던 거짓 제보와 달리
  생김새부터 흉터까지 똑같은 아이를 봤다는 낯선 이의 이야기에
@@ -325,12 +325,12 @@ DELIMITER ;
 CALL timetable_insert();
 
 
-INSERT INTO reservation(timetable_id, customer_id, resv_date)
-VALUES (1,1,"2019-11-15 18:32");
-INSERT INTO reservation(timetable_id, customer_id, resv_date)
-VALUES (3,2,"2019-11-15 19:20");
-INSERT INTO reservation(timetable_id, customer_id, resv_date)
-VALUES (5,3,"2019-11-15 20:47");
+INSERT INTO reservation(timetable_id, customer_id)
+VALUES (1,1);
+INSERT INTO reservation(timetable_id, customer_id)
+VALUES (3,2);
+INSERT INTO reservation(timetable_id, customer_id)
+VALUES (5,3);
 
 INSERT INTO menu(name, price) VALUES ("오리지널 팝콘", 5000);
 INSERT INTO menu(name, price) VALUES ("카라멜 팝콘", 5500);

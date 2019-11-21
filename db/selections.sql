@@ -54,7 +54,7 @@ JOIN menu ON menu_id = menu.id
 WHERE customer.name="정희재";
 
 -- 이메일로 주문메뉴 확인
-SELECT customer.name, menu.name, amount, cinema 
+SELECT customer.name, menu.name, amount, cinema.cinema 
 FROM orderlist
 JOIN customer ON customer_id = customer.id
 JOIN cinema ON orderlist.cinema = cinema.cinema
@@ -117,3 +117,6 @@ JOIN MOVIE ON timetable.movie_id = movie.id
 JOIN screen ON timetable.screen_id = screen.id 
 WHERE startdate = "2019-11-17" AND screen.cinema = "SU"
 ORDER BY starttime;
+
+-- 영화 런타임 분단위로 환산
+SELECT HOUR(runtime)*60 + MINUTE(runtime) FROM movie;

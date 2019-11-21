@@ -35,6 +35,8 @@ CREATE TABLE movie (
     director VARCHAR(30) NOT NULL,
     genre VARCHAR(30) NOT NULL,
     runtime TIME NOT NULL,
+    releaseday DATE NOT NULL,
+    agelimit VARCHAR(20) NOT NULL,
     story TEXT NOT NULL
 );
 
