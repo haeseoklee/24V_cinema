@@ -332,14 +332,14 @@ VALUES (3,2);
 INSERT INTO reservation(timetable_id, customer_id)
 VALUES (5,3);
 
-INSERT INTO menu(name, price) VALUES ("오리지널 팝콘", 5000);
-INSERT INTO menu(name, price) VALUES ("카라멜 팝콘", 5500);
-INSERT INTO menu(name, price) VALUES ("어니언 팝콘", 5500);
-INSERT INTO menu(name, price) VALUES ("치즈 팝콘", 5500);
-INSERT INTO menu(name, price) VALUES ("탄산음료", 2000);
-INSERT INTO menu(name, price) VALUES ("에이드음료", 2500);
-INSERT INTO menu(name, price) VALUES ("나쵸치즈", 3000);
-INSERT INTO menu(name, price) VALUES ("오징어버터구이", 3000);
+INSERT INTO menu(name, img, price) VALUES ("오리지널 팝콘", '/menu/images/popcorn.jpg', 5000);
+INSERT INTO menu(name, img, price) VALUES ("카라멜 팝콘", '/menu/images/sweetpopcorn.jpg', 5500);
+INSERT INTO menu(name, img, price) VALUES ("어니언 팝콘", '/menu/images/onionpopcorn.jpg', 5500);
+INSERT INTO menu(name, img, price) VALUES ("치즈 팝콘", '/menu/images/cheesepopcorn.jpg', 5500);
+INSERT INTO menu(name, img, price) VALUES ("탄산음료", '/menu/images/tansan.jpg', 2000);
+INSERT INTO menu(name, img, price) VALUES ("에이드음료", '/menu/images/ade.jpg', 2500);
+INSERT INTO menu(name, img, price) VALUES ("나쵸치즈", '/menu/images/nacho.jpg', 3000);
+INSERT INTO menu(name, img, price) VALUES ("오징어버터구이", '/menu/images/ojing.jpg', 3000);
 
 
 INSERT INTO orderlist(customer_id, cinema) VALUES (1,"SU");
