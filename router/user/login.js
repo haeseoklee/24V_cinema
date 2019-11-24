@@ -12,7 +12,6 @@ router.get('/', function(req, res){
     } else {
         res.redirect('/');
     }
-    
 });
 
 router.post('/', function(req, res, next){ 
