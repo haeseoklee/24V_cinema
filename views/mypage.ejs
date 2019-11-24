@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <% include ./header.ejs %>
+    <link rel="stylesheet" href="/css/mypage.css" />
     <title>My Page</title>
 </head>
 <body>
     <h2>김예진님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
-    <div>
+    <div class="top">
         <h3>김예진 님은 일반 회원입니다.</h3>
         <h3>24V 포인트</h3>
         <p>
@@ -18,15 +19,37 @@
             5편
         </p>
     </div>
-    <div>
+    <div class="top">
         <h3>보유쿠폰</h3>
         <p>
-            사용가능한 영화 쿠폰    0매<br />
+            사용가능한 영화 쿠폰    2매<br />
+            <table>
+                <thead>
+                    <tr>
+                        <th>쿠폰명</th>
+                        <th>쿠폰번호</th>
+                        <th>할인액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>온라인 3천원 할인</td>
+                        <td>1234567</td>
+                        <td>3000</td>
+                    </tr>
+                    <tr>
+                        <td>회원가입쿠폰</td>
+                        <td>1111</td>
+                        <td>1000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
             사용가능한 매점 쿠폰    0매<br />
             <button type="button">등록하기</button>
         </p>
     </div>
-    <div>
+    <div class="bottom">
         <h3>개인정보</h3>
         <p>
             휴대전화 : 01012345678<br />
@@ -34,7 +57,7 @@
             <button type="button">수정하기</button>
         </p>
     </div>
-    <div>
+    <div class="bottom">
         <h3>최근영화예매내역</h3>
         <p>
             예매번호 : 11111111<br />
@@ -44,6 +67,8 @@
             좌석번호 : H8,H9<br />
             <button type="button">영화예매취소</button>
         </p>
+    </div>
+    <div class="bottom">    
         <h3>최근매점예매내역</h3>
         <p>
             예매번호 : 22222222<br />
