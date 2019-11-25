@@ -96,7 +96,6 @@
                 var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
                 if (seat){
                     if (Number(seat.getAttribute('is_able'))){
-                        seat.removeEventListener('mouseout', outSeat, false);
                         seat.style.color = 'blue';
                         selected_seats_arr.add(i);
                     }
