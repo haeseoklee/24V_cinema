@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./header.ejs %>
+</head>
+<body>
+    <% include ./nav.ejs %>
+    <select id='persons'>
+        <option value='1' selected>1명</option>
+        <option value='2'>2명</option>
+        <option value='4'>4명</option>
+    </select>
+    <br>
+    <div class="seat_table" id="<%= resData.timetable_id %>">
+    <% resData.data.forEach(function(item){ %>
+        <%
+        if (!Number(item.is_able)) { %>
+            <span style="color: red;" class="seat" seat_no="<%= item.seat_no %>" is_able="<%= item.is_able %>">
+                <%= [item.seat_no, item.is_able].join(' ') %>
+            </span>
+        <% } else { %>
+            <span class="seat" seat_no="<%= item.seat_no %>" is_able="<%= item.is_able %>">
+                <%= [item.seat_no, item.is_able].join(' ') %>
+            </span>
+        <% }
+    }) %>
+    </div>
+    <br>
+    <h2 id='payment'>0원</h2>
+    <button id='submit'>결제</button>
+
+    <form style="display: hidden" action="/ticket/booking/result" method="GET" id="result_form">
+        <input type="hidden" name="timetable_id" id="timetable_id"/>
+        <input type="hidden" name="total_pay" id="total_pay"/>
+        <input type="hidden" name="selected_seats_arr" id="selected_seats_arr"/>
+    </form>
+
+
+
+    <script>
+    var submit = document.getElementById('submit');
+    var persons = document.getElementById('persons');
+    var payment = document.getElementById('payment');
+    var result_form = document.getElementById('result_form');
+    var ti_input = document.getElementById('timetable_id');
+    var tp_input = document.getElementById('total_pay');
+    var ssa_input = document.getElementById('selected_seats_arr');
+
+    var seats = document.querySelectorAll('.seat');
+    var timetable = document.querySelector('.seat_table');
+    var number_of_persons = 1;
+    var total_pay = 0;
+    var selected_seats_arr = new Set();
+    
+
+    submit.addEventListener('click', function(){
+        var bookingData = {
+            'selected_seats': Array.from(selected_seats_arr),
+            'total_pay': total_pay,
+            'timetable_id': timetable.getAttribute('id')
+        }
+        if (selected_seats_arr.size){
+            ti_input.value = timetable.getAttribute('id');
+            tp_input.value = total_pay;
+            ssa_input.value = Array.from(selected_seats_arr);
+            result_form.submit();
+        }
+    });
+
+    persons.addEventListener('change', function(){
+        number_of_persons = Number(persons.options[persons.selectedIndex].value);
+    });
+ 
+    [].forEach.call(seats, function(seat, index){
+        seat.addEventListener('click', selectSeat, false);
+        seat.addEventListener('mouseover', overSeat, false);
+        seat.addEventListener('mouseout', outSeat, false);
+        seat.setAttribute('id', index);
+    });
+
+    function selectSeat(e) {
+        var idx = Number(e.target.id);
+        if (selected_seats_arr.has(idx)){
+            for(var i=idx;i < idx+number_of_persons;i++){
+                var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+                if (seat){
+                    if (Number(seat.getAttribute('is_able'))){
+                        seat.addEventListener('mouseout', outSeat, false);
+                        seat.style.color = 'black';
+                        selected_seats_arr.delete(i);
+                    }
+                }
+            }
+        }else{
+            for(var i=idx;i < idx+number_of_persons;i++){
+                var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+                if (seat){
+                    if (Number(seat.getAttribute('is_able'))){
+                        seat.removeEventListener('mouseout', outSeat, false);
+                        seat.style.color = 'blue';
+                        selected_seats_arr.add(i);
+                    }
+                }
+            }
+        }
+        // console.log(selected_seats_arr);
+        total_pay = selected_seats_arr.size * 12000;
+        payment.innerHTML = `${total_pay} 원`;
+    }
+
+    function overSeat(e) {
+        var idx = Number(e.target.id);
+        for(var i=idx;i < idx+number_of_persons;i++){
+            var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+            if (seat){
+                if (Number(seat.getAttribute('is_able'))){
+                    seat.style.color = 'blue';
+                }
+            }
+        }
+    }
+
+    function outSeat(e){
+        var idx = Number(e.target.id);
+        for(var i=idx;i < idx+number_of_persons;i++){
+            var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+            if (seat){
+                if (Number(seat.getAttribute('is_able')) && !selected_seats_arr.has(i)){
+                    seat.style.color = 'black';
+                }
+            }
+        }
+    }
+    </script>
+</body>
+</html>
+
