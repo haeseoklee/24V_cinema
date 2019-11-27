@@ -123,6 +123,7 @@ footer{
 
 #brick{
     height : 120px;
+    margin-bottom : 0;
     background-image: url(/img/brick.png);
     background-repeat: repeat-x;
 }
