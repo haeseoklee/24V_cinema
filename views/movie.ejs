@@ -12,13 +12,18 @@
     </div>
     <hr/>
     <div id ="main"> 
-        <% resData.data.forEach(function(item){ %>
+        
+        <% resData.data.forEach(function(item){ 
+            var release = item.releaseday.split('T')[0]; %>
         <article>
             <div>
-                <img src="<%=item.img%>" alt="<%=item.title%>">
+                <a href="/movie/<%=item.id%>">
+                    <img src="<%=item.img%>" alt="<%=item.title%>" style="width:228px; height:327px;">
+                </a>
             </div>
             <p><%= item.title %></br> <!--영화이름-->
-                2019 .11.21 개봉 <!--개봉일-->
+
+                <%=release%> 개봉 <!--개봉일-->
             </p>
         </article>
         <% }) %>

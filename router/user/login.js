@@ -4,8 +4,6 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var db = require('../../db/db');
 
-
-
 router.get('/', function(req, res){
     if (!req.isAuthenticated()) {
         res.render('login.ejs');
@@ -16,14 +14,14 @@ router.get('/', function(req, res){
 
 router.post('/', function(req, res, next){ 
     var passport_auth = passport.authenticate('local-login', function(err, user, info){
-        if(err) return res.status(500).json(err); 
+        if(err) return res.status(500).json(err);
         if(!user) {
             return res.status(401).json(info.message);
         }
         req.login(user, function(err){
             if (err) return next(err);
             return res.json(user);
-        }); 
+        });
     });
     passport_auth(req, res, next);
 }); 

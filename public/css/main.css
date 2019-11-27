@@ -5,7 +5,7 @@
 }
 
 
-body{
+body,pre{
     margin : 0;
     font-family: NanumGothic;
     background-color: #fdfcf1;
