@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="AppCtrl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>예매 | 24V</title>
+    <link rel="stylesheet" type="text/css" href="book.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+    <div class = "all">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">24V</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">최신/개봉예정영화</a></li>
+                    <li><a href="#">예약/결제</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            1. 영화선택</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class = "detA" id = "movie1">   
+                            <label>
+                            <input class="tit_movie" type="radio" name="movie_title" value="Jiyoung">
+                            <img src="images/82thji.jpg" class="thumb_movie">
+                            </label>
+                        </div>
+
+                        <div class = "detA" id = "movie2">
+                            <label>
+                            <input class="tit_movie" type="radio" name="movie_title" value="Jiyoung">
+                            <img src="images/82thji.jpg" class="thumb_movie">
+                            </label>
+                        </div>
+
+                        <div class = "detA" id = "movie3">
+                            <label>
+                            <input class="tit_movie" type="radio" name="movie_title" value="Jiyoung">
+                            <img src="images/82thji.jpg" class="thumb_movie">
+                            </label>
+                        </div>
+
+                        <div class = "detA" id = "movie4">
+                            <label>
+                            <input class="tit_movie" type="radio" name="movie_title" value="Jiyoung">
+                            <img src="images/82thji.jpg" class="thumb_movie">
+                            </label>
+                        </div>
+
+                        <div class = "detA" id = "movie5">
+                            <label>
+                            <input class="tit_movie" type="radio" name="movie_title" value="Jiyoung">
+                            <img src="images/82thji.jpg" class="thumb_movie">
+                            </label>
+                        </div>
+                    </div> <!-- panel-body -->
+                </div> <!-- collapse1 -->
+            </div> <!-- panel-default -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                            2. 상영관선택</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>    </th>
+                                    <th>이름</th>
+                                    <th>전화번호</th>
+                                    <th>위치</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <tr id = "cinema1">
+                                    <td>
+                                    <input class="cinema_table" type="radio" id="cinema_SE" name="cinema">
+                                    <label class="cinema_table_check" for="cinema_SE"> 선택 </label>
+                                    </td>
+                                    <td>24V 서울</td>
+                                    <td>02-2651-4656</td>
+                                    <td>서울시 강서구 규동 저세상으로</td>
+                                </tr>
+                                
+                                <tr id = "cinema2">
+                                    <td>
+                                    <input class="cinema_table" type="radio" id="cinema_mokdong" name="cinema">
+                                    <label class="cinema_table_check" for="cinema_mokdong"> 선택 </label>
+                                    </td>
+                                    <td>24V 목동</td>
+                                    <td>02-1818-8181</td>
+                                    <td>서울시 양천구 목2동 목동중앙본로</td>
+                                </tr>
+                                <tr id = "cinema3">
+                                    <td>
+                                    <input class="cinema_table" type="radio" id="cinema_icheon" name="cinema">
+                                    <label class="cinema_table_check" for="cinema_icheon"> 선택 </label>
+                                    </td>
+                                    <td>24V 이천</td>
+                                    <td>031-2222-1000</td>
+                                    <td>이천시 쌀동 그세상으로</td>
+                                </tr>
+                                <tr id = "cinema4">
+                                    <td>
+                                    <input class="cinema_table" type="radio" id="cinema_wonju" name="cinema">
+                                    <label class="cinema_table_check" for="cinema_wonju"> 선택 </label>
+                                    </td>
+                                    <td>24V 원주</td>
+                                    <td>033-123-4567</td>
+                                    <td>원주시 반곡동 강변로119</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        3. 스케쥴선택</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body container" style="margin-left:0; padding-left:0;" >
+                        <?php include ("calendar.php") ?>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">4. 시간선택</a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body bd4">
+                        <p>선택하신 영화는 겨울왕국 2이고, 선택하신 상영관은 24V 이천입니다. 11월 26일 영화상영시간표는 아래와 같습니다. <br>
+                        선택 영화만 보여주게 할건데, 일단 틀 복사해서 많이 만들어놓았음. ( 영화보다 상영관을 먼저 선택하는 경우도 고려할 것 by 해석이형 )</p>
+                        <div>
+                            <dl>
+                                <dt class="mar1">
+                                    <span class="grade_all">
+                                    겨울왕국 2</span>
+                                    <a href="javascript:void(0)" class="btn_detail" title="새창 열림">
+                                    </a>      
+                                </dt>
+                                <dd>
+                                    <ul id = "time_table">
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>   
+                                    </ul>
+                                </dd>
+                                
+                                <div>
+                                    <br><br><br><br><br>
+                                </div>
+                                <dt class="mar1" style = "clear:both;">
+                                    <span class="grade_all">
+                                    겨울왕국 3</span>
+                                    <a href="javascript:void(0)" class="btn_detail" title="새창 열림">
+                                    </a>      
+                                </dt>
+                                <dd>
+                                    <ul id = "time_table">
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>   
+                                    </ul>
+                                </dd>
+                                <div>
+                                    <br><br><br><br><br>
+                                </div>
+                                <dt class="mar1" style = "clear:both;">
+                                    <span class="grade_all">
+                                    겨울왕국 4</span>
+                                    <a href="javascript:void(0)" class="btn_detail" title="새창 열림">
+                                    </a>      
+                                </dt>
+                                <dd>
+                                    <ul id = "time_table">
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="time_active">
+                                            <span class="ttb">
+                                                <em>10관</em>
+                                            </span>
+                                            <span class="clock">16:50<span> ~ 18:43</span></span>
+                                            <span class="ppNum"><em class="color_brown" title="좌석할인">210</em>석 / 224석</span>
+                                            </a>
+                                        </li>   
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                        5. 인원선택</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body container" style="margin-left:0; padding-left:0;" >
+                        <div class="reservation_cont">
+                            <strong class="tit_strapline">인원 선택</strong>
+                            <div class="people_seat">
+                                <dl class="list_getseat">
+                                    <dt>
+                                        <label for="getSeat1" class="getseatlabel">
+                                            성인</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="item_cate">
+                                            <select id="selAdu" class="opt_cate" onchange="getSeat('adu');"><option value="0">인원선택</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
+                                        </div>
+                                    </dd>
+                                </dl>        
+                                
+                                <dl class="list_getseat">
+                                    <dt>
+                                        <label for="getSeat1" class="getseatlabel">
+                                            청소년</label>
+                                    </dt>
+                                    <dd>
+                                        <div class="item_cate">
+                                            <select id="selAdu" class="opt_cate" onchange="getSeat('adu');"><option value="0">인원선택</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
+                                        </div>
+                                    </dd>
+                                </dl> 
+                                
+                            </div>
+                            <p class="txt_caution">
+                                최대 4명까지 선택가능하며, 극장에 따라 선택가능한 인원수가 변동될 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        6. 좌석선택</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body container" style="margin-left:0; padding-left:0;" >
+                        <div class="plane">
+                            <div class="exit exit--front fuselage">
+                                
+                            </div>
+                            <ol class="cabin fuselage">
+                                <li class="row row--1">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="1A" />
+                                    <label for="1A">1A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="1B" />
+                                    <label for="1B">1B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="1C" />
+                                    <label for="1C">1C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" disabled id="1D" />
+                                    <label for="1D">Occupied</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="1E" />
+                                    <label for="1E">1E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="1F" />
+                                    <label for="1F">1F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--2">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="2A" />
+                                    <label for="2A">2A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="2B" />
+                                    <label for="2B">2B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="2C" />
+                                    <label for="2C">2C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="2D" />
+                                    <label for="2D">2D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="2E" />
+                                    <label for="2E">2E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="2F" />
+                                    <label for="2F">2F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--3">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="3A" />
+                                    <label for="3A">3A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="3B" />
+                                    <label for="3B">3B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="3C" />
+                                    <label for="3C">3C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="3D" />
+                                    <label for="3D">3D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="3E" />
+                                    <label for="3E">3E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="3F" />
+                                    <label for="3F">3F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--4">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="4A" />
+                                    <label for="4A">4A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="4B" />
+                                    <label for="4B">4B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="4C" />
+                                    <label for="4C">4C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="4D" />
+                                    <label for="4D">4D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="4E" />
+                                    <label for="4E">4E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="4F" />
+                                    <label for="4F">4F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--5">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="5A" />
+                                    <label for="5A">5A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="5B" />
+                                    <label for="5B">5B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="5C" />
+                                    <label for="5C">5C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="5D" />
+                                    <label for="5D">5D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="5E" />
+                                    <label for="5E">5E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="5F" />
+                                    <label for="5F">5F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--6">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="6A" />
+                                    <label for="6A">6A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="6B" />
+                                    <label for="6B">6B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="6C" />
+                                    <label for="6C">6C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="6D" />
+                                    <label for="6D">6D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="6E" />
+                                    <label for="6E">6E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="6F" />
+                                    <label for="6F">6F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--7">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="7A" />
+                                    <label for="7A">7A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="7B" />
+                                    <label for="7B">7B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="7C" />
+                                    <label for="7C">7C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="7D" />
+                                    <label for="7D">7D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="7E" />
+                                    <label for="7E">7E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="7F" />
+                                    <label for="7F">7F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--8">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="8A" />
+                                    <label for="8A">8A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="8B" />
+                                    <label for="8B">8B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="8C" />
+                                    <label for="8C">8C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="8D" />
+                                    <label for="8D">8D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="8E" />
+                                    <label for="8E">8E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="8F" />
+                                    <label for="8F">8F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--9">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="9A" />
+                                    <label for="9A">9A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="9B" />
+                                    <label for="9B">9B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="9C" />
+                                    <label for="9C">9C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="9D" />
+                                    <label for="9D">9D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="9E" />
+                                    <label for="9E">9E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="9F" />
+                                    <label for="9F">9F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                                <li class="row row--10">
+                                <ol class="seats" type="A">
+                                    <li class="seat">
+                                    <input type="checkbox" id="10A" />
+                                    <label for="10A">10A</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="10B" />
+                                    <label for="10B">10B</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="10C" />
+                                    <label for="10C">10C</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="10D" />
+                                    <label for="10D">10D</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="10E" />
+                                    <label for="10E">10E</label>
+                                    </li>
+                                    <li class="seat">
+                                    <input type="checkbox" id="10F" />
+                                    <label for="10F">10F</label>
+                                    </li>
+                                </ol>
+                                </li>
+                            </ol>
+                            <div class="exit exit--back fuselage">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>

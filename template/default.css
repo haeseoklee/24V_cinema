@@ -8,12 +8,11 @@ html, body {
 body {
 	margin: 0px;
 	padding: 0px;
-	background: #0C0C0C;
+	background: black;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 10pt;
 	color: #B0B0B0;
 }
-
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
@@ -121,7 +120,7 @@ hr {
 
 #logo {
 	float: left;
-	width: 300px;
+	width: 200px;
 	height: 80px;
 }
 
@@ -179,8 +178,10 @@ hr {
 #menu li {
 	float: left;
 	margin-right: 1px;
-	width: 135px;
-	font-size: 20pt;
+	width: 150px;
+	font-size: 19pt;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #menu a {
@@ -364,4 +365,8 @@ ul.style3 .first .date
 .entry
 {
 	margin-bottom: 30px;
+}
+
+.coupon_img{
+	width: 250px;
 }
