@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <% include ./header.ejs %>
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+<body>
+    <% include ./nav.ejs %>
+
+    <h1>로그인</h1>
+    <div class="page">
+        <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input" type="text" name="email" placeholder="이메일을 입력하세요" required>
+            <span class="a-field__label-wrap">
+              <span class="a-field__label">Email</span>
+            </span>
+        </label>
+        <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input" type="password"name="password" placeholder="비밀번호를 입력하세요" required>
+            <span class="a-field__label-wrap">
+              <span class="a-field__label">Password</span>
+            </span>
+        </label>
+        <button id="login_btn">로그인</button>
+      </div>
+    
+
+    <div class="result"></div>
+
+    <script>
+        document.querySelector('#login_btn').addEventListener('click', function(){
+            var email = document.getElementsByName('email')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            var inputData = {
+                'email': email,
+                'password': password
+            }
+            sendAjax('/user/login', inputData);
+        })
+
+        function sendAjax(url, data){
+            data = JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(data);
+
+            xhr.addEventListener('load', function(){
+                var result = JSON.parse(xhr.responseText);
+                if (result.email) {
+                    window.location = '/';
+                }
+                
+            });
+        }
+    </script>
+
+    <% include ./footer.ejs %>
+</body>
+</html>

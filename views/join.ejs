@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <% include ./header.ejs %>
+    <link rel="stylesheet" href="/css/join.css">
+</head>
+<body>
+    <% include ./nav.ejs %>
+    <h1>회원가입</h1>
+    <form action="/user/join" method="post">
+        <div class="page">
+            <label class="field a-field a-field_a1">
+                <input class="field__input a-field__input" type="email" name="email" placeholder="이메일을 입력하세요" required>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">Email</span>
+                </span>
+            </label>
+            <label class="field a-field a-field_a1">
+                <input class="field__input a-field__input" type="password"name="password" placeholder="비밀번호를 입력하세요" required>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">Password</span>
+                </span>
+            </label>
+            <label class="field a-field a-field_a1">
+                <input class="field__input a-field__input" type="password" name="verify_password"placeholder="비밀번호를 확인하세요" required>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">Verify password</span>
+                </span>
+            </label>
+            <label class="field a-field a-field_a1">
+                <input class="field__input a-field__input" type="text" name="name" placeholder="이름을 입력하세요" required>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">이름</span>
+                </span>
+            </label>
+            <label class="field a-field a-field_a1">
+                <input class="field__input a-field__input" type="text" name="ph" placeholder="연락처를 입력하세요" required>
+                <span class="a-field__label-wrap">
+                  <span class="a-field__label">연락처</span>
+                </span>
+            </label>
+            <input type="submit" value="회원가입">
+          </div>
+    </form>
+    
+    <% include ./footer.ejs %>
+</body>
+</html>
