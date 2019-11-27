@@ -9,7 +9,7 @@ CREATE TABLE customer (
     email VARCHAR(30) NOT NULL,
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
-    ph INT NOT NULL,
+    ph VARCHAR(15) NOT NULL,
     membership_id VARCHAR(30) NOT NULL,
     FOREIGN KEY (membership_id) REFERENCES membership (ranking)
 );
@@ -113,14 +113,22 @@ CREATE TABLE selected_seat(
     FOREIGN KEY (timetable_id, seat_no) REFERENCES seat (timetable_id, seat_no)
 );
 
-CREATE TABLE pay(
+CREATE TABLE ticket_pay(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    origin_pay INT NOT NULL,
+    disc_pay INT NOT NULL,
+    customer_id INT NOT NULL,
+    resv_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer (id),
+    FOREIGN KEY (resv_id) REFERENCES reservation (id)
+);
+
+CREATE TABLE snack_pay(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     origin_pay INT NOT NULL,
     disc_pay INT NOT NULL,
     customer_id INT NOT NULL,
     orderlist_id INT NOT NULL,
-    resv_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
-    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id),
-    FOREIGN KEY (resv_id) REFERENCES reservation (id)
+    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id)
 );
