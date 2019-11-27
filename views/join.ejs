@@ -7,8 +7,10 @@
     <% include ./nav.ejs %>
     <h1>회원가입</h1>
     <form action="/user/join" method="post">
+    name: <input type="text" name="name">
     email: <input type="text" name="email">
     password: <input type="password" name="password">
+    phonenumber: <input type="text" name="ph">
     <input type="submit" value="회원가입">
     </form>
 </body>

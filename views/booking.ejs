@@ -18,6 +18,9 @@
     <hr>
 
     <script>
+        var resultScreen = document.getElementById('resultScreen');
+        var resultTimetable = document.getElementById('resultTimetable');
+        
         var movies = document.querySelectorAll('.movie_img');
         [].forEach.call(movies,function(movie){ 
             movie.addEventListener("click", movie_click, false); 
@@ -39,7 +42,7 @@
         }
 
         function getAbleScreen (result) {
-            var resultScreen = document.getElementById('resultScreen');
+            
             while (resultScreen.firstChild) {
                     resultScreen.firstChild.remove();
             }
@@ -58,6 +61,7 @@
                 [].forEach.call(screens,function(screen){ 
                     screen.addEventListener("click", screen_click, false); 
                 });
+                resultScreen.lastChild.scrollIntoView();
             }
         }
 
@@ -72,11 +76,12 @@
                 'screen_id': screen_id,
                 'screen_name': screen_name
             }
-            sendAjax(`/api/selected_movie/${movie_id}/selected_screen/${screen_id}`, 'GET', selectedMovieAndScreen, getAbleTimetable); 
+            sendAjax(`/api/selected_movie/${movie_id}/selected_screen/${screen_id}`, 'GET', selectedMovieAndScreen, getAbleTimetable);
+
         }
 
         function getAbleTimetable(result){
-            var resultTimetable = document.getElementById('resultTimetable');
+            
             while (resultTimetable.firstChild) {
                 resultTimetable.firstChild.remove();
             }
@@ -94,6 +99,7 @@
                 [].forEach.call(timetables,function(timetable){ 
                     timetable.addEventListener("click", timetable_click, false); 
                 });
+                resultTimetable.lastChild.scrollIntoView();
             }
         }
         

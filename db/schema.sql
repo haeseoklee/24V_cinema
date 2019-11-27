@@ -10,7 +10,7 @@ CREATE TABLE customer (
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
     ph INT NOT NULL,
-    membership_id VARCHAR(30) NOT NULL,
+    membership_id VARCHAR(30) NOT NULL DEFALUT 'NORMAL',
     FOREIGN KEY (membership_id) REFERENCES membership (ranking)
 );
 

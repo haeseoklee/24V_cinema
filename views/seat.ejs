@@ -12,15 +12,17 @@
     </select>
     <br>
     <div class="seat_table" id="<%= resData.timetable_id %>">
-    <% resData.data.forEach(function(item){ %>
-        <%
-        if (!Number(item.is_able)) { %>
+    <% resData.data.forEach(function(item, index){ %>
+        <% if (index % 10 === 0) { %>
+            <br>
+        <% } %>
+        <% if (!Number(item.is_able)) { %>
             <span style="color: red;" class="seat" seat_no="<%= item.seat_no %>" is_able="<%= item.is_able %>">
-                <%= [item.seat_no, item.is_able].join(' ') %>
+                <%= item.seat_no %>
             </span>
         <% } else { %>
             <span class="seat" seat_no="<%= item.seat_no %>" is_able="<%= item.is_able %>">
-                <%= [item.seat_no, item.is_able].join(' ') %>
+                <%= item.seat_no %>
             </span>
         <% }
     }) %>
@@ -82,7 +84,7 @@
         var idx = Number(e.target.id);
         if (selected_seats_arr.has(idx)){
             for(var i=idx;i < idx+number_of_persons;i++){
-                var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+                var seat = document.querySelector(`.seat_table span:nth-of-type(${i+1})`);
                 if (seat){
                     if (Number(seat.getAttribute('is_able'))){
                         seat.addEventListener('mouseout', outSeat, false);
@@ -93,7 +95,7 @@
             }
         }else{
             for(var i=idx;i < idx+number_of_persons;i++){
-                var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+                var seat = document.querySelector(`.seat_table span:nth-of-type(${i+1})`);
                 if (seat){
                     if (Number(seat.getAttribute('is_able'))){
                         seat.style.color = 'blue';
@@ -110,7 +112,7 @@
     function overSeat(e) {
         var idx = Number(e.target.id);
         for(var i=idx;i < idx+number_of_persons;i++){
-            var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+            var seat = document.querySelector(`.seat_table span:nth-of-type(${i+1})`);
             if (seat){
                 if (Number(seat.getAttribute('is_able'))){
                     seat.style.color = 'blue';
@@ -122,7 +124,7 @@
     function outSeat(e){
         var idx = Number(e.target.id);
         for(var i=idx;i < idx+number_of_persons;i++){
-            var seat = document.querySelector(`.seat_table span:nth-child(${i+1})`);
+            var seat = document.querySelector(`.seat_table span:nth-of-type(${i+1})`);
             if (seat){
                 if (Number(seat.getAttribute('is_able')) && !selected_seats_arr.has(i)){
                     seat.style.color = 'black';

@@ -1,12 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <% include ./header.ejs %>
+    <title>My Page</title>
 </head>
 <body>
-    <h1>마이페이지</h1>
+    <h2><%= data[0].name %>님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
+    <div>
+        <h3><%= data[0].name %>님은 <%= data[0].membership_id %>회원입니다.</h3>
+        <h3>24V 포인트</h3>
+        <p>
+            현재 보유 포인트 <%= data[0].point %> P<br />
+        </p>
+    </div>
+    <div>
+        <h3>개인정보</h3>
+        <p>
+            휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
+            이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
+            <button type="button" id="adjustMyInfo">수정하기</button>
+        </p>
+    </div>
+    <div>
+        <h3>보유쿠폰</h3>
+        <p>
+            사용가능한 영화 쿠폰 <%= data.coupon_len %>매<br />
+           
+            <table>
+                <thead>
+                    <tr>
+                        <th>쿠폰명</th>
+                        <th>쿠폰번호</th>
+                        <th>할인액</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.coupon.forEach(function(element, index){ %>
+                        <tr>
+                            <td><%= element.name %></td>
+                            <td><%= element.coupon_code %></td>
+                            <td><%= element.benefit %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </p>
+    </div>
+    <div>
+        <h3>최근영화예매내역</h3>
+        <p>
+            예매번호 : 11111111<br />
+            예매날짜 : 2019.11.08<br />
+            영화제목 : 겨울왕국3<br />
+            상영관 : 영통점 1관<br />
+            좌석번호 : H8,H9<br />
+            <button type="button">영화예매취소</button>
+        </p>
+    </div>
+    <div>     
+        <h3>최근매점예매내역</h3>
+        <p>
+            예매번호 : 22222222<br />
+            예매날짜 : 2019.11.08<br />
+            예매 메뉴 : 팝콘 콤보1번 (오리지널)<br />
+            지점 : 영통점<br />
+            <button type="button">매점예매취소</button>
+        </p>
+    </div>
+
+    <script>
+
+    var adjustMyInfo = document.getElementById('adjustMyInfo');
+
+    adjustMyInfo.addEventListener('click', sendMyInfo);
+
+
+    function sendMyInfo() {
+        var user_id = document.getElementById('email').getAttribute('user_id');
+        var ph = document.getElementById('ph').value;
+        var email = document.getElementById('email').value;
+        var data = {user_id, ph, email};
+        sendAjax(`/api/myinfo/${user_id}`, 'POST', data, refreshMyInfo);
+    }
+    
+    function refreshMyInfo(result){
+        if (result.success){
+            console.log('업데이트 완료');
+        } else {
+            console.log('업데이트 실패');
+        }
+    }
+
+    function sendAjax(url, method, data, fn){
+        data = JSON.stringify(data);
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(data);
+
+        xhr.addEventListener('load', function(){
+            var result = JSON.parse(xhr.responseText);
+            fn(result);
+        });
+    }
+    
+    </script>
 </body>
 </html>
