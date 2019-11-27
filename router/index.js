@@ -12,9 +12,6 @@ var book = require('./book/index');
 var movie = require('./movie/index');
 var timetable = require('./timetable/index');
 var market = require('./market/index');
-
-var payment = require('./payment/index');
-
 var api = require('./api/index');
 
 router.use('/', main);
@@ -25,10 +22,6 @@ router.use('/ticket', ticket);
 router.use('/movie', movie);
 router.use('/timetable', timetable);
 router.use('/market', market);
-
-router.use('/payment', payment);
-
 router.use('/api', api);
-
 
 module.exports = router;
