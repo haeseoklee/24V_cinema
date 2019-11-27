@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,3 +17,30 @@
 <hr>
 </body>
 </html>
+=======
+<div id="head">
+    <div id="login">
+        <ul>
+        <% if (!isAuthenticated) { %>
+            <li><a href="/user/login">로그인 </a><a href="/user/join">회원가입</a></li>
+        <% }  else { %>
+            <li><a href="/user/logout">로그아웃 </a><a href="/user/mypage">마이페이지</a></li>
+            <% if (id) { %>
+               <!-- <%= id %> 번째로 가입한 유저님 환영합니다.-->
+            <% } %>
+        <% } %>
+        </ul>
+    </div>
+    <header>
+        <nav>
+            <a href="/"><div id ="logo"></div></a><!-- 로고 누르면 홈페이지로 이동-->
+            <ul>
+                <li><a href="/book">예매</a></li>
+                <li><a href="/timetable">상영시간표</a></li>
+                <li><a href="/movie">영화</a></li>
+                <li><a href="/market">매점</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+>>>>>>> jonghun

@@ -2,14 +2,28 @@
 <html lang="kr">
 <head>
     <% include ./header.ejs %>
+    <link rel="stylesheet" href="/css/join.css">
 </head>
 <body>
     <% include ./nav.ejs %>
 
     <h1>로그인</h1>
-    email: <input type="text" name="email">
-    password: <input type="password" name="password">
-    <button id="login_btn">로그인</button>
+    <div class="page">
+        <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input" type="text" name="email" placeholder="이메일을 입력하세요" required>
+            <span class="a-field__label-wrap">
+              <span class="a-field__label">Email</span>
+            </span>
+        </label>
+        <label class="field a-field a-field_a1">
+            <input class="field__input a-field__input" type="password"name="password" placeholder="비밀번호를 입력하세요" required>
+            <span class="a-field__label-wrap">
+              <span class="a-field__label">Password</span>
+            </span>
+        </label>
+        <button id="login_btn">로그인</button>
+      </div>
+    
 
     <div class="result"></div>
 
@@ -39,5 +53,7 @@
             });
         }
     </script>
+
+    <% include ./footer.ejs %>
 </body>
 </html>
