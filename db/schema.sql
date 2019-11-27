@@ -41,13 +41,15 @@ CREATE TABLE movie (
 );
 
 CREATE TABLE cinema(
-    cinema VARCHAR(10) NOT NULL PRIMARY KEY
+    cinema VARCHAR(30) NOT NULL PRIMARY KEY,
+    tel VARCHAR(30) NOT NULL,
+    address VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE screen(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name INT NOT NULL,
-    cinema VARCHAR(10) NOT NULL,
+    cinema VARCHAR(30) NOT NULL,
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
 
@@ -82,7 +84,8 @@ CREATE TABLE menu(
 CREATE TABLE orderlist(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
-    cinema VARCHAR(10) NOT NULL,
+    cinema VARCHAR(30) NOT NULL,
+    order_date TIMESTAMP NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
