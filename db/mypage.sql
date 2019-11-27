@@ -25,20 +25,23 @@ JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN customer ON reservation.customer_id = customer.id
 JOIN screen ON timetable.screen_id = screen.id
 JOIN movie ON timetable.movie_id = movie.id 
-WHERE customer.id=1;
+WHERE customer.id=1
+ORDER BY reservation.id DESC LIMIT 1;
 
 -- 예매 좌석
 SELECT seat_no FROM selected_seat
 JOIN reservation ON reservation.id = selected_seat.resv_id
 JOIN customer ON reservation.customer_id = customer.id
-WHERE customer.id=1;
+WHERE customer.id=1
+ORDER BY reservation.id DESC LIMIT 1;
 
 -- 매점 이용정보(예매번호, 날짜, 지점)
 SELECT CONCAT("OL00000",orderlist.id) as order_id,
 date_format(order_date, "%Y-%m-%d") as order_date, cinema.cinema FROM orderlist
 JOIN customer ON customer.id = orderlist.customer_id
 JOIN cinema ON orderlist.cinema = cinema.cinema
-WHERE customer.id = 1;
+WHERE customer.id = 1
+ORDER BY orderlist.id DESC LIMIT 1;
 
 -- 매점 주문내역
 SELECT menu.name, amount
@@ -46,4 +49,5 @@ FROM orderlist
 JOIN customer ON customer_id = customer.id
 JOIN menu_order ON orderlist_id = orderlist.id
 JOIN menu ON menu_id = menu.id
-WHERE customer.id=1;
+WHERE customer.id=1
+ORDER BY orderlist.id DESC LIMIT 1;
