@@ -12,11 +12,10 @@ var book = require('./book/index');
 var movie = require('./movie/index');
 var timetable = require('./timetable/index');
 var market = require('./market/index');
-<<<<<<< HEAD
+
 var payment = require('./payment/index');
-=======
+
 var api = require('./api/index');
->>>>>>> jonghun
 
 router.use('/', main);
 router.use('/user', user);
@@ -26,10 +25,10 @@ router.use('/ticket', ticket);
 router.use('/movie', movie);
 router.use('/timetable', timetable);
 router.use('/market', market);
-<<<<<<< HEAD
+
 router.use('/payment', payment);
-=======
+
 router.use('/api', api);
 
->>>>>>> jonghun
+
 module.exports = router;
