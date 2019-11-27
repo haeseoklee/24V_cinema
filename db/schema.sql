@@ -9,8 +9,13 @@ CREATE TABLE customer (
     email VARCHAR(30) NOT NULL,
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
+<<<<<<< HEAD
     ph VARCHAR(15) NOT NULL,
     membership_id VARCHAR(30) NOT NULL DEFAULT "NORMAL",
+=======
+    ph INT NOT NULL,
+    membership_id VARCHAR(30) NOT NULL DEFALUT 'NORMAL',
+>>>>>>> haeseok
     FOREIGN KEY (membership_id) REFERENCES membership (ranking)
 );
 
@@ -35,21 +40,32 @@ CREATE TABLE movie (
     director VARCHAR(30) NOT NULL,
     genre VARCHAR(30) NOT NULL,
     runtime TIME NOT NULL,
+<<<<<<< HEAD
     releaseday DATE NOT NULL,
     agelimit VARCHAR(20) NOT NULL,
+=======
+>>>>>>> haeseok
     story TEXT NOT NULL
 );
 
 CREATE TABLE cinema(
+<<<<<<< HEAD
     cinema VARCHAR(30) NOT NULL PRIMARY KEY,
     tel VARCHAR(30) NOT NULL,
     address VARCHAR(60) NOT NULL
+=======
+    cinema VARCHAR(10) NOT NULL PRIMARY KEY
+>>>>>>> haeseok
 );
 
 CREATE TABLE screen(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name INT NOT NULL,
+<<<<<<< HEAD
     cinema VARCHAR(30) NOT NULL,
+=======
+    cinema VARCHAR(10) NOT NULL,
+>>>>>>> haeseok
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
 
@@ -77,15 +93,22 @@ CREATE TABLE reservation(
 CREATE TABLE menu(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(45) NOT NULL,
+<<<<<<< HEAD
     img VARCHAR(100) NOT NULL,
+=======
+>>>>>>> haeseok
     price INT NOT NULL
 );
 
 CREATE TABLE orderlist(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
+<<<<<<< HEAD
     cinema VARCHAR(30) NOT NULL,
     order_date TIMESTAMP NOT NULL,
+=======
+    cinema VARCHAR(10) NOT NULL,
+>>>>>>> haeseok
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
@@ -116,11 +139,16 @@ CREATE TABLE selected_seat(
     FOREIGN KEY (timetable_id, seat_no) REFERENCES seat (timetable_id, seat_no)
 );
 
+<<<<<<< HEAD
 CREATE TABLE ticket_pay(
+=======
+CREATE TABLE pay(
+>>>>>>> haeseok
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     origin_pay INT NOT NULL,
     disc_pay INT NOT NULL,
     customer_id INT NOT NULL,
+<<<<<<< HEAD
     resv_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (resv_id) REFERENCES reservation (id)
@@ -135,3 +163,11 @@ CREATE TABLE snack_pay(
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (orderlist_id) REFERENCES orderlist (id)
 );
+=======
+    orderlist_id INT NOT NULL,
+    resv_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer (id),
+    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id),
+    FOREIGN KEY (resv_id) REFERENCES reservation (id)
+);
+>>>>>>> haeseok

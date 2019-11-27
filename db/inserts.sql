@@ -5,12 +5,21 @@ INSERT INTO membership(ranking,benefit) VALUES ("GOLD",1500);
 INSERT INTO membership(ranking,benefit) VALUES ("PLATINUM",2000);
 INSERT INTO membership(ranking,benefit) VALUES ("VIP",3000);
 
+<<<<<<< HEAD
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
 VALUES ('이해석','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
 VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
 VALUES ('정희재','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
+=======
+INSERT INTO customer (name, email, pw, ph, membership_id) 
+VALUES ('이해석','interpret96@gmail.com', '1234', '01079794949', "SILVER");
+INSERT INTO customer (name, email, pw, ph, membership_id) 
+VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', '01079794949', "GOLD");
+INSERT INTO customer (name, email, pw, ph, membership_id) 
+VALUES ('정희재','jhj967878@naver.com', '123123', '01064398402', "VIP");
+>>>>>>> haeseok
 
 INSERT INTO coupon (name,benefit)
 VALUES ('수험생할인',3000);
@@ -32,8 +41,13 @@ VALUES (1,2);
 INSERT INTO customer_coupon (customer_id,coupon_id)
 VALUES (2,2);
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00", "2019-11-07", "15세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00",
+>>>>>>> haeseok
 "'세상은 둘 중 하나야
 놀이터가 되던가, 생지옥이 되던가'
 바둑으로 모든 것을 잃은 아이 ‘귀수’
@@ -46,16 +60,26 @@ VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "
  사활을 건 대결!
  신의 한 수를 다시 두시겠습니까?");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('조커', '/movies/images/joker.jpg', "토드 필립스", "스릴러", "02:03:00", "2019-10-02", "15세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('조커', '/movies/images/joker.jpg', "토드 필립스", "스릴러", "02:03:00",
+>>>>>>> haeseok
 "'내 인생이 비극인줄 알았는데, 코미디였어'
 고담시의 광대 아서 플렉은 코미디언을 꿈꾸는 남자.
  하지만 모두가 미쳐가는 코미디 같은 세상에서
  맨 정신으로는 그가 설 자리가 없음을 깨닫게 되는데…
  이제껏 본 적 없는 진짜 ‘조커’를 만나라!");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00", "2019-11-21", "전체 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00",
+>>>>>>> haeseok
 "내 마법의 힘은 어디서 왔을까?
 나를 부르는 저 목소리는 누구지?
 어느 날 부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다.
@@ -67,8 +91,13 @@ VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "
  
  두려움을 깨고 새로운 운명을 만나다!");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드라마", "01:58:00", "2019-10-23", "12세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드라마", "01:58:00",
+>>>>>>> haeseok
 "1982년 봄에 태어나
  누군가의 딸이자 아내, 동료이자 엄마로
  2019년 오늘을 살아가는 ‘지영’(정유미).
@@ -83,8 +112,13 @@ VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드
  모두가 알지만 아무도 몰랐던
  당신과 나의 이야기");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00", "2019-11-13", "12세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00",
+>>>>>>> haeseok
 "고발은 의무! 수사는 직진!
 할말은 하고 깔 건 깐다!
 일명 서울지검 ‘막프로’! 검찰 내에서 거침없이 막 나가는 문제적 검사로
@@ -98,8 +132,13 @@ VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", 
  
  대한민국 최대의 금융스캔들, 사건은 아직 끝나지 않았다!");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00", "2019-11-14", "12세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00",
+>>>>>>> haeseok
 "다시 날 가슴 뛰게 만든 그 말
 '윤희에게, 잘 지내니?'
 평범한 일상을 살아가던 '윤희' 앞으로 도착한 한 통의 편지.
@@ -110,8 +149,13 @@ VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "
  끝없이 눈이 내리는 그곳에서
  첫사랑을 만날지도 모른다는 기대를 품는데…");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00", "2019-11-13", "15세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00",
+>>>>>>> haeseok
 "좀비로 세상이 망한지 10년,
  자신들만의 재능을 발휘하고 생존 규칙을 지키며
  여전히 꿋꿋하게 살아가고 있는 희한한 가족
@@ -120,8 +164,13 @@ VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플�
  하지만 ‘좀비랜드’에 더욱 진화한 좀비가 나타나고
  이들은 새로운 인간 생존자들과 함께 사투를 시작하는데…");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", "애니메이션", "01:52:00", "2019-10-30", "15세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", "애니메이션", "01:52:00",
+>>>>>>> haeseok
 "'이제 비는 그치고, 우리의 세상이 빛나기 시작할 거야'
 비가 그치지 않던 어느 여름날,
  가출 소년 ‘호다카’는 수상한 잡지사에 취직하게 되고
@@ -139,8 +188,13 @@ VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", 
  
  흐리기만 했던 세상이 빛나기 시작했고, 그 끝에는 네가 있었다.");
 
+<<<<<<< HEAD
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
 VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00","2019-11-27", "15세 관람가",
+=======
+INSERT INTO movie (title, img, director, genre, runtime, story)
+VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00",
+>>>>>>> haeseok
 "6년 전 실종된 아들을 봤다는 연락을 받은 ‘정연’(이영애).
  숱하게 반복되던 거짓 제보와 달리
  생김새부터 흉터까지 똑같은 아이를 봤다는 낯선 이의 이야기에
@@ -155,6 +209,7 @@ VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러
  그리고 낯선 사람들
  모두가 숨기고 있다");
 
+<<<<<<< HEAD
 INSERT INTO cinema(cinema,tel,address) VALUES ("서울목동", "02-1234-5678", "서울특별시 양천구 목동동로 24");
 INSERT INTO cinema(cinema,tel,address) VALUES ("인천송도", "032-1111-2424", "인천광역시 연수구 청능대로 240");
 INSERT INTO cinema(cinema,tel,address) VALUES ("대전터미널", "042-2323-5555", "대전광역시 동구 동서대로 2400");
@@ -234,6 +289,87 @@ INSERT INTO screen (name,cinema)
 VALUES (4,'센텀시티');
 INSERT INTO screen (name,cinema)
 VALUES (5,'센텀시티');
+=======
+INSERT INTO cinema(cinema) VALUES ('SU');
+INSERT INTO cinema(cinema) VALUES ('IC');
+INSERT INTO cinema(cinema) VALUES ('DJ');
+INSERT INTO cinema(cinema) VALUES ('DG');
+INSERT INTO cinema(cinema) VALUES ('US');
+INSERT INTO cinema(cinema) VALUES ('GJ');
+INSERT INTO cinema(cinema) VALUES ('BS');
+
+
+INSERT INTO screen (name,cinema)
+VALUES (1,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (2,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (3,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (4,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (5,'SU');
+INSERT INTO screen (name,cinema)
+VALUES (1,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (2,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (3,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (4,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (5,'IC');
+INSERT INTO screen (name,cinema)
+VALUES (1,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (2,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (3,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (4,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (5,'DJ');
+INSERT INTO screen (name,cinema)
+VALUES (1,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (2,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (3,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (4,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (5,'DG');
+INSERT INTO screen (name,cinema)
+VALUES (1,'US');
+INSERT INTO screen (name,cinema)
+VALUES (2,'US');
+INSERT INTO screen (name,cinema)
+VALUES (3,'US');
+INSERT INTO screen (name,cinema)
+VALUES (4,'US');
+INSERT INTO screen (name,cinema)
+VALUES (5,'US');
+INSERT INTO screen (name,cinema)
+VALUES (1,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (2,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (3,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (4,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (5,'GJ');
+INSERT INTO screen (name,cinema)
+VALUES (1,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (2,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (3,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (4,'BS');
+INSERT INTO screen (name,cinema)
+VALUES (5,'BS');
+>>>>>>> haeseok
 
 DELIMITER $$
 
@@ -325,6 +461,7 @@ DELIMITER ;
 CALL timetable_insert();
 
 
+<<<<<<< HEAD
 INSERT INTO reservation(timetable_id, customer_id)
 VALUES (1,1);
 INSERT INTO reservation(timetable_id, customer_id)
@@ -345,6 +482,28 @@ INSERT INTO menu(name, img, price) VALUES ("오징어버터구이", '/menu/image
 INSERT INTO orderlist(customer_id, cinema) VALUES (1,"서울목동");
 INSERT INTO orderlist(customer_id, cinema) VALUES (2,"서울목동");
 INSERT INTO orderlist(customer_id, cinema) VALUES (3,"서울목동");
+=======
+INSERT INTO reservation(timetable_id, customer_id, resv_date)
+VALUES (1,1,"2019-11-15 18:32");
+INSERT INTO reservation(timetable_id, customer_id, resv_date)
+VALUES (3,2,"2019-11-15 19:20");
+INSERT INTO reservation(timetable_id, customer_id, resv_date)
+VALUES (5,3,"2019-11-15 20:47");
+
+INSERT INTO menu(name, price) VALUES ("오리지널 팝콘", 5000);
+INSERT INTO menu(name, price) VALUES ("카라멜 팝콘", 5500);
+INSERT INTO menu(name, price) VALUES ("어니언 팝콘", 5500);
+INSERT INTO menu(name, price) VALUES ("치즈 팝콘", 5500);
+INSERT INTO menu(name, price) VALUES ("탄산음료", 2000);
+INSERT INTO menu(name, price) VALUES ("에이드음료", 2500);
+INSERT INTO menu(name, price) VALUES ("나쵸치즈", 3000);
+INSERT INTO menu(name, price) VALUES ("오징어버터구이", 3000);
+
+
+INSERT INTO orderlist(customer_id, cinema) VALUES (1,"SU");
+INSERT INTO orderlist(customer_id, cinema) VALUES (2,"SU");
+INSERT INTO orderlist(customer_id, cinema) VALUES (3,"SU");
+>>>>>>> haeseok
 
 INSERT INTO menu_order(amount, menu_id, orderlist_id) VALUES(2, 1, 1);
 INSERT INTO menu_order(amount, menu_id, orderlist_id) VALUES(2, 5, 1);
@@ -472,6 +631,7 @@ UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A01';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A02';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A03';
 
+<<<<<<< HEAD
 INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id)
 VALUES (14000,1000,1,1);
 
@@ -490,3 +650,13 @@ VALUES (10500,0,2,2);
 
 INSERT INTO snack_pay(origin_pay, disc_pay, customer_id, orderlist_id) 
 VALUES (3000,0,3,3);
+=======
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (28000,1000,1,1,1);
+
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (24500,1000,2,2,2);
+
+INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
+VALUES (24000,0,3,3,3);
+>>>>>>> haeseok

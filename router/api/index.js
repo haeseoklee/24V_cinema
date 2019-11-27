@@ -1,19 +1,17 @@
 var express = require('express');
-var app = express();
 var router = express.Router();
-var path = require('path');
+var db = require('../../db/db');
 
-router.get('/login', function(req, res){
-    var id =  req.user;
-    var isAuthenticated = req.isAuthenticated();
-    res.json({'id': id, 'isAuthenticated': isAuthenticated});
-})
-
-/*
-router.get('/', function(req, res){
-    //var id =  req.user;
-    //var isAuthenticated = req.isAuthenticated();
-    res.json({'test':'test'});
+router.post('/myinfo/:user_id', function(req, res){
+    var user_id =  req.params.user_id;
+    var ph = req.body.ph;
+    var email = req.body.email;
+    var sql = `update customer set ? where id=${user_id}`;
+    var query = db.query(sql, {ph, email}, function(err, rows){
+        if (err) return res.status(400).json({'success': false})
+        data = JSON.parse(JSON.stringify(rows))
+        res.status(200).json({'success': true})
+    })
 })
 
 router.get('/selected_movie/:id', function(req, res){
@@ -60,6 +58,5 @@ router.get('/selected_movie/:movie_id/selected_screen/:screen_id', function(req,
     })
     
 })
-*/
 
 module.exports = router;

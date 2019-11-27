@@ -5,6 +5,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var db = require('../../db/db');
 
 router.get('/', function(req, res){
+
     if (!req.isAuthenticated()) {
         res.render('login.ejs');
     } else {
@@ -42,6 +43,7 @@ passport.use('local-login', new LocalStrategy({
         passReqToCallback: true
         }, function(req, email, password, done) {
             var sql = 'select * from customer where email=?';
+            var email = email.trim();
             var query = db.query(sql, [email], function(err, rows) {
                 if (err) return done(err);
                 if (rows.length) {

@@ -42,7 +42,11 @@ SELECT cinema, count(seat_no)*7000 FROM reservation
 JOIN timetable ON reservation.timetable_id = timetable.id 
 JOIN screen ON timetable.screen_id = screen.id 
 JOIN selected_seat ON reservation.id = resv_id 
+<<<<<<< HEAD
 GROUP BY cinema HAVING cinema = "서울목동";
+=======
+GROUP BY cinema HAVING cinema = "SU";
+>>>>>>> haeseok
 
 -- 이름으로 주문메뉴 확인
 SELECT customer.name, menu.name, amount, menu.price*amount as price, cinema.cinema
@@ -54,7 +58,11 @@ JOIN menu ON menu_id = menu.id
 WHERE customer.name="정희재";
 
 -- 이메일로 주문메뉴 확인
+<<<<<<< HEAD
 SELECT customer.name, menu.name, amount, cinema.cinema 
+=======
+SELECT customer.name, menu.name, amount, cinema 
+>>>>>>> haeseok
 FROM orderlist
 JOIN customer ON customer_id = customer.id
 JOIN cinema ON orderlist.cinema = cinema.cinema
@@ -69,14 +77,22 @@ JOIN customer ON customer_id = customer.id
 JOIN cinema ON orderlist.cinema = cinema.cinema
 JOIN menu_order ON orderlist_id = orderlist.id
 JOIN menu ON menu_id = menu.id
+<<<<<<< HEAD
 WHERE cinema="서울목동";
+=======
+WHERE cinema="SU";
+>>>>>>> haeseok
 
 -- 지점별 매점 매출
 SELECT cinema, sum(amount*price) FROM orderlist 
 JOIN menu_order ON orderlist_id = orderlist.id
 JOIN cinema ON orderlist.cinema = cinema.cinema
 JOIN menu ON menu_id = menu.id
+<<<<<<< HEAD
 GROUP BY cinema HAVING cinema="서울목동";
+=======
+GROUP BY cinema HAVING cinema="SU";
+>>>>>>> haeseok
 
 -- 이메일로 결제 금액 확인
 SELECT customer.email ,(origin_pay - disc_pay) as pay FROM pay 
@@ -87,6 +103,10 @@ WHERE customer.email = "jhj967878@naver.com";
 SELECT customer.email, sum(menu.price*amount) as snack_pay
 FROM orderlist
 JOIN customer ON customer_id = customer.id
+<<<<<<< HEAD
+=======
+JOIN snackbar ON snackbar_id = snackbar.id
+>>>>>>> haeseok
 JOIN menu_order ON orderlist_id = orderlist.id
 JOIN menu ON menu_id = menu.id 
 GROUP BY customer.email HAVING customer.email = "jhj967878@naver.com";
@@ -107,13 +127,18 @@ SELECT timetable.id, cinema.cinema, screen.name as screen
 JOIN movie ON movie_id = movie.id 
 JOIN screen ON screen_id = screen.id
 JOIN cinema ON screen.cinema = cinema.cinema 
+<<<<<<< HEAD
 WHERE movie.title = "조커" AND cinema.cinema = "서울목동";
+=======
+WHERE movie.title = "조커" AND cinema.cinema = "SU";
+>>>>>>> haeseok
 
 -- 지점과 날짜를 통해 타임테이블 뽑기
 SELECT movie.title, screen.cinema, starttime, 
 screen.name as screen FROM timetable
 JOIN MOVIE ON timetable.movie_id = movie.id 
 JOIN screen ON timetable.screen_id = screen.id 
+<<<<<<< HEAD
 WHERE startdate = "2019-11-17" AND screen.cinema = "서울목동"
 ORDER BY starttime;
 
@@ -199,3 +224,7 @@ JOIN customer_coupon ON customer_coupon.coupon_id = coupon.id
 JOIN customer ON customer_coupon.customer_id = customer.id
 WHERE customer.name = "이해석" AND customer.email = "interpret96@gmail.com";
 
+=======
+WHERE startdate = "2019-11-17" AND screen.cinema = "SU"
+ORDER BY starttime;
+>>>>>>> haeseok
