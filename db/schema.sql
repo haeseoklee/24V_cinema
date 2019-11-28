@@ -9,8 +9,8 @@ CREATE TABLE customer (
     email VARCHAR(30) NOT NULL,
     pw VARCHAR(30) NOT NULL,
     point INT NOT NULL DEFAULT 0,
-    ph INT NOT NULL,
-    membership_id VARCHAR(30) NOT NULL,
+    ph VARCHAR(15) NOT NULL,
+    membership_id VARCHAR(30) NOT NULL DEFAULT "NORMAL",
     FOREIGN KEY (membership_id) REFERENCES membership (ranking)
 );
 
@@ -41,13 +41,15 @@ CREATE TABLE movie (
 );
 
 CREATE TABLE cinema(
-    cinema VARCHAR(10) NOT NULL PRIMARY KEY
+    cinema VARCHAR(30) NOT NULL PRIMARY KEY,
+    tel VARCHAR(30) NOT NULL,
+    address VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE screen(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name INT NOT NULL,
-    cinema VARCHAR(10) NOT NULL,
+    cinema VARCHAR(30) NOT NULL,
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
 
@@ -82,7 +84,8 @@ CREATE TABLE menu(
 CREATE TABLE orderlist(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
-    cinema VARCHAR(10) NOT NULL,
+    cinema VARCHAR(30) NOT NULL,
+    order_date TIMESTAMP NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
@@ -113,14 +116,22 @@ CREATE TABLE selected_seat(
     FOREIGN KEY (timetable_id, seat_no) REFERENCES seat (timetable_id, seat_no)
 );
 
-CREATE TABLE pay(
+CREATE TABLE ticket_pay(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    origin_pay INT NOT NULL,
+    disc_pay INT NOT NULL,
+    customer_id INT NOT NULL,
+    resv_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer (id),
+    FOREIGN KEY (resv_id) REFERENCES reservation (id)
+);
+
+CREATE TABLE snack_pay(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     origin_pay INT NOT NULL,
     disc_pay INT NOT NULL,
     customer_id INT NOT NULL,
     orderlist_id INT NOT NULL,
-    resv_id INT NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
-    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id),
-    FOREIGN KEY (resv_id) REFERENCES reservation (id)
+    FOREIGN KEY (orderlist_id) REFERENCES orderlist (id)
 );

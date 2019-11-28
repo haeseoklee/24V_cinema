@@ -24,16 +24,20 @@ passport.deserializeUser(function(id, done) {
 
 passport.use('local-join', new LocalStrategy({
         usernameField: 'email',
-        passwordField: 'password',
+        // passwordField: 'password',
         passReqToCallback: true
         }, function(req, email, password, done) {
             var sql = 'select * from customer where email=?';
+            var email = email.trim();
+            var pw = req.body.password;
+            var name = req.body.name;
+            var ph = req.body.ph;
             var query = db.query(sql, [email], function(err, rows) {
                 if (err) return done(err);
                 if (rows.length) {
                     return done(null, false, {message: '이미 존재하는 메일입니다.'});
                 } else {
-                    var sql = {email: email, pw: password}
+                    var sql = {name, email, pw, ph}
                     var query = db.query('insert into customer set ?', sql, function(err, rows){
                         if (err) throw err;
                         return done(null, {'email': email, 'id': rows.insertId });

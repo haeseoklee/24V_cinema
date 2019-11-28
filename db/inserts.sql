@@ -5,12 +5,12 @@ INSERT INTO membership(ranking,benefit) VALUES ("GOLD",1500);
 INSERT INTO membership(ranking,benefit) VALUES ("PLATINUM",2000);
 INSERT INTO membership(ranking,benefit) VALUES ("VIP",3000);
 
-INSERT INTO customer (name, email, pw, ph, membership_id) 
-VALUES ('이해석','interpret96@gmail.com', '1234', '01079794949', "SILVER");
-INSERT INTO customer (name, email, pw, ph, membership_id) 
-VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', '01079794949', "GOLD");
-INSERT INTO customer (name, email, pw, ph, membership_id) 
-VALUES ('정희재','jhj967878@naver.com', '123123', '01064398402', "VIP");
+INSERT INTO customer (name, email, pw, point, ph, membership_id) 
+VALUES ('이해석','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
+INSERT INTO customer (name, email, pw, point, ph, membership_id) 
+VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
+INSERT INTO customer (name, email, pw, point, ph, membership_id) 
+VALUES ('정희재','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
 
 INSERT INTO coupon (name,benefit)
 VALUES ('수험생할인',3000);
@@ -155,85 +155,85 @@ VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러
  그리고 낯선 사람들
  모두가 숨기고 있다");
 
-INSERT INTO cinema(cinema) VALUES ('SU');
-INSERT INTO cinema(cinema) VALUES ('IC');
-INSERT INTO cinema(cinema) VALUES ('DJ');
-INSERT INTO cinema(cinema) VALUES ('DG');
-INSERT INTO cinema(cinema) VALUES ('US');
-INSERT INTO cinema(cinema) VALUES ('GJ');
-INSERT INTO cinema(cinema) VALUES ('BS');
+INSERT INTO cinema(cinema,tel,address) VALUES ("서울목동", "02-1234-5678", "서울특별시 양천구 목동동로 24");
+INSERT INTO cinema(cinema,tel,address) VALUES ("인천송도", "032-1111-2424", "인천광역시 연수구 청능대로 240");
+INSERT INTO cinema(cinema,tel,address) VALUES ("대전터미널", "042-2323-5555", "대전광역시 동구 동서대로 2400");
+INSERT INTO cinema(cinema,tel,address) VALUES ("대구현대", "053-8282-4141", "대구광역시 중구 달구벌대로 2323");
+INSERT INTO cinema(cinema,tel,address) VALUES ("울산진장", "052-1212-2121", "울산광역시 북구 진장유통로 24-10");
+INSERT INTO cinema(cinema,tel,address) VALUES ("광주터미널", "062-7777-0815", "광주광역시 서구 무진대로 430");
+INSERT INTO cinema(cinema,tel,address) VALUES ("센텀시티", "051-6666-8624", "부산광역시 해운대구 센텀남대로 180");
 
 
 INSERT INTO screen (name,cinema)
-VALUES (1,'SU');
+VALUES (1,"서울목동");
 INSERT INTO screen (name,cinema)
-VALUES (2,'SU');
+VALUES (2,"서울목동");
 INSERT INTO screen (name,cinema)
-VALUES (3,'SU');
+VALUES (3,"서울목동");
 INSERT INTO screen (name,cinema)
-VALUES (4,'SU');
+VALUES (4,"서울목동");
 INSERT INTO screen (name,cinema)
-VALUES (5,'SU');
+VALUES (5,"서울목동");
 INSERT INTO screen (name,cinema)
-VALUES (1,'IC');
+VALUES (1,"인천송도");
 INSERT INTO screen (name,cinema)
-VALUES (2,'IC');
+VALUES (2,"인천송도");
 INSERT INTO screen (name,cinema)
-VALUES (3,'IC');
+VALUES (3,"인천송도");
 INSERT INTO screen (name,cinema)
-VALUES (4,'IC');
+VALUES (4,"인천송도");
 INSERT INTO screen (name,cinema)
-VALUES (5,'IC');
+VALUES (5,"인천송도");
 INSERT INTO screen (name,cinema)
-VALUES (1,'DJ');
+VALUES (1,"대전터미널");
 INSERT INTO screen (name,cinema)
-VALUES (2,'DJ');
+VALUES (2,"대전터미널");
 INSERT INTO screen (name,cinema)
-VALUES (3,'DJ');
+VALUES (3,"대전터미널");
 INSERT INTO screen (name,cinema)
-VALUES (4,'DJ');
+VALUES (4,"대전터미널");
 INSERT INTO screen (name,cinema)
-VALUES (5,'DJ');
+VALUES (5,"대전터미널");
 INSERT INTO screen (name,cinema)
-VALUES (1,'DG');
+VALUES (1,"대구현대");
 INSERT INTO screen (name,cinema)
-VALUES (2,'DG');
+VALUES (2,"대구현대");
 INSERT INTO screen (name,cinema)
-VALUES (3,'DG');
+VALUES (3,"대구현대");
 INSERT INTO screen (name,cinema)
-VALUES (4,'DG');
+VALUES (4,"대구현대");
 INSERT INTO screen (name,cinema)
-VALUES (5,'DG');
+VALUES (5,"대구현대");
 INSERT INTO screen (name,cinema)
-VALUES (1,'US');
+VALUES (1,"울산진장");
 INSERT INTO screen (name,cinema)
-VALUES (2,'US');
+VALUES (2,"울산진장");
 INSERT INTO screen (name,cinema)
-VALUES (3,'US');
+VALUES (3,"울산진장");
 INSERT INTO screen (name,cinema)
-VALUES (4,'US');
+VALUES (4,"울산진장");
 INSERT INTO screen (name,cinema)
-VALUES (5,'US');
+VALUES (5,"울산진장");
 INSERT INTO screen (name,cinema)
-VALUES (1,'GJ');
+VALUES (1,"광주터미널");
 INSERT INTO screen (name,cinema)
-VALUES (2,'GJ');
+VALUES (2,"광주터미널");
 INSERT INTO screen (name,cinema)
-VALUES (3,'GJ');
+VALUES (3,"광주터미널");
 INSERT INTO screen (name,cinema)
-VALUES (4,'GJ');
+VALUES (4,"광주터미널");
 INSERT INTO screen (name,cinema)
-VALUES (5,'GJ');
+VALUES (5,"광주터미널");
 INSERT INTO screen (name,cinema)
-VALUES (1,'BS');
+VALUES (1,'센텀시티');
 INSERT INTO screen (name,cinema)
-VALUES (2,'BS');
+VALUES (2,'센텀시티');
 INSERT INTO screen (name,cinema)
-VALUES (3,'BS');
+VALUES (3,'센텀시티');
 INSERT INTO screen (name,cinema)
-VALUES (4,'BS');
+VALUES (4,'센텀시티');
 INSERT INTO screen (name,cinema)
-VALUES (5,'BS');
+VALUES (5,'센텀시티');
 
 DELIMITER $$
 
@@ -342,9 +342,9 @@ INSERT INTO menu(name, img, price) VALUES ("나쵸치즈", '/menu/images/nacho.j
 INSERT INTO menu(name, img, price) VALUES ("오징어버터구이", '/menu/images/ojing.jpg', 3000);
 
 
-INSERT INTO orderlist(customer_id, cinema) VALUES (1,"SU");
-INSERT INTO orderlist(customer_id, cinema) VALUES (2,"SU");
-INSERT INTO orderlist(customer_id, cinema) VALUES (3,"SU");
+INSERT INTO orderlist(customer_id, cinema) VALUES (1,"서울목동");
+INSERT INTO orderlist(customer_id, cinema) VALUES (2,"서울목동");
+INSERT INTO orderlist(customer_id, cinema) VALUES (3,"서울목동");
 
 INSERT INTO menu_order(amount, menu_id, orderlist_id) VALUES(2, 1, 1);
 INSERT INTO menu_order(amount, menu_id, orderlist_id) VALUES(2, 5, 1);
@@ -472,11 +472,21 @@ UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A01';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A02';
 UPDATE seat SET is_able=0 WHERE timetable_id=5 AND seat_no='A03';
 
-INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
-VALUES (28000,1000,1,1,1);
+INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id)
+VALUES (14000,1000,1,1);
 
-INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
-VALUES (24500,1000,2,2,2);
+INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
+VALUES (1400,1000,2,2);
 
-INSERT INTO pay(origin_pay, disc_pay, customer_id, orderlist_id, resv_id) 
-VALUES (24000,0,3,3,3);
+INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
+VALUES (21000,0,3,3);
+
+
+INSERT INTO snack_pay(origin_pay, disc_pay, customer_id, orderlist_id)
+VALUES (14000,0,1,1);
+
+INSERT INTO snack_pay(origin_pay, disc_pay, customer_id, orderlist_id) 
+VALUES (10500,0,2,2);
+
+INSERT INTO snack_pay(origin_pay, disc_pay, customer_id, orderlist_id) 
+VALUES (3000,0,3,3);

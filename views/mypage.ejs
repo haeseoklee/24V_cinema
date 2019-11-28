@@ -5,31 +5,27 @@
     <title>My Page</title>
 </head>
 <body>
-    <h2>김예진님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
+    <h2><%= data[0].name %>님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
     <div>
-        <h3>김예진 님은 일반 회원입니다.</h3>
+        <h3><%= data[0].name %>님은 <%= data[0].membership_id %>회원입니다.</h3>
         <h3>24V 포인트</h3>
         <p>
-            현재 보유 포인트<br />
-            15000P<br />
-            소멸 예정 포인트<br />
-            0P<br />
-            2019년 관람한 영화 편수<br />
-            5편
+            현재 보유 포인트 <%= data[0].point %> P<br />
         </p>
     </div>
     <div>
         <h3>개인정보</h3>
         <p>
-            휴대전화 : 01012345678<br />
-            이메일 : asd890@naver.com<br />
-            <button type="button">수정하기</button>
+            휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
+            이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
+            <button type="button" id="adjustMyInfo">수정하기</button>
         </p>
     </div>
     <div>
         <h3>보유쿠폰</h3>
         <p>
-            사용가능한 영화 쿠폰    2매<br />
+            사용가능한 영화 쿠폰 <%= data.coupon_len %>매<br />
+           
             <table>
                 <thead>
                     <tr>
@@ -39,21 +35,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>온라인 3천원 할인</td>
-                        <td>1234567</td>
-                        <td>3000</td>
-                    </tr>
-                    <tr>
-                        <td>회원가입쿠폰</td>
-                        <td>1111</td>
-                        <td>1000</td>
-                    </tr>
+                    <% data.coupon.forEach(function(element, index){ %>
+                        <tr>
+                            <td><%= element.name %></td>
+                            <td><%= element.coupon_code %></td>
+                            <td><%= element.benefit %></td>
+                        </tr>
+                    <% }) %>
                 </tbody>
             </table>
-            <br />
-            사용가능한 매점 쿠폰    0매<br />
-            <button type="button">등록하기</button>
         </p>
     </div>
     <div>
@@ -77,5 +67,37 @@
             <button type="button">매점예매취소</button>
         </p>
     </div>
+
+    <script>
+    var adjustMyInfo = document.getElementById('adjustMyInfo');
+    adjustMyInfo.addEventListener('click', sendMyInfo);
+    function sendMyInfo() {
+        var user_id = document.getElementById('email').getAttribute('user_id');
+        var ph = document.getElementById('ph').value;
+        var email = document.getElementById('email').value;
+        var data = {user_id, ph, email};
+        sendAjax(`/api/myinfo/${user_id}`, 'POST', data, refreshMyInfo);
+    }
+    
+    function refreshMyInfo(result){
+        if (result.success){
+            console.log('업데이트 완료');
+        } else {
+            console.log('업데이트 실패');
+        }
+    }
+    function sendAjax(url, method, data, fn){
+        data = JSON.stringify(data);
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(data);
+        xhr.addEventListener('load', function(){
+            var result = JSON.parse(xhr.responseText);
+            fn(result);
+        });
+    }
+    
+    </script>
 </body>
 </html>
