@@ -32,8 +32,7 @@ ORDER BY reservation.id DESC LIMIT 1;
 SELECT seat_no FROM selected_seat
 JOIN reservation ON reservation.id = selected_seat.resv_id
 JOIN customer ON reservation.customer_id = customer.id
-WHERE customer.id=1
-ORDER BY reservation.id DESC LIMIT 1;
+WHERE customer.id=1 and reservation.id = (select max(reservation.id) from reservation);
 
 -- 매점 이용정보(예매번호, 날짜, 지점)
 SELECT CONCAT("OL00000",orderlist.id) as order_id,

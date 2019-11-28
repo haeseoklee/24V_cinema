@@ -47,15 +47,17 @@
         </p>
     </div>
     <div>
-        <h3>최근영화예매내역</h3>
+        <h3>영화예매내역</h3>
+        <% data.reserv_list.forEach(function(element, index){ %>
         <p>
-            예매번호 : 11111111<br />
-            예매날짜 : 2019.11.08<br />
-            영화제목 : 겨울왕국3<br />
-            상영관 : 영통점 1관<br />
-            좌석번호 : H8,H9<br />
+            예매번호 : <%= element.resv_id %><br />
+            예매날짜 : <%= element.startdata %><br />
+            영화제목 : <%= element.title %><br />
+            상영관 : <%= element.cinema %>점 <%= element.screen %>관<br />
+            좌석번호 : <%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%><br />
             <button type="button">영화예매취소</button>
         </p>
+        <% }) %>
     </div>
     <div>     
         <h3>최근매점예매내역</h3>
