@@ -40,8 +40,28 @@ router.get('/', function(req, res){
                         if (err) throw err;
                         data.reserv_seat = JSON.parse(JSON.stringify(rows));
                         data.reserv_seat_len = rows.length
-                        console.log(data);
-                        res.render('mypage.ejs', {'data': data});
+                        sql = 'SELECT CONCAT("OL00000",orderlist.id) as order_id, ' +
+                        'date_format(order_date, "%Y-%m-%d") as order_date, cinema.cinema FROM orderlist ' +
+                        'JOIN customer ON customer.id = orderlist.customer_id ' +
+                        'JOIN cinema ON orderlist.cinema = cinema.cinema ' +
+                        `WHERE customer.id = ${req.user} ` +
+                        'ORDER BY orderlist.id DESC LIMIT 1'
+                        var query = db.query(sql, function(err, rows){
+                            if (err) throw err;
+                            data.reserv_order = JSON.parse(JSON.stringify(rows));
+                            sql = 'SELECT menu.name, amount ' +
+                            'FROM orderlist ' +
+                            'JOIN customer ON customer_id = customer.id ' +
+                            'JOIN menu_order ON orderlist_id = orderlist.id ' +
+                            'JOIN menu ON menu_id = menu.id ' +
+                            'WHERE customer.id=1 ' +
+                            'ORDER BY orderlist.id DESC LIMIT 1'
+                            var query = db.query(sql, function(err, rows){
+                                if (err) throw err;
+                                data.reserv_menu = JSON.parse(JSON.stringify(rows));
+                                res.render('mypage.ejs', {'data': data});
+                            })
+                        })
                     })  
                 })
             })
