@@ -7,25 +7,14 @@
 
 <body>
     <% include ./nav.ejs %>
-    <!-- SELECT count(seat_no) FROM selected_seat
-        JOIN reservation ON reservation.id = selected_seat.resv_id
-        WHERE reservation.id = 예약id;
-    -->
-    <p>예매 금액 : ￦(<%= resData.seat_length * 7000 %>)</p>
-    <select name="payment-coupon">
-        <!--
-        SELECT coupon.name, coupon.benefit FROM coupon
-        JOIN customer_coupon ON customer_coupon.coupon_id = coupon.id
-        JOIN customer ON customer_coupon.customer_id = customer.id
-        WHERE customer.id = 고객id; 
-        반복문 돌려서
-        -->
-        <option value="coupon테이블의 benefit"> 보유중인 쿠폰이름들 </option>
+    <p id='pay' pay="<%= resData.seat_length * 7000 %>">예매 금액 : ￦<%= resData.seat_length * 7000 %></p>
+    <select name="payment-coupon" id="payment-coupon">
+        <option value="0" class="coupon_option" coupon_id="0" selected> 보유중인 쿠폰이름들 </option>
     </select>
-    <p>할인 금액 : 선택한 쿠폰의 benefit</p>
-    <p>결제 금액 : 예매금액 - 할인금액</p>
+    <p id='coupon_benefit'>할인금액 : 0</p>
+    <p id='total_payment'>결제금액 : <%= resData.seat_length * 7000 %></p>
 
-    <form method="post">
+    <form >
         <div id="payment-page">
             <div id="payment-form-overall">
                 <div>
@@ -63,13 +52,78 @@
                 </div>
                 <div class="payment-form">
                     <span> 비밀번호(앞에 2자리)</span>    
-                        <input type="password" name="credit-password" pattern="\d{2}" maxlength="2" size="2">
+                        <input id="password_two" type="password" name="credit-password" pattern="\d{2}" maxlength="2" size="2">
                 </div>
                 <div class="payment-form">
-                    <input type="submit" value="결제">
+                    <button id="submit">결제</button>
                 </div>
             </div> <!-- payment-form -->
         </div> <!-- payment-page -->
     </form>
+    <script>
+    var selected_coupon_id = "0";
+    sendAjax('/api/payment', 'GET', {}, getPaymentInfo);
+
+    var submit = document.getElementById('submit');
+    submit.addEventListener('click', function(e){
+        e.preventDefault();
+        var password_two = document.getElementById('password_two').value;
+        data = {
+            password_two: password_two,
+            total_payment: document.getElementById('total_payment')
+        }
+        data.couponId = selected_coupon_id
+        sendAjax('/api/payment', 'POST', data, payFinished);
+    });
+
+    function getPaymentInfo(result){
+        if(result){
+            var payment_coupon = document.getElementById('payment-coupon');
+            result.coupon_list.forEach(function(item, index){
+                var option = document.createElement('option');
+                option.setAttribute('value', item.benefit);
+                option.setAttribute('coupon_id', item.id);
+                option.setAttribute('class', 'coupon_option')
+                option.innerHTML = item.name;
+                payment_coupon.appendChild(option);
+            });
+            payment_coupon.addEventListener('change', setCoupon, false);
+        }
+    }
+
+    function payFinished(result){
+        if(result.success){
+            alert('결제가 완료되었습니다');
+            window.location.href = '/';
+        }else{
+            alert('결제를 실패하였습니다');
+        }
+    }
+
+    function setCoupon(e){
+        e.preventDefault();
+        var coupon_benefit = document.getElementById('coupon_benefit');
+        coupon_benefit.innerHTML = `할인금액: ${e.target.value}`;
+        var pay = document.getElementById('pay');
+        var total_payment = document.getElementById('total_payment');
+        total_payment.innerHTML = `결제금액: ${Number(pay.getAttribute('pay')) - Number(e.target.value)}`;
+        var payment_coupon = document.getElementById('payment-coupon');
+        selected_coupon_id = Number(payment_coupon.options[payment_coupon.selectedIndex].getAttribute('coupon_id'));   
+    }
+
+    function sendAjax(url, method, data, fn){
+        data = JSON.stringify(data);
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(data);
+
+        xhr.addEventListener('load', function(){
+            var result = JSON.parse(xhr.responseText);
+            fn(result);
+        });
+    }
+
+    </script>
 </body>
 </html>

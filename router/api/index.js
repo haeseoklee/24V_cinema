@@ -77,6 +77,67 @@ router.get('/booking/timetable/:id/seat', function(req, res){
     });
 });
 
+router.get('/payment', function(req, res){
+    var resData = {};
+    var sql = 'select id from reservation order by id desc limit 1'
+    var query = db.query(sql, function(err, rows){
+        if (err) throw err;
+        else{
+            resData.resv_id = JSON.parse(JSON.stringify(rows))[0].id;
+            var sql = 'SELECT CONCAT("RS00000",reservation.id) as resv_id, ' +
+            'date_format(resv_date, "%Y-%m-%d") as resv_date, customer.name, title, startdate, starttime, ' +
+            'cinema, screen.name as screen FROM reservation ' +
+            'JOIN timetable ON reservation.timetable_id = timetable.id ' +
+            'JOIN customer ON reservation.customer_id = customer.id ' +
+            'JOIN screen ON timetable.screen_id = screen.id ' +
+            'JOIN movie ON timetable.movie_id = movie.id ' +
+            `WHERE customer.id=${req.user} and reservation.id=${resData.resv_id}`
+            var query = db.query(sql, function(err, rows){
+                if (err) throw err;
+                else{
+                    resData.resInfo = JSON.parse(JSON.stringify(rows));
+                    var sql = 'SELECT coupon.id, coupon.name, coupon.benefit FROM coupon ' +  
+                    'JOIN customer_coupon ON customer_coupon.coupon_id = coupon.id ' +
+                    'JOIN customer ON customer_coupon.customer_id = customer.id ' +      
+                    'WHERE customer.id = ?'
+                    var query = db.query(sql, [req.user], function(err, rows){
+                        if (err) throw err;
+                        else{
+                            resData.coupon_list = JSON.parse(JSON.stringify(rows));
+                            res.json(resData);
+                        }
+                    })
+                }
+                
+            })
+        }
+    })
+    
+});
+
+
+router.post('/payment', function(req, res){
+    var sql = 'select pw from customer where id = ?'
+    var query = db.query(sql, [req.user], function(err, rows){
+        if (err) throw err
+        else{
+            var pw = JSON.parse(JSON.stringify(rows))[0].pw;
+            if(pw.substring(0, 2) === req.body.password_two){
+                if (req.body.couponId !== "0"){
+                    sql = 'DELETE FROM customer_coupon WHERE customer_id=? AND coupon_id=?';
+                    var query = db.query(sql, [req.user, req.body.couponId], function(err, rows){
+                        if (err) throw err
+                        else{
+                            res.json({success: true})
+                        }
+                    })
+                }
+            }else{
+                res.json({success: false})
+            }
+        }
+    })
+})
 
 
 module.exports = router;
