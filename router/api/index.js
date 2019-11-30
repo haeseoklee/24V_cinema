@@ -137,7 +137,7 @@ router.post('/payment', function(req, res){
                                     var origin_pay = Number(req.body.origin_pay);
                                     var disc_pay = req.body.disc_pay;
                                     var data = {origin_pay, disc_pay, customer_id, resv_id}
-                                    sql = 'insert into ticket_pay ?';
+                                    sql = 'insert into ticket_pay set ?';
                                     var query = db.query(sql, data, function(err, rows){
                                         console.log('2');
                                         if(err) throw err
