@@ -79,7 +79,7 @@ router.get('/booking/timetable/:id/seat', function(req, res){
 
 router.get('/payment', function(req, res){
     var resData = {};
-    var sql = 'select id from reservation order by id desc limit 1'
+    var sql = 'select id from reservation order by id desc limit 1';
     var query = db.query(sql, function(err, rows){
         if (err) throw err;
         else{
@@ -128,10 +128,48 @@ router.post('/payment', function(req, res){
                     var query = db.query(sql, [req.user, req.body.couponId], function(err, rows){
                         if (err) throw err
                         else{
-                            res.json({success: true})
+                            var sql = 'select id from reservation order by id desc limit 1';
+                            var query = db.query(sql, function(err, rows){
+                                if(err) throw err
+                                else{
+                                    var resv_id = JSON.parse(JSON.stringify(rows))[0].id;
+                                    var customer_id = req.user;
+                                    var origin_pay = Number(req.body.origin_pay);
+                                    var disc_pay = req.body.disc_pay;
+                                    var data = {origin_pay, disc_pay, customer_id, resv_id}
+                                    sql = 'insert into ticket_pay ?';
+                                    var query = db.query(sql, data, function(err, rows){
+                                        console.log('2');
+                                        if(err) throw err
+                                        else{
+                                            res.json({success: true});
+                                        }
+                                    })
+                                }
+                            })
                         }
                     })
                 }
+                var sql = 'select id from reservation order by id desc limit 1';
+                var query = db.query(sql, function(err, rows){
+                    if(err) throw err
+                    else{
+                        var resv_id = JSON.parse(JSON.stringify(rows))[0].id;
+                        var customer_id = req.user;
+                        var origin_pay = req.body.origin_pay;
+                        var disc_pay = req.body.disc_pay;
+                        var data = {origin_pay, disc_pay, customer_id, resv_id}
+                        sql = 'insert into ticket_pay set ?';
+                        var query = db.query(sql, data, function(err, rows){
+                            console.log('1');
+                            if(err) throw err
+                            else{
+                                res.json({success: true});
+                            }
+                        })
+                    }
+                })
+                
             }else{
                 res.json({success: false})
             }

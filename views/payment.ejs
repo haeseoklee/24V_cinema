@@ -62,6 +62,7 @@
     </form>
     <script>
     var selected_coupon_id = "0";
+    var disc_pay = 0;
     sendAjax('/api/payment', 'GET', {}, getPaymentInfo);
 
     var submit = document.getElementById('submit');
@@ -70,6 +71,8 @@
         var password_two = document.getElementById('password_two').value;
         data = {
             password_two: password_two,
+            origin_pay: document.getElementById('pay').getAttribute('pay'),
+            disc_pay: disc_pay,
             total_payment: document.getElementById('total_payment')
         }
         data.couponId = selected_coupon_id
@@ -104,6 +107,7 @@
         e.preventDefault();
         var coupon_benefit = document.getElementById('coupon_benefit');
         coupon_benefit.innerHTML = `할인금액: ${e.target.value}`;
+        disc_pay = Number(e.target.value);
         var pay = document.getElementById('pay');
         var total_payment = document.getElementById('total_payment');
         total_payment.innerHTML = `결제금액: ${Number(pay.getAttribute('pay')) - Number(e.target.value)}`;
