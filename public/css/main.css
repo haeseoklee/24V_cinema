@@ -45,22 +45,20 @@ header>a{
 nav{
     display: inline-block;
     margin-right:10%;
-    margin-top:16px;
-    font-size : 30pt;
+    font-size : 35pt;
 }
 
 nav li{
     margin-right:24px;
 }
-
 nav a:hover{
-    color : gray;
+    color : #666666;
     text-shadow: 2px 2px red;
+    background-color:rgb(253, 248, 223);
 }
 
 #logo{
     float : left;
-    margin-top : 0.5%;
     margin-bottom: 0;
     margin-right:50px;
     background-image : url(/img/logo.png);
@@ -71,7 +69,7 @@ nav a:hover{
 ul{
     display: inline-block;
     list-style : none;
-    margin-top:46.6px;
+    margin-top:30px;
     padding : 0;
 }
 
