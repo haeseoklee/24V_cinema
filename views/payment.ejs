@@ -11,7 +11,7 @@
         JOIN reservation ON reservation.id = selected_seat.resv_id
         WHERE reservation.id = 예약id;
     -->
-    <p>예매 금액 : ￦(예매좌석수 * 7000)</p>
+    <p>예매 금액 : ￦(<%= resData.seat_length %> * 7000)</p>
     <select name="payment-coupon">
         <!--
         SELECT coupon.name, coupon.benefit FROM coupon
