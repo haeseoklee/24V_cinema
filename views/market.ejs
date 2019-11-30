@@ -26,14 +26,66 @@
                 </p>
             </article>
         <% i=i+1 }) %>
-
+        
         <div id="list">
             <h3>장바구니</h3>
-            <div id="receipt"></div>
+            <div id="menuname"></div>
             <div id="count"></div>
-            <div id="button1"><button>구매하기</button></div>
+            <div id="purchase"><button>구매하기</button></div>
         </div>
+        
+        <div id="receipt"><h3>영수증</h3></div>
+        
+      
     </div>
+
+    <script>
+        
+        document.getElementById("purchase").addEventListener('click', function(){
+            var menu = document.querySelectorAll(".menu")
+            var str = "{";
+            for(var i=0;i<menu.length;++i){
+                str += '"' + menu[i].id + '":' +menu[i].value;
+                if(i < menu.length-1) str+=","
+                // console.log(menu[i]);
+            }
+            str +="}"
+            var inputData = JSON.parse(str);
+            sendAjax('/market',inputData);
+        })
+
+        function sendAjax(url, data){
+            data = JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(data);
+            
+            xhr.addEventListener('load', function(){
+                // console.log(xhr.responseText);
+                var result = JSON.parse(xhr.responseText);
+                // console.log(result.reqData.data)
+
+                var receipt = document.getElementById("receipt")
+                var da = result.reqData.data
+                // console.log(da.0)
+                var total = 0;
+                for( menu_ in da){
+                    var p = document.createElement("p");
+                    var num = document.getElementById(da[menu_].id).value;
+                    var text = document.createTextNode(da[menu_].name +" "+da[menu_].price*num +"원");
+                    total +=da[menu_].price*num;
+                    p.appendChild(text)
+                    receipt.appendChild(p);
+                }
+                var p = document.createElement("p");
+                var text = document.createTextNode("총 "+total +"원");
+                p.appendChild(text)
+                receipt.appendChild(p);
+            });
+        }
+    </script>
+
     <% include ./footer.ejs %>
 </body>
 </html>

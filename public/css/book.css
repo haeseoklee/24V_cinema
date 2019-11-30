@@ -7,11 +7,16 @@
 body{
     text-decoration: none;
     text-align : center;
+    font-family: NanumGothic !important;
+    font-weight: bold !important;
 }
 
-#header a{
-    color : #555555;
-    text-decoration: none;
+a{
+    text-decoration: none !important;
+}
+
+#head a{
+    color : #555555 !important;
 }
 
 #head{
@@ -59,15 +64,15 @@ body{
     height : 85px;
 }
 
-#head ul{
-    display: inline-block;
-    list-style : none;
-    margin-top:46.6px;
-    padding : 0;
+ #head ul{
+    display: inline-block !important;
+    list-style : none !important;
+    margin-top:46.6px !important;
+    padding : 0 !important;
 }
 
-#head li{
-    display: inline;
+li{
+    display: inline !important;
 }
 
 #login{
@@ -135,7 +140,6 @@ body{
 
 
 
-
 /*-----------------------------------------*/
 
 .panel-body{
@@ -168,3 +172,7 @@ td{
     display: inline-block;
     width : 860px;
  }
+
+span{
+    display: inline-block !important;
+}

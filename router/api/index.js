@@ -9,6 +9,17 @@ router.get('/login', function(req, res){
     res.json({'id': id, 'isAuthenticated': isAuthenticated});
 })
 
+router.post('/market', function(req, res){
+    res.json({'id' : 1});
+    res.render('market.ejs', {});
+    // for(var i=0;i<req.length;++i){
+    //     var resData = req[i];
+    // }
+    // var id =  req.user;
+    // var isAuthenticated = req.isAuthenticated();
+    // res.json({'id': id, 'isAuthenticated': isAuthenticated});
+})
+
 /*
 router.get('/', function(req, res){
     //var id =  req.user;
