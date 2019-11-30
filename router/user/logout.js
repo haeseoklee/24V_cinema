@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
     }else {
         res.redirect('/user/login');
     }
-    
+
     
 });
 

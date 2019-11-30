@@ -210,7 +210,7 @@ html {
 .plane {
     margin: 20px;
     margin-left : 260px;
-    max-width: 300px;
+    max-width: 600px;
 }
 .exit {
     position: relative;
@@ -250,14 +250,18 @@ ol {
     flex-wrap: nowrap;
     justify-content: flex-start;
 }
+
 .seat {
     display: flex;
-    flex: 0 0 14.2857142857%;
+    flex: 0 0 9.2857142857%;
     padding: 5px;
     position: relative;
 }
-.seat:nth-child(3) {
-    margin-right: 14.2857142857%;
+.seat:nth-child(2) {
+    margin-right: 9.2857142857%;
+}
+.seat:nth-child(7) {
+    margin-right: 9.2857142857%;
 }
 .seat input[type=checkbox] {
     position: absolute;
