@@ -48,13 +48,16 @@ nav{
     font-size : 35pt;
 }
 
+nav a{
+    background-color: rgb(253, 248, 223);
+}
 nav li{
     margin-right:24px;
 }
 nav a:hover{
     color : #666666;
     text-shadow: 2px 2px red;
-    background-color:rgb(253, 248, 223);
+    background-color:rgb(243, 238, 213);
 }
 
 #logo{
@@ -123,4 +126,26 @@ footer{
     margin-bottom : 0;
     background-image: url(/img/brick.png);
     background-repeat: repeat-x;
+}
+
+#side-menu{
+    position: fixed;
+    right: 3%;
+}
+#side-menu ul{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 120px;
+    background-color: white;
+}
+
+#side-menu li{
+    display: block;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(63, 55, 13, 0.1);
+    font-size: 15pt;
+}
+
+#side-menu-bottom{
+    border: none !important;
 }
