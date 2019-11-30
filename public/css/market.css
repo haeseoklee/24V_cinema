@@ -7,6 +7,10 @@ body{
     display: inline-block;
 }
 
+#market-menulist{
+    border: 2px solid orange;
+}
+
 article{
     text-align : center;
     display: inline-block;
@@ -18,12 +22,15 @@ article{
 #list{
     display: inline-block;
     width : 400px;
+    border: 2px solid orange;
     
 }
 
 #receipt{
     width : 250px;
     float : left;
+    font-size: 20pt;
+    margin-top: 10px;
 }
 
 #count{
@@ -31,11 +38,34 @@ article{
     float : right;
 }
 
-input{
-    margin-top : 16px;
-}
 
 #button1{
     width : 400px;
     display: inline-block;
+}
+
+input[type="number"]{
+    width: 40%;
+    font-size: 20pt;
+    display: block;
+    height: 31.2px;
+    padding: 0;
+    border: 1px solid;
+    margin-bottom: 26.667px;
+    margin-top: 10px;
+}
+
+#list h3{
+    font-size: 25pt;
+}
+
+#button1 button{
+    font-size: 20pt;
+    border: 2px solid rgb(204, 70, 110);
+    background: none;
+}
+
+#button1 button:hover{
+    background-color: rgb(204, 70, 110);
+    color: white;
 }

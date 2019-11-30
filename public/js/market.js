@@ -22,6 +22,7 @@ function check(){
                 input.setAttribute("type","number");
                 input.setAttribute('id','in'+i);
                 input.setAttribute('value',1);
+                input.setAttribute('min', 1);
                 var text = document.createTextNode(chkbox[i].value);
                 p.appendChild(text)
                 receipt.appendChild(p);

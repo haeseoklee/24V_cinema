@@ -13,6 +13,7 @@
     min-height: 230px;
     margin: 20px;
     margin-bottom: 20px;
+    width: 410px;
 }
 
 #event-coupon-list span{
@@ -25,6 +26,9 @@
     width: 400px;
 }
 
+#main-coupon-list img:hover{
+    border: 5px solid red;
+}
 #main-coupon-list li{
     min-height: 230px;
     margin: 20px;

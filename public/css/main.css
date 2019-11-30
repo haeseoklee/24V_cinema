@@ -28,6 +28,7 @@ div{
 #head{
     margin-top:0;
     min-width:860px;
+    margin-bottom: 50px;
 }
 
 header{
@@ -134,7 +135,7 @@ footer{
 }
 #side-menu ul{
     border: 2px solid rgba(0, 0, 0, 0.1);
-    width: 120px;
+    width: 100px;
     background-color: white;
 }
 
@@ -148,4 +149,115 @@ footer{
 
 #side-menu-bottom{
     border: none !important;
+}
+
+#main-membership img{
+    width: 120px;
+    height: 150px;
+}
+
+#main-membership span{
+    display: block;
+}
+
+#main-membership ul{
+    list-style-type: none;
+    padding:0;
+}
+
+#main-membership{
+    min-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-membership li{
+    padding: 0;
+    display: inline-block;
+    margin: 20px;
+}
+
+#main-membership{
+    margin-top: 0;
+}
+
+#main-membership-h1{
+    margin-bottom: 0;
+}
+
+.main-membership-desc{
+    display: none;
+}
+
+#main-membership img:hover + span + span + div{
+    display: block;
+}
+
+#main-grandopen{
+    border: 3px solid black;
+    background-image: url("/img/grandopenbackground.png");
+    overflow: hidden;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main-grandopen legend{
+    border: 2px solid white;
+    background-color: rgb(167, 18, 87);
+    font-size: 20pt;
+    padding: 10px;
+    color: white;
+}
+
+#main-grandopen fieldset{
+    display: inline-block;
+    width: 20%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 30%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 15pt;
+}
+
+#main-grandopen h1{
+    color: rgb(255,215,0);
+    background-color: rgba(255,215,0,0.2);
+    width: 20%;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-grandopen h2{
+    color:rgb(255,215,0);
+    font-size: 24pt;
+    font-weight: bold;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-grandopen h2 + p{
+    color: rgb(255,215,0);
+    background-color: rgba(0,0,0,0.4);
+    width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18pt;
+    margin-bottom: 10px;
+}
+
+#main-grandopen hr{
+    margin-top: 0;
+    margin-bottom: 50px;
+    width: 50%;
+    background-color: rgb(255,215,0);
+    height: 3px;
+}
+
+.main-grandopen-cinema{
+    font-size: 20pt;
 }
