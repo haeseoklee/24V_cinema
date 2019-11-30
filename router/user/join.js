@@ -30,6 +30,7 @@ passport.use('local-join', new LocalStrategy({
             var sql = 'select * from customer where email=?';
             var email = email.trim();
             var pw = req.body.password;
+            var pw2 = req.body.verify_password;
             var name = req.body.name;
             var ph = req.body.ph;
             var query = db.query(sql, [email], function(err, rows) {
@@ -37,11 +38,16 @@ passport.use('local-join', new LocalStrategy({
                 if (rows.length) {
                     return done(null, false, {message: '이미 존재하는 메일입니다.'});
                 } else {
-                    var sql = {name, email, pw, ph}
-                    var query = db.query('insert into customer set ?', sql, function(err, rows){
-                        if (err) throw err;
-                        return done(null, {'email': email, 'id': rows.insertId });
-                    })
+                    if (pw === pw2){
+                        var sql = {name, email, pw, ph}
+                        var query = db.query('insert into customer set ?', sql, function(err, rows){
+                            if (err) throw err;
+                            return done(null, {'email': email, 'id': rows.insertId });
+                        })
+                    }else{
+                        return done(null, false, {message: '비밀번호가 일치하지 않습니다.'});
+                    }
+                    
                 }
             })
         }
