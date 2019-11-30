@@ -7,8 +7,25 @@
 
 <body>
     <% include ./nav.ejs %>
-    <p>결제 금액 : ￦30,000</p>
-    <form>
+    <!-- SELECT count(seat_no) FROM selected_seat
+        JOIN reservation ON reservation.id = selected_seat.resv_id
+        WHERE reservation.id = 예약id;
+    -->
+    <p>예매 금액 : ￦(예매좌석수 * 7000)</p>
+    <select name="payment-coupon">
+        <!--
+        SELECT coupon.name, coupon.benefit FROM coupon
+        JOIN customer_coupon ON customer_coupon.coupon_id = coupon.id
+        JOIN customer ON customer_coupon.customer_id = customer.id
+        WHERE customer.id = 고객id; 
+        반복문 돌려서
+        -->
+        <option value="coupon테이블의 benefit"> 보유중인 쿠폰이름들 </option>
+    </select>
+    <p>할인 금액 : 선택한 쿠폰의 benefit</p>
+    <p>결제 금액 : 예매금액 - 할인금액</p>
+
+    <form method="post">
         <div id="payment-page">
             <div id="payment-form-overall">
                 <div>

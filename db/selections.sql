@@ -193,9 +193,13 @@ JOIN screen ON timetable.screen_id = screen.id
 WHERE startdate = "2019-11-17" AND screen.cinema = "서울목동"
 ORDER BY startdate, starttime;
 
--- 보유중인 쿠폰(이름, 이메일)
-SELECT customer.name, customer.email, coupon.name, coupon.benefit FROM coupon
+-- 보유중인 쿠폰
+SELECT coupon.name, coupon.benefit FROM coupon
 JOIN customer_coupon ON customer_coupon.coupon_id = coupon.id
 JOIN customer ON customer_coupon.customer_id = customer.id
-WHERE customer.name = "이해석" AND customer.email = "interpret96@gmail.com";
+WHERE customer.id = 1;
 
+-- 예매한 좌석 개수
+SELECT count(seat_no) FROM selected_seat
+JOIN reservation ON reservation.id = selected_seat.resv_id
+WHERE reservation.id = 2;
