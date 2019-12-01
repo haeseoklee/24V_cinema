@@ -28,7 +28,6 @@ router.post('/',function(req, res){
         str += "id="+id + " or "
     str = str.slice(0,-3);
     // console.log(str)
-    
     var sql = 'select name,id,price from menu where '+str;
     var query = db.query(sql, function(err, rows){
         var hasResult = false ? rows.length === 0 : true;
@@ -36,7 +35,7 @@ router.post('/',function(req, res){
         if (hasResult){
             reqData.result = rows.length;
             reqData.data = JSON.parse(JSON.stringify(rows));
-            // console.log(reqData.data)
+            console.log(reqData.data)
         }
         else {
             reqData.result = 0;
@@ -44,14 +43,24 @@ router.post('/',function(req, res){
         }
         res.json({reqData : reqData});
     })
-    
-    
-    // JSON.parse();
-    
-    
-    
-    
-    // res.json({});
 })
+
+// router.post('/order/:id',function(){
+//     var query = db.query(sql, function(err, rows){
+//         if(err) throw err
+//         else{
+//             var resv_id = JSON.parse(JSON.stringify(rows))[0].id;
+//             var customer_id = req.user;
+//             var origin_pay = req.body.origin_pay;
+//             var disc_pay = req.body.disc_pay;
+//             var data = {origin_pay, disc_pay, customer_id, resv_id}
+//             sql = 'insert into ticket_pay set ?';
+//             var query = db.query(sql, data, function(err, rows){
+//                 console.log('1');
+//                 if(err) throw err
+//             })
+//         }
+//     })
+// })
 
 module.exports = router;
