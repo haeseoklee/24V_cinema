@@ -3,14 +3,143 @@
 <head>
     <% include ./header.ejs %>
     <link href="/css/cardStacked.css" rel="stylesheet" />
+    <link href="/css/event.css" rel="stylesheet" />
     <script src="/js/cardStacked.js" type="text/javascript"></script>
     
 </head>
 <body>
     <% include ./nav.ejs%>
+    <% include ./aside.ejs%>
+    <h1> 24V 시네마 상영작 </h1>
     <% include ./cardStacked.ejs%>
     <script>currentSlide(1)</script>
     <br>
+
+    <div id="main-grandopen">
+        <h1> GRAND OPENING </h1>
+        <h2> 2020. 01 </h2>
+        <p> 새롭게 단장한 24V 시네마! 당신에게 신선한 즐거움을 선사합니다! </p>
+        <hr>
+        <fieldset>
+            <legend>신규오픈 </legend>
+            <p> 제주특별자치도 </p>
+            <p class="main-grandopen-cinema"> 서귀포시 </p>
+            <p> 2020.01.04 </p>
+        </fieldset>
+        <fieldset>
+            <legend>신규오픈 </legend>
+            <p> 강원 원주시</p>
+            <p class="main-grandopen-cinema"> 원주혁신점 </p>
+            <p> 2020.01.06 </p>
+        </fieldset>
+        <fieldset>
+            <legend>신규오픈 </legend>
+            <p> 울릉도 </p>
+            <p class="main-grandopen-cinema"> 울릉읍 </p>
+            <p> 2020.01.09 </p>
+        </fieldset> 
+    </div>
+    <h1> 새로운 이벤트 </h1>
+    <div id ="event-main">
+        <div id="main-coupon-list">
+            <ul>
+                <li>
+                    <a href="event#event-coupon1">
+                    <img src="img/coupon/soohum.jpg">
+                    <span> 지친 수험생들을 위한 이벤트!</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="event#event-coupon2">
+                    <img src="img/coupon/newmember.jpg">
+                    <span> 신규회원분들을 위한 이벤트!</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="event#event-coupon3">
+                    <img src="img/coupon/university.jpg">
+                    <span> 대학생 전용 할인 쿠폰!</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="event#event-coupon4">
+                    <img src="img/coupon/army.jpg">
+                    <span> 지켜줘서 고마워 국군장병 할인 이벤트!</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="event#event-coupon5">
+                    <img src="img/coupon/24age.jpg">
+                    <span> 24V만의 특색 이벤트! 24세들 모여라!</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="event#event-coupon6">
+                    <img src="img/coupon/special.jpg">
+                    <span> 24V 제휴 이벤트! 뜨끈한 국밥 한그릇!</span>
+                    </a>
+                </li>
+            </ul>
+        </div> <!-- event-coupon-list -->
+    </div> <!-- event-main -->
+
+    <h1 id="main-membership-h1"> 멤버쉽 등급 안내 </h1>
+    <div id="main-membership">
+        <ul>
+            <li>
+                <img src="img/membership/normal.jpg">
+                <span>일반</span>
+                <span>(영화 1편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>영화 예매 결제시</span>
+                    <span>포인트 5% 적립</span>
+                </div>
+            </li>
+            <li>
+                <img src="img/membership/family.jpg">
+                <span>패밀리</span>
+                <span>(영화 5편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>주차장 무료 이용</span>
+                </div>
+            </li>
+            <li>
+                <img src="img/membership/silver.jpg">
+                <span>실버</span>
+                <span>(영화 10편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>프리미엄석 10%할인</span>
+                </div>
+            </li>
+            <li>
+                <img src="img/membership/gold.jpg">
+                <span>골드</span>
+                <span>(영화 20편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>영화 예매 결제시</span>
+                    <span>포인트 10% 적립</span>
+                </div>
+            </li>
+            <li>
+                <img src="img/membership/platinum.jpg">
+                <span>플래티넘</span>
+                <span>(영화 30편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>매달 무료영화티켓</span>
+                    <span>1장 발권</span>
+                </div>
+            </li>
+            <li>
+                <img src="img/membership/vip.jpg">
+                <span>VIP</span>
+                <span>(영화 50편이상 관람)</span>
+                <div class="main-membership-desc">
+                    <span>영화관 방문 예약시</span>
+                    <span>콜밴 무료 지원</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <% include ./footer.ejs %>
 </body>
 </html>

@@ -28,6 +28,7 @@ div{
 #head{
     margin-top:0;
     min-width:860px;
+    margin-bottom: 50px;
 }
 
 header{
@@ -45,23 +46,23 @@ header>a{
 nav{
     display: inline-block;
     margin-right:10%;
-    margin-top:16px;
-    
-    font-size : 18pt;
+    font-size : 35pt;
 }
 
+nav a{
+    background-color: rgb(253, 248, 223);
+}
 nav li{
     margin-right:24px;
 }
-
 nav a:hover{
-    color : gray;
+    color : #666666;
     text-shadow: 2px 2px red;
+    background-color:rgb(243, 238, 213);
 }
 
 #logo{
     float : left;
-    margin-top : 0.5%;
     margin-bottom: 0;
     margin-right:50px;
     background-image : url(/img/logo.png);
@@ -72,7 +73,7 @@ nav a:hover{
 ul{
     display: inline-block;
     list-style : none;
-    margin-top:46.6px;
+    margin-top:30px;
     padding : 0;
 }
 
@@ -126,4 +127,139 @@ footer{
     margin-bottom : 0;
     background-image: url(/img/brick.png);
     background-repeat: repeat-x;
+}
+
+#side-menu{
+    position: fixed;
+    right: 3%;
+}
+#side-menu ul{
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100px;
+    background-color: white;
+}
+
+#side-menu li{
+    display: block;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(63, 55, 13, 0.1);
+    font-size: 15pt;
+}
+
+#side-menu-bottom{
+    border: none !important;
+}
+
+#main-membership img{
+    width: 120px;
+    height: 150px;
+}
+
+#main-membership span{
+    display: block;
+}
+
+#main-membership ul{
+    list-style-type: none;
+    padding:0;
+}
+
+#main-membership{
+    min-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-membership li{
+    padding: 0;
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+}
+
+#main-membership{
+    margin-top: 0;
+    min-height: 355px;
+}
+
+#main-membership-h1{
+    margin-bottom: 0;
+}
+
+.main-membership-desc{
+    display: none;
+}
+
+#main-membership img:hover + span + span + div{
+    display: block;
+}
+
+#main-grandopen{
+    border: 3px solid black;
+    background-image: url("/img/grandopenbackground.png");
+    overflow: hidden;
+    min-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#main-grandopen legend{
+    border: 2px solid white;
+    background-color: rgb(167, 18, 87);
+    font-size: 20pt;
+    padding: 10px;
+    color: white;
+}
+
+#main-grandopen fieldset{
+    display: inline-block;
+    width: 20%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 30%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    font-size: 15pt;
+}
+
+#main-grandopen h1{
+    color: rgb(255,215,0);
+    background-color: rgba(255,215,0,0.2);
+    width: 20%;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-grandopen h2{
+    color:rgb(255,215,0);
+    font-size: 24pt;
+    font-weight: bold;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-grandopen h2 + p{
+    color: rgb(255,215,0);
+    background-color: rgba(0,0,0,0.4);
+    width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18pt;
+    margin-bottom: 10px;
+}
+
+#main-grandopen hr{
+    margin-top: 0;
+    margin-bottom: 50px;
+    width: 50%;
+    background-color: rgb(255,215,0);
+    height: 3px;
+}
+
+.main-grandopen-cinema{
+    font-size: 20pt;
 }

@@ -1,3 +1,180 @@
+/* ↓ FROM css/book.css */
+
+@font-face{ 
+    font-family: NanumGothic; 
+    src:url(/font/NanumGothic.ttf);
+    src:local(※), url(/font/NanumGothic.ttf) format(‘ttf’);
+}
+
+body{
+    text-decoration: none;
+    text-align : center;
+}
+
+#header a{
+    color : #555555;
+    text-decoration: none;
+}
+
+#head{
+    margin-top:0;
+    min-width:860px;
+}
+
+#header{
+    display: inline-block;
+    background-image: url(/img/pattern.png);
+    width : 100%;
+    height : 120px;
+    text-align: center;
+    margin-bottom : 30px;
+    margin-top: 20px;
+}
+
+#header>a{
+    float:left;
+}
+
+#nav{
+    display: inline-block;
+    margin-right:10%;
+    font-size : 35pt;
+}
+
+#nav a{
+    background-color: rgb(253, 248, 223);
+}
+
+#header li{
+    margin-right:24px;
+}
+
+#header a:hover{
+    color : gray;
+    text-shadow: 2px 2px red;
+    background-color:rgb(243, 238, 213);
+}
+
+#logo{
+    float : left;
+    margin-bottom: 0;
+    margin-right:50px;
+    margin-top:20px;
+    background-image : url(/img/logo.png);
+    width : 200px;
+    height : 85px;
+}
+
+#head ul{
+    display: inline-block;
+    list-style : none;
+    margin-top:30px;
+    padding : 0;
+}
+
+#head li{
+    display: inline;
+}
+
+#login{
+    float : right;
+    margin:0;
+    margin-right : 15%;
+}
+
+#login a{
+    color : #555555;
+    text-decoration: none;
+}
+
+
+#main{
+    text-align: left;
+    display: inline-block;
+    width : 860px;
+    min-height : 720px;
+    align-items: center;
+    overflow: auto;
+}
+
+#title{
+    display: inline-block;
+    margin : 0;
+    padding : 0;
+    margin-left : 40px;
+    text-align : left;
+    width : 860px;
+}
+
+#article{
+    width : 185px;
+    margin : 30px 15px 30px 15px;
+}
+
+#footer{
+    display: inline-block;
+    clear : both;
+    width : 860px;
+    text-align : center;
+    font-size : 9pt;
+}
+
+#end{
+    text-align: center;
+}
+
+#brick{
+    height : 120px;
+    margin-bottom : 0;
+    background-image: url(/img/brick.png);
+    background-repeat: repeat-x;
+}
+
+#head, .all{
+    margin : 0;
+    font-family: NanumGothic;
+    background-color: #fdfcf1;
+    color : #666666;
+    background-repeat: repeat-x;
+    font-weight: bold;
+}
+
+/*-----------------------------------------*/
+
+.panel-body{
+    width : 860px;
+}
+
+td{
+    text-align: left;
+}
+
+.detA {
+    display: inline-block;
+    width : 188px;
+    height: 300px;
+    margin-right : 10px;
+    margin-bottom: 40px;
+    text-align:center;
+}
+
+
+.bd4{
+    text-align : left; 
+    padding: 0 20px 40px;
+ }
+
+ .grade_all{
+    text-align: left;
+    display:block;
+ }
+
+ .people_seat{
+    display: inline-block;
+    width : 860px;
+ }
+/* ↑ FROM css/book.css */
+
 .movie-mid {
     margin-left: 6%;
     margin-right: 6%;
@@ -33,7 +210,7 @@ html {
 .plane {
     margin: 20px;
     margin-left : 260px;
-    max-width: 300px;
+    max-width: 600px;
 }
 .exit {
     position: relative;
@@ -73,14 +250,18 @@ ol {
     flex-wrap: nowrap;
     justify-content: flex-start;
 }
+
 .seat {
     display: flex;
-    flex: 0 0 14.2857142857%;
+    flex: 0 0 9.2857142857%;
     padding: 5px;
     position: relative;
 }
-.seat:nth-child(3) {
-    margin-right: 14.2857142857%;
+.seat:nth-child(2) {
+    margin-right: 9.2857142857%;
+}
+.seat:nth-child(7) {
+    margin-right: 9.2857142857%;
 }
 .seat input[type=checkbox] {
     position: absolute;
@@ -209,19 +390,14 @@ ol {
 .cineD2 {display:block; height:21px; line-height:21px; color:#666; border-bottom:1px solid #e5e5e5;}
 .cineD2 em {display:inline-block; padding:0 6px; background:url('/LCHS/Image/bg/bg_line08.gif') no-repeat left 4px;}
 .cineD2 em:first-child {background:none !important; padding:0 3px;}
-.bd4 {
-    padding: 0 20px 40px;
-    
-}
+
 .mar1 {
     margin-top: 20px;
     margin-left: 25px;
     margin-bottom: 10px;
     display:block;
 }
-.grade_all {
-    display:block;
-}
+
 #time_table li{
     float: left;
     width: 115px;

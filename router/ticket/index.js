@@ -26,21 +26,25 @@ router.get('/booking', function(req, res){
 router.get('/booking/result', function(req, res){
     isLogin(req, res, function(){
         var customer_id = req.user;
-        var timetable_id = req.query.timetable_id;
-        var total_pay = req.query.total_pay;
-        var selected_seats_arr = req.query.selected_seats_arr.split(',');
+        var timetable_id = req.query.in_timetable_id;
+        var number_of_seats = req.query.in_number_of_seats;
+        var selected_seats_arr = req.query.in_selected_seats_arr.split(',');
 
         var sql = 'insert into reservation set ?'
-        var data = {timetable_id, customer_id};
-        var query = db.query(sql, data, function(err, rows){
+        resData = {};
+        var query = db.query(sql, {timetable_id, customer_id}, function(err, rows){
             if(err) throw err
             else{
+                resData.resv_id = rows.insertId;
+                resData.timetable_id = timetable_id;
+                resData.seat_no = [];
                 var sql = 'insert into selected_seat set ?';
                 selected_seats_arr.forEach(function(seat){
                     var data = {};
                     data.resv_id = rows.insertId;
                     data.timetable_id = timetable_id;
                     data.seat_no = seat_no[seat];
+                    resData.seat_no.push(seat_no[seat]);
                     var query = db.query(sql, data, function(err, rows){
                         if (err) throw err
                         else{
@@ -51,7 +55,8 @@ router.get('/booking/result', function(req, res){
                         }
                     })
                 });
-                res.render('booking_result.ejs', {'resData': 'success'});
+                resData.seat_length = resData.seat_no.length;
+                res.render('payment.ejs', {resData: resData});
             }
         });
     });
@@ -105,18 +110,6 @@ router.get('/booking/timetable/:id/seat', function(req, res){
             res.render('seat.ejs', {'resData': resData});
         })
     });
-});
-
-router.post('/seat', function(req, res){
-    res.render();
-});
-
-router.get('/payment', function(req, res){
-    res.render();
-});
-
-router.post('/booking/payment', function(req, res){
-    
 });
 
 function isLogin(req, res, fn){
