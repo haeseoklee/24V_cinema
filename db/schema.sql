@@ -69,7 +69,7 @@ CREATE TABLE reservation(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     timetable_id INT NOT NULL,
     customer_id INT NOT NULL,
-    resv_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    resv_date TIMESTAMP NOT NULL,
     FOREIGN KEY (timetable_id) REFERENCES timetable (id),
     FOREIGN KEY (customer_id) REFERENCES customer (id)
 );
@@ -85,7 +85,8 @@ CREATE TABLE orderlist(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
     cinema VARCHAR(30) NOT NULL,
-    order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    order_date TIMESTAMP NOT NULL,
+    is_able TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (customer_id) REFERENCES customer (id),
     FOREIGN KEY (cinema) REFERENCES cinema (cinema)
 );
@@ -102,7 +103,7 @@ CREATE TABLE menu_order(
 CREATE TABLE seat(
     timetable_id INT NOT NULL,
     seat_no VARCHAR(10) NOT NULL,
-    is_able TINYINT NOT NULL,
+    is_able TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (timetable_id) REFERENCES timetable (id),
     PRIMARY KEY (timetable_id, seat_no)
 );

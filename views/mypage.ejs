@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <% include ./header.ejs %>
     <title>My Page</title>
 </head>
+
 <body>
     <h2><%= data[0].name %>님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
     <div>
@@ -16,8 +18,9 @@
     <div>
         <h3>개인정보</h3>
         <p>
-            휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
-            이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
+            휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br />
+            이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email"
+                value="<%= data[0].email %>"><br />
             <button type="button" id="adjustMyInfo">수정하기</button>
         </p>
     </div>
@@ -25,7 +28,7 @@
         <h3>보유쿠폰</h3>
         <p>
             사용가능한 영화 쿠폰 <%= data.coupon_len %>매<br />
-           
+
             <table>
                 <thead>
                     <tr>
@@ -36,11 +39,11 @@
                 </thead>
                 <tbody>
                     <% data.coupon.forEach(function(element, index){ %>
-                        <tr>
-                            <td><%= element.name %></td>
-                            <td><%= element.coupon_code %></td>
-                            <td><%= element.benefit %></td>
-                        </tr>
+                    <tr>
+                        <td><%= element.name %></td>
+                        <td><%= element.coupon_code %></td>
+                        <td><%= element.benefit %></td>
+                    </tr>
                     <% }) %>
                 </tbody>
             </table>
@@ -56,26 +59,19 @@
                     <th>영화제목</th>
                     <th>상영관</th>
                     <th>좌석번호</th>
-                    <th>예매취소</th>
+                    <!-- <th>예매취소</th> -->
                 </tr>
             </thead>
             <tbody>
-                <!-- <% data.coupon.forEach(function(element, index){ %>
-                    <tr>
-                        <td><%= element.name %></td>
-                        <td><%= element.coupon_code %></td>
-                        <td><%= element.benefit %></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                <% }) %> -->
                 <tr>
-                    <td>11111</td>
-                    <td>2019-11-08</td>
-                    <td>겨울왕국2</td>
-                    <td>영통점 1관</td>
-                    <td>H8,H9</td>
-                    <td><button type="button">예매취소</button></td>
+                    <% data.reserv_list.forEach(function(element,index { %>
+                    <td><%= element.resv_id %></td>
+                    <td><%= element.startdate %></td>
+                    <td><%= element.title %></td>
+                    <td><%= element.cinema %>점 <%= element.screen %>관</td>
+                    <td><%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%></td>
+                    <!-- <td><button type="button">예매취소</button></td> -->
+                    <% }) %>
                 </tr>
             </tbody>
         </table>
@@ -86,62 +82,55 @@
             <thead>
                 <tr>
                     <th>예매번호</th>
+                    <th>예매날짜</th>
+                    <th>예매메뉴</th>
                     <th>지점</th>
-                    <th>메뉴목록</th>
-                    <th>사용가능여부</th>
-                    <th>예매취소</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <% data.coupon.forEach(function(element, index){ %>
-                    <tr>
-                        <td><%= element.name %></td>
-                        <td><%= element.coupon_code %></td>
-                        <td><%= element.benefit %></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                <% }) %> -->
                 <tr>
-                    <td>11111</td>
-                    <td>영통점</td>
-                    <td>치즈팝콘1, 탄산음료2</td>
-                    <td><button type="button">예매취소</button></td>
+                    <% data.reserv_order.forEach(function(element, index){ %>
+                    <td><%= element.order_id %></td>
+                    <td><%= element.order_date %></td>
+                    <td><%= data.reserv_menu[0].name %> <%= data.reserv_menu[0].amount %>개</td>
+                    <td><%= element.cinema %>점</td>
+                    <% }) %>
                 </tr>
             </tbody>
-        </table>         
+        </table>
     </div>
 
     <script>
-    var adjustMyInfo = document.getElementById('adjustMyInfo');
-    adjustMyInfo.addEventListener('click', sendMyInfo);
-    function sendMyInfo() {
-        var user_id = document.getElementById('email').getAttribute('user_id');
-        var ph = document.getElementById('ph').value;
-        var email = document.getElementById('email').value;
-        var data = {user_id, ph, email};
-        sendAjax(`/api/myinfo/${user_id}`, 'POST', data, refreshMyInfo);
-    }
-    
-    function refreshMyInfo(result){
-        if (result.success){
-            console.log('업데이트 완료');
-        } else {
-            console.log('업데이트 실패');
+        var adjustMyInfo = document.getElementById('adjustMyInfo');
+        adjustMyInfo.addEventListener('click', sendMyInfo);
+        function sendMyInfo() {
+            var user_id = document.getElementById('email').getAttribute('user_id');
+            var ph = document.getElementById('ph').value;
+            var email = document.getElementById('email').value;
+            var data = { user_id, ph, email };
+            sendAjax(`/api/myinfo/${user_id}`, 'POST', data, refreshMyInfo);
         }
-    }
-    function sendAjax(url, method, data, fn){
-        data = JSON.stringify(data);
-        var xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(data);
-        xhr.addEventListener('load', function(){
-            var result = JSON.parse(xhr.responseText);
-            fn(result);
-        });
-    }
-    
+
+        function refreshMyInfo(result) {
+            if (result.success) {
+                console.log('업데이트 완료');
+            } else {
+                console.log('업데이트 실패');
+            }
+        }
+        function sendAjax(url, method, data, fn) {
+            data = JSON.stringify(data);
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(data);
+            xhr.addEventListener('load', function () {
+                var result = JSON.parse(xhr.responseText);
+                fn(result);
+            });
+        }
+
     </script>
 </body>
+
 </html>
