@@ -1,3 +1,3 @@
-DROP DATABASE 24v_cinema;
-CREATE DATABASE 24v_cinema;
-USE 24v_cinema;
+DROP DATABASE 24V_cinema;
+CREATE DATABASE 24V_cinema;
+USE 24V_cinema;

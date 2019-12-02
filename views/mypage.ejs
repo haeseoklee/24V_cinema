@@ -48,24 +48,68 @@
     </div>
     <div>
         <h3>최근영화예매내역</h3>
-        <p>
-            예매번호 : 11111111<br />
-            예매날짜 : 2019.11.08<br />
-            영화제목 : 겨울왕국3<br />
-            상영관 : 영통점 1관<br />
-            좌석번호 : H8,H9<br />
-            <button type="button">영화예매취소</button>
-        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>예매번호</th>
+                    <th>예매날짜</th>
+                    <th>영화제목</th>
+                    <th>상영관</th>
+                    <th>좌석번호</th>
+                    <th>예매취소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <% data.coupon.forEach(function(element, index){ %>
+                    <tr>
+                        <td><%= element.name %></td>
+                        <td><%= element.coupon_code %></td>
+                        <td><%= element.benefit %></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <% }) %> -->
+                <tr>
+                    <td>11111</td>
+                    <td>2019-11-08</td>
+                    <td>겨울왕국2</td>
+                    <td>영통점 1관</td>
+                    <td>H8,H9</td>
+                    <td><button type="button">예매취소</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div>     
-        <h3>최근매점예매내역</h3>
-        <p>
-            예매번호 : 22222222<br />
-            예매날짜 : 2019.11.08<br />
-            예매 메뉴 : 팝콘 콤보1번 (오리지널)<br />
-            지점 : 영통점<br />
-            <button type="button">매점예매취소</button>
-        </p>
+    <div>
+        <h3>매점예매내역</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>예매번호</th>
+                    <th>지점</th>
+                    <th>메뉴목록</th>
+                    <th>사용가능여부</th>
+                    <th>예매취소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <% data.coupon.forEach(function(element, index){ %>
+                    <tr>
+                        <td><%= element.name %></td>
+                        <td><%= element.coupon_code %></td>
+                        <td><%= element.benefit %></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                <% }) %> -->
+                <tr>
+                    <td>11111</td>
+                    <td>영통점</td>
+                    <td>치즈팝콘1, 탄산음료2</td>
+                    <td><button type="button">예매취소</button></td>
+                </tr>
+            </tbody>
+        </table>         
     </div>
 
     <script>
