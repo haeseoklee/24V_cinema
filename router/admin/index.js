@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../../db/db');
 
 
-router.get('/console', function(req, res){
+router.get('/', function(req, res){
     isAdmin(req, res, function(){
         res.render('admin_console.ejs');
     });
