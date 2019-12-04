@@ -209,7 +209,7 @@ html {
 }
 .plane {
     margin: 20px;
-    margin-left : 260px;
+    margin-left : 100px;
     max-width: 600px;
 }
 .exit {
@@ -294,7 +294,7 @@ ol {
 .seat label {
     display: block;
     position: relative;
-    width: 100%;
+    width: 90%;
     text-align: center;
     font-size: 14px;
     font-weight: bold;

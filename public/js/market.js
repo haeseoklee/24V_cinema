@@ -56,7 +56,9 @@ document.getElementById("purchase").addEventListener('click', function(){
     }
     str +="}"
     var inputData = JSON.parse(str);
+    console.log(inputData)
     sendAjax('/market',inputData);
+    // order('/market/order',inputData)
 })
 
 function sendAjax(url, data){
@@ -75,6 +77,7 @@ function sendAjax(url, data){
         receipt.innerHTML = "";
         var da = result.reqData.data
         var total = 0;
+        console.log(da)
         for( menu_ in da){
             var p = document.createElement("p");
             var num = document.getElementById(da[menu_].id).value;
@@ -90,7 +93,7 @@ function sendAjax(url, data){
     });
 }
 
-// function order(){
+// function order(url,data){
 //     var answer = confirm(`구매 하시겠습니까?`);
 //     if (answer){
 //         if (selected_seats_arr.size){
@@ -102,11 +105,7 @@ function sendAjax(url, data){
 //             in_selected_seats_arr.value = Array.from(selected_seats_arr);
 //             result_form.submit();
 //         }
-//     } else {
-//         number_of_teenagers = 0;
-//         number_of_adults = 0;
-//     }
-
+//     } 
 // }
 
 
