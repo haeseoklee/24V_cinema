@@ -1,31 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <% include ./header.ejs %>
+    <link href="/css/mypage.css" rel="stylesheet"/>
     <title>My Page</title>
 </head>
 <body>
-    <h2><%= data[0].name %>님, 오늘도 영화처럼 멋진 하루 되세요!</h2>
-    <div>
-        <h3><%= data[0].name %>님은 <%= data[0].membership_id %>회원입니다.</h3>
-        <h3>24V 포인트</h3>
-        <p>
-            현재 보유 포인트 <%= data[0].point %> P<br />
-        </p>
+    <% include ./nav.ejs %>
+    <% include ./aside.ejs%>
+    <div id="title">
+    <h2><%= data[0].name %>님, <span>오늘도 영화처럼 멋진 하루 되세요!</span></h2>
     </div>
-    <div>
-        <h3>개인정보</h3>
-        <p>
-            휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
-            이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
-            <button type="button" id="adjustMyInfo">수정하기</button>
-        </p>
-    </div>
-    <div>
-        <h3>보유쿠폰</h3>
-        <p>
-            사용가능한 영화 쿠폰 <%= data.coupon_len %>매<br />
-           
+    <hr/>
+    <div id="main">
+        <div class="personal">
+            <div id="point">
+                <h3><%= data[0].name %>님은 <%= data[0].membership_id %>회원입니다.</h3>
+                <hr />
+                <h4>24V 포인트</h3>
+                <p>
+                    현재 보유 포인트 <%= data[0].point %> P<br />
+                </p>
+            </div>
+            <div class="vl"></div>
+            <div>
+                <h3>개인정보</h3>
+                <hr />
+                <p>
+                    휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
+                    이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
+                    <button type="button" id="adjustMyInfo">수정하기</button>
+                </p>
+            </div>
+        </div>
+        <div class="coupon">
+            <h3>보유쿠폰</h3>
+            <h4>사용가능한 쿠폰 <%= data.coupon_len %>매</h4>
+            <hr />
             <table>
                 <thead>
                     <tr>
@@ -44,41 +56,48 @@
                     <% }) %>
                 </tbody>
             </table>
-        </p>
+            <!--<h4>쿠폰 등록</h4>
+            <hr />
+            <p>
+                쿠폰명 : <input type="text" name="coupon_name" id="co_name">
+                쿠폰번호 : <input type="text" name="coupon_num" id="co_num">
+                <button user_id="<%= data[0].id %>" type="button" id="registerCoupon">등록하기</button>
+            </p>-->
+        </div>
+        <div class="reserv">
+            <div id="movie_res">
+                <h3>영화예매내역</h3>
+                <hr />
+                <% data.reserv_list.forEach(function(element, index){ %>
+                <p>
+                    예매번호 : <%= element.resv_id %><br />
+                    예매날짜 : <%= element.startdate %><br />
+                    영화제목 : <%= element.title %><br />
+                    상영관 : <%= element.cinema %>점 <%= element.screen %>관<br />
+                    좌석번호 : <%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%><br />
+                    <!-- <button type="button">영화예매취소</button> -->
+                </p>
+                <% }) %>
+            </div>
+            <div class="vl"></div>
+            <div>     
+                <h3>최근매점예매내역</h3>
+                <hr />
+                <% data.reserv_order.forEach(function(element, index){ %>
+                <p>
+                    예매번호 : <%= element.order_id %><br />
+                    예매날짜 : <%= element.order_date %><br />
+                    예매 메뉴 : <%= data.reserv_menu[0].name %> <%= data.reserv_menu[0].amount %>개<br />
+                    지점 : <%= element.cinema %>점<br />
+                <!--  <button type="button">매점예매취소</button> -->
+                </p>
+                <% }) %>
+            </div>
+        </div>
     </div>
-    <div>
-        <h3>영화예매내역</h3>
-        <% data.reserv_list.forEach(function(element, index){ %>
-        <p>
-            예매번호 : <%= element.resv_id %><br />
-            예매날짜 : <%= element.startdate %><br />
-            영화제목 : <%= element.title %><br />
-            상영관 : <%= element.cinema %>점 <%= element.screen %>관<br />
-            좌석번호 : <%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%><br />
-            <!-- <button type="button">영화예매취소</button> -->
-        </p>
-        <% }) %>
-    </div>
-    <div>     
-        <h3>최근매점예매내역</h3>
-        <% data.reserv_order.forEach(function(element, index){ %>
-        <p>
-            예매번호 : <%= element.order_id %><br />
-            예매날짜 : <%= element.order_date %><br />
-            예매 메뉴 : <%= data.reserv_menu[0].name %> <%= data.reserv_menu[0].amount %>개<br />
-            지점 : <%= element.cinema %>점<br />
-           <!--  <button type="button">매점예매취소</button> -->
-        </p>
-        <% }) %>
-    </div>
-
     <script>
-
     var adjustMyInfo = document.getElementById('adjustMyInfo');
-
     adjustMyInfo.addEventListener('click', sendMyInfo);
-
-
     function sendMyInfo() {
         var user_id = document.getElementById('email').getAttribute('user_id');
         var ph = document.getElementById('ph').value;
@@ -94,20 +113,19 @@
             console.log('업데이트 실패');
         }
     }
-
     function sendAjax(url, method, data, fn){
         data = JSON.stringify(data);
         var xhr = new XMLHttpRequest();
         xhr.open(method, url);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(data);
-
         xhr.addEventListener('load', function(){
             var result = JSON.parse(xhr.responseText);
             fn(result);
         });
     }
-    
+
     </script>
+    <% include ./footer.ejs %>
 </body>
 </html>
