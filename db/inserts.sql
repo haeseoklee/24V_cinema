@@ -476,7 +476,7 @@ INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id)
 VALUES (14000,1000,1,1);
 
 INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
-VALUES (1400,1000,2,2);
+VALUES (14000,1000,2,2);
 
 INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
 VALUES (21000,0,3,3);

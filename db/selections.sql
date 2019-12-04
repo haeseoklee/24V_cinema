@@ -203,3 +203,40 @@ WHERE customer.id = 1;
 SELECT count(seat_no) FROM selected_seat
 JOIN reservation ON reservation.id = selected_seat.resv_id
 WHERE reservation.id = 2;
+
+-- 지점별, 월별로 예매 매출 뽑기
+SELECT DATE_FORMAT(reservation.resv_date,"%Y-%m-%d") as rdate,
+cinema.cinema, origin_pay-disc_pay FROM ticket_pay
+JOIN reservation ON ticket_pay.resv_id = reservation.id
+JOIN timetable ON reservation.timetable_id = timetable.id
+JOIN screen ON timetable.screen_id = screen.id
+JOIN cinema ON screen.cinema = cinema.cinema
+WHERE cinema.cinema="서울목동"
+AND reservation.resv_date<"2019-12" AND reservation.resv_date>="2019-11"
+ORDER BY reservation.resv_date;
+
+-- 지점별 총 예매 매출
+SELECT sum(origin_pay-disc_pay) FROM ticket_pay
+JOIN reservation ON ticket_pay.resv_id = reservation.id
+JOIN timetable ON reservation.timetable_id = timetable.id
+JOIN screen ON timetable.screen_id = screen.id
+JOIN cinema ON screen.cinema = cinema.cinema
+WHERE cinema.cinema="서울목동";
+
+
+-- 지점별, 월별로 매점 매출 뽑기
+SELECT DATE_FORMAT(orderlist.order_date,"%Y-%m-%d") as odate,
+cinema.cinema, origin_pay-disc_pay FROM snack_pay
+JOIN orderlist ON snack_pay.orderlist_id = orderlist.id
+JOIN cinema ON orderlist.cinema = cinema.cinema
+WHERE cinema.cinema="서울목동"
+AND orderlist.order_date<"2019-12" AND orderlist.order_date>="2019-11"
+ORDER BY orderlist.order_date;
+
+-- 지점별 총 매점 매출
+SELECT sum(origin_pay-disc_pay) FROM snack_pay
+JOIN orderlist ON snack_pay.orderlist_id = orderlist.id
+JOIN cinema ON orderlist.cinema = cinema.cinema
+WHERE cinema.cinema="서울목동";
+
+-- 서울목동, 인천송도, 대전터미널, 대구현대, 울산진장, 광주터미널, 센텀시티
