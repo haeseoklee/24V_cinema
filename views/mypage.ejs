@@ -56,13 +56,13 @@
                     <% }) %>
                 </tbody>
             </table>
-            <h4>쿠폰 등록</h4>
+            <!--<h4>쿠폰 등록</h4>
             <hr />
             <p>
                 쿠폰명 : <input type="text" name="coupon_name" id="co_name">
                 쿠폰번호 : <input type="text" name="coupon_num" id="co_num">
                 <button user_id="<%= data[0].id %>" type="button" id="registerCoupon">등록하기</button>
-            </p>
+            </p>-->
         </div>
         <div class="reserv">
             <div id="movie_res">
@@ -124,14 +124,7 @@
             fn(result);
         });
     }
-    
-    var registerCoupon = document.getElementById('registerCoupon');
-    registerCoupon.addEventListener('click',sendCoupon);
-    function sendCoupon(){
-        var user_id = registerCoupon.getAttribute('user_id');
-        var coupon_name = document.getElementById('co_name').value;
-        var cus_couponid = document.getElementById('co_num').value;
-    }
+
     </script>
     <% include ./footer.ejs %>
 </body>
