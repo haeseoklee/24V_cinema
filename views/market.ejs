@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <% include ./header.ejs %>
-    <% var res = resData.data; %>
+    <% var menus = resData.menu; 
+       var cinemas = resData.cinema%>
     <link href="/css/market.css" rel="stylesheet"/>
     
 </head>
@@ -15,9 +16,9 @@
     <hr/>
     <div id="main">
         <div id="market-menulist">
-            <%  var i =0;
-                
-                res.forEach(function(item){ %>
+            <%  
+                var i =0;
+                menus.forEach(function(item){ %>
                 <article>
                     <div>
                         <label for="img<%=i%>" ><img src="<%=item.img%>" alt="<%=item.name%>" class="chk<%=i%>"></label>
@@ -33,9 +34,16 @@
             <h3>장바구니</h3>
             <div id="menuname"></div>
             <div id="count"></div>
+            <div id ="cinemas" style="width : 360px; float : left; text-align:left;">
+            <%  
+                var i =0;
+                cinemas.forEach(function(cinema){ %>
+                    <label><input type="radio" name="cinema" value="<%=cinema.cinema%>"/><%=cinema.cinema%></label>     
+                <% i=i+1 }) %>
+            </div>
             <div id="purchase"><button>구매하기</button></div>
         </div>
-        
+
         <div id="receipt"><h3>영수증</h3></div>
         
     </div>
@@ -43,5 +51,4 @@
     <% include ./footer.ejs %>
 </body>
 </html>
-
 
