@@ -1,0 +1,56 @@
+#main > div {
+    width: 830px;
+    border: 4px solid rgb(224, 103, 103);
+    padding: 10px;
+    overflow: auto;
+}
+.coupon{
+    clear: both;
+    overflow: auto;
+}
+.reserv div, .personal div{
+    float: left;
+    width: 48%;
+    margin-top : 0px;
+    margin-bottom : 0px;
+    clear: none;
+}
+p{
+    text-align: left;
+    padding-left:20px;
+    line-height: 2;
+}
+#point, #movie_res{
+    border-right: 2px solid rgb(224, 103, 103);
+
+}
+h3{
+    text-align: left;
+    padding-left: 10px;
+    color : black;
+    background-color : rgb(231, 131, 131);
+    display : inline-block;
+    height: 40px;
+    margin : 5px;
+    width : 94%;
+    padding-top: 20px;
+}
+table{
+    width: 750px;
+    padding-left : 20px;
+}
+th,td{
+    height: 30px;
+}
+th{
+    border-bottom : 1px solid gray;
+    background-color: rgb(245, 188, 188);
+    color : black;
+}
+h4{
+    font-size : 13pt;
+    margin: 10px;
+}
+span{
+    font-style: italic;
+}

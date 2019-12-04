@@ -18,6 +18,9 @@ article{
     height : 296px;
     margin : 30px 15px 30px 15px;
 }
+article p {
+    line-height: 1.8;
+}
 
 #list{
     display: inline-block;
