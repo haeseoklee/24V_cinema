@@ -9,9 +9,9 @@ router.get('/', function(req, res){
 });
 
 router.post('/', passport.authenticate('local-join', {
-        successRedirect: '/',
-        failureRedirect: '/user/join',
-        failureFlash: true
+    successRedirect: '/',
+    failureRedirect: '/user/join',
+    failureFlash: true
 }))
 
 passport.serializeUser(function(user, done) {

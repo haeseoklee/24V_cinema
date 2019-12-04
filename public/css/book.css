@@ -1,0 +1,178 @@
+@font-face{ 
+    font-family: NanumGothic; 
+    src:url(/font/NanumGothic.ttf);
+    src:local(※), url(/font/NanumGothic.ttf) format(‘ttf’);
+}
+
+body{
+    text-decoration: none;
+    text-align : center;
+    font-family: NanumGothic !important;
+    font-weight: bold !important;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+#head a{
+    color : #555555 !important;
+}
+
+#head{
+    margin-top:0;
+    min-width:860px;
+}
+
+#header{
+    display: inline-block;
+    background-image: url(/img/pattern.png);
+    width : 100%;
+    height : 120px;
+    text-align: center;
+    margin-bottom : 30px;
+}
+
+#header>a{
+    float:left;
+}
+
+#nav{
+    display: inline-block;
+    margin-right:10%;
+    margin-top:16px;
+    
+    font-size : 18pt;
+}
+
+#header li{
+    margin-right:24px;
+}
+
+#header a:hover{
+    color : gray;
+    text-shadow: 2px 2px red;
+}
+
+#logo{
+    float : left;
+    margin-top : 0.5%;
+    margin-bottom: 0;
+    margin-right:50px;
+    background-image : url(/img/logo.png);
+    width : 200px;
+    height : 85px;
+}
+
+ #head ul{
+    display: inline-block !important;
+    list-style : none !important;
+    margin-top:46.6px !important;
+    padding : 0 !important;
+}
+
+li{
+    display: inline !important;
+}
+
+#login{
+    float : right;
+    margin:0;
+    margin-right : 15%;
+    
+}
+
+
+#main{
+    text-align: left;
+    display: inline-block;
+    width : 860px;
+    min-height : 720px;
+    align-items: center;
+    overflow: auto;
+}
+
+#title{
+    display: inline-block;
+    margin : 0;
+    padding : 0;
+    margin-left : 40px;
+    text-align : left;
+    width : 860px;
+}
+
+#article{
+    width : 185px;
+    margin : 30px 15px 30px 15px;
+}
+
+#footer{
+    display: inline-block;
+    clear : both;
+    width : 860px;
+    text-align : center;
+    font-size : 9pt;
+}
+
+#end{
+    text-align: center;
+}
+
+#brick{
+    height : 120px;
+    margin-bottom : 0;
+    background-image: url(/img/brick.png);
+    background-repeat: repeat-x;
+}
+
+#head, .all{
+    margin : 0;
+    font-family: NanumGothic;
+    background-color: #fdfcf1;
+    color : #666666;
+    background-repeat: repeat-x;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/*-----------------------------------------*/
+
+.panel-body{
+    width : 860px;
+}
+
+td{
+    text-align: left;
+}
+
+.detA {
+    display: inline-block;
+    width : 188px;
+    height: 300px;
+    margin-right : 10px;
+    margin-bottom: 40px;
+    text-align:center;
+}
+
+
+.bd4 *{
+    text-align : left; 
+ }
+
+ .grade_all{
+    text-align: left; 
+ }
+
+ .people_seat{
+    display: inline-block;
+    width : 860px;
+ }
+
+span{
+    display: inline-block !important;
+}
