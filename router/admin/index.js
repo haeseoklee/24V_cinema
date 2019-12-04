@@ -15,7 +15,7 @@ function isAdmin(req, res, fn){
         var query = db.query(sql, [req.user], function(err, rows){
             var data = JSON.parse(JSON.stringify(rows));
             if(err) res.redirect('/');
-            if (data[0].email === 'admin@admin.com'){
+            if (data[0].email === 'jhj967878@naver.com'){
                 fn();
             }else{
                 res.redirect('/');

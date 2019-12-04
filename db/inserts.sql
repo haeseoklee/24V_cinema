@@ -6,11 +6,11 @@ INSERT INTO membership(ranking,benefit) VALUES ("PLATINUM",2000);
 INSERT INTO membership(ranking,benefit) VALUES ("VIP",3000);
 
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('이해석','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
+VALUES ('haeseok','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
+VALUES ('jonghoon','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('정희재','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
+VALUES ('heejae','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
 
 INSERT INTO coupon (name,benefit)
 VALUES ('수험생할인',3000);
@@ -476,7 +476,7 @@ INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id)
 VALUES (14000,1000,1,1);
 
 INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
-VALUES (1400,1000,2,2);
+VALUES (14000,1000,2,2);
 
 INSERT INTO ticket_pay(origin_pay, disc_pay, customer_id, resv_id) 
 VALUES (21000,0,3,3);

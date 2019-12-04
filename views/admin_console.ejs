@@ -2,26 +2,21 @@
 <html>
     <head>
         <% include ./header.ejs %>
-        <link rel="stylesheet" href="css/sales.css">
+        <link rel="stylesheet" href="../css/sales.css">
     </head>
     <body>
         <% include ./nav.ejs %>
-        <aside>
+        <aside id="admin-aside">
             <ul>
-                <li><a href="/admin/console"> 매출 </a>
-                <ul class="nested_ul">
-                    <li><a href="#seoul"> 서울 </a></li>
-                    <li><a href="#incheon"> 인천 </a></li>
-                    <li><a href="#daejeon"> 대전 </a></li>
-                    <li><a href="#daegu"> 대구 </a></li>
-                    <li><a href="#ulsan"> 울산 </a></li>    
-                    <li><a href="#gwangju"> 광주 </a></li>
-                    <li><a href="#busan"> 부산 </a></li>
-                    <li><a href="#local_sales"> 지점별 총 매출 </a></li>
-                    <li><a hreclass"#total_sales"> 총 매출 </a></li>
-                </ul>
-                </li>
-                <li><a href="#employee"> 직원관리 </a></li>
+                <li><a href="#seoul"> 서울 </a></li>
+                <li><a href="#incheon"> 인천 </a></li>
+                <li><a href="#daejeon"> 대전 </a></li>
+                <li><a href="#daegu"> 대구 </a></li>
+                <li><a href="#ulsan"> 울산 </a></li>    
+                <li><a href="#gwangju"> 광주 </a></li>
+                <li><a href="#busan"> 부산 </a></li>
+                <li><a href="#local_sales"> 지점별 총 매출 </a></li>
+                <li><a href="#total_sales"> 총 매출 </a></li>
             </ul>
         </aside>
         <div id ="main">
