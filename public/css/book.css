@@ -10,7 +10,9 @@ body{
     font-family: NanumGothic !important;
     font-weight: bold !important;
 }
-
+.mal_auto {
+    margin: auto !important;
+}
 a{
     text-decoration: none !important;
 }
@@ -152,7 +154,7 @@ td{
 
 .detA {
     display: inline-block;
-    width : 188px;
+    width : 207.5px;
     height: 300px;
     margin-right : 10px;
     margin-bottom: 40px;
