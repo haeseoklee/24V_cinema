@@ -26,28 +26,27 @@ router.get('/', function(req, res){
 });
 
 router.post('/',function(req, res){
-    // console.log(req.body)
-    var reqData = {};
-    var str = new String;
-    for(var id in req.body)
-        str += "id="+id + " or "
-    str = str.slice(0,-3);
-    // console.log(str)
-    var sql = 'select name,id,price from menu where '+str;
-    var query = db.query(sql, function(err, rows){
-        var hasResult = false ? rows.length === 0 : true;
-        if (err) return done(err);
-        if (hasResult){
-            reqData.result = rows.length;
-            reqData.data = JSON.parse(JSON.stringify(rows));
-            console.log(reqData.data)
-        }
-        else {
-            reqData.result = 0;
-            reqData.data = null;
-        }
-        res.json({reqData : reqData});
-    })
-})
+    var resData = {}
+    resData.resArr = []
+    if (req.isAuthenticated()){
+        var sql = 'select name, id, price from menu where id=?';
+        var arr = req.body.arr;
+        arr.forEach(function(element, index){
+            var query = db.query(sql, [element.id], function(err, rows){
+                if (err) return done(err);
+                else{
+                    var menu = JSON.parse(JSON.stringify(rows))[0];
+                    menu.value = element.value
+                }
+                resData.resArr.push(menu)  
+                if (index === arr.length-1){
+                    res.json({resData : resData});
+                }
+            })
+        })
+    }else{
+        res.json({resData : resData});
+    }
+});
 
 module.exports = router;
