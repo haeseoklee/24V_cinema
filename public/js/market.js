@@ -1,11 +1,22 @@
 var visit = [];
+var checked = null;
 window.onload = function(){
-    var chkbox = document.getElementsByName('img'); 
-
+    var chkbox = document.getElementsByName('img');
     for(var i=0;i<chkbox.length;++i){
         chkbox[i].addEventListener("change",check);
     }
 }
+
+
+function cinemaChecked(e) {
+    var cinemas = document.getElementsByName('cinema');
+    for(var i=0;i<cinemas.length;i++){
+        if (cinemas[i].checked === true){
+            checked = cinemas[i].value;
+        }
+    }
+}
+
 function check(){
     var chkbox = document.getElementsByName('img');
     var menuname = document.getElementById('menuname');
@@ -38,7 +49,6 @@ function check(){
                 var index = i + 1
                 var re_p = document.getElementById('name'+index);
                 var re_in = document.getElementById(index);
-                //console.log(re);
                 re_p.remove();
                 re_in.remove();
             }
@@ -56,7 +66,11 @@ document.getElementById("purchase").addEventListener('click', function(){
         info.value = Number(menu[i].value);
         data.arr.push(info)
     }
-    sendAjax('/market', data, showOrderedMenu);
+    data.cinemaChecked = checked;
+    if(checked){
+        sendAjax('/market', data, showOrderedMenu);
+    }
+    
 })
 
 function sendAjax(url, data, fn){
