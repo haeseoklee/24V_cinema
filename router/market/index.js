@@ -3,26 +3,29 @@ var router = express.Router();
 var db = require('../../db/db');
 
 router.get('/', function(req, res){
-    var sql = 'select * from menu';
-    var query = db.query(sql, function(err, rows){
-        var hasResult = false ? rows.length === 0 : true;
-        var resData = {};
-        if (err) return done(err);
-        else{
-            resData.result = rows.length;
-            resData.menu = JSON.parse(JSON.stringify(rows));
-            var sql = 'select * from cinema';
-            var query = db.query(sql, function(err, rows){
-                var hasResult = false ? rows.length === 0 : true;
-                if (err) return done(err);
-                else{
-                    resData.result = rows.length;
-                    resData.cinema = JSON.parse(JSON.stringify(rows));
-                }
-                res.render('market.ejs', {resData: resData});
-            })
-        }
+    isLogin(req, res, function(){
+        var sql = 'select * from menu';
+        var query = db.query(sql, function(err, rows){
+            var hasResult = false ? rows.length === 0 : true;
+            var resData = {};
+            if (err) return done(err);
+            else{
+                resData.result = rows.length;
+                resData.menu = JSON.parse(JSON.stringify(rows));
+                var sql = 'select * from cinema';
+                var query = db.query(sql, function(err, rows){
+                    var hasResult = false ? rows.length === 0 : true;
+                    if (err) return done(err);
+                    else{
+                        resData.result = rows.length;
+                        resData.cinema = JSON.parse(JSON.stringify(rows));
+                    }
+                    res.render('market.ejs', {resData: resData});
+                })
+            }
+        })
     })
+    
 });
 
 router.post('/',function(req, res){
@@ -82,5 +85,14 @@ router.post('/',function(req, res){
         res.json({resData : resData});
     }
 });
+
+
+function isLogin(req, res, fn){
+    if (req.isAuthenticated()) {
+        return fn();
+    }else {
+        res.redirect('/user/login');
+    }
+}
 
 module.exports = router;
