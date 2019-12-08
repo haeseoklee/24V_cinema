@@ -216,12 +216,12 @@ AND reservation.resv_date<"2019-12" AND reservation.resv_date>="2019-11"
 ORDER BY reservation.resv_date;
 
 -- 지점별 총 예매 매출
-SELECT sum(origin_pay-disc_pay) FROM ticket_pay
+SELECT cinema.cinema, sum(origin_pay-disc_pay) FROM ticket_pay
 JOIN reservation ON ticket_pay.resv_id = reservation.id
 JOIN timetable ON reservation.timetable_id = timetable.id
 JOIN screen ON timetable.screen_id = screen.id
 JOIN cinema ON screen.cinema = cinema.cinema
-WHERE cinema.cinema="서울목동";
+GROUP BY cinema.cinema;
 
 
 -- 지점별, 월별로 매점 매출 뽑기
