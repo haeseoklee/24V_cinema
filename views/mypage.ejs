@@ -71,7 +71,7 @@
                 <% data.reserv_list.forEach(function(element, index){ %>
                 <p>
                     예매번호 : <%= element.resv_id %><br />
-                    예매날짜 : <%= element.startdate %><br />
+                    예매날짜 : <%= element.startdate.split('T')[0] %><br />
                     영화제목 : <%= element.title %><br />
                     상영관 : <%= element.cinema %>점 <%= element.screen %>관<br />
                     좌석번호 : <%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%><br />
