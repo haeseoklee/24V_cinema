@@ -143,13 +143,11 @@ function timetable_click(e){
 
     var selAdu = document.getElementById('selAdu');
     var selTeen = document.getElementById('selTeen');
-
     selAdu.addEventListener('change', function(){
         number_of_adults = Number(selAdu.options[selAdu.selectedIndex].value);
     });
     
-    selTeen.addEventListener('change', function(){
-        number_of_teenagers = Number(selTeen.options[selTeen.selectedIndex].value);
+    selTeen.addEventListener('click', function(){
         var col4 = document.getElementById("collapse4");
         var col5 = document.getElementById("collapse5");
         col4.className = "panel-collapse collapse";
@@ -215,7 +213,6 @@ function showSeats(result){
 
 
 var number_of_adults = 0;
-var number_of_teenagers = 0;
 var persons = 1; 
 var number_of_persons = 1; 
 var selected_seats_arr = new Set();
@@ -235,7 +232,7 @@ function selectSeat(e) {
             }
         }
     }else{
-        if(selected_seats_arr.size + number_of_persons > number_of_adults + number_of_teenagers){
+        if(selected_seats_arr.size + number_of_persons > number_of_adults){
             return;
         }
         for(var i=idx;i < idx+number_of_persons;i++){
@@ -247,7 +244,7 @@ function selectSeat(e) {
                 }
             }
         }
-        if(selected_seats_arr.size === number_of_adults + number_of_teenagers){
+        if(selected_seats_arr.size === number_of_adults){
             var answer = confirm(`${movie_title} 영화를 예매 하시겠습니까?`);
             if (answer){
                 if (selected_seats_arr.size){
@@ -260,7 +257,6 @@ function selectSeat(e) {
                     result_form.submit();
                 }
             } else {
-                number_of_teenagers = 0;
                 number_of_adults = 0;
             }
         }
