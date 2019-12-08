@@ -6,7 +6,11 @@ var connection = mysql.createConnection({
     user : 'root',
     password : 'root',
     database : '24V_cinema',
+<<<<<<< HEAD
     socketPath :'/Applications/MAMP/tmp/mysql/mysql.sock'
+=======
+    socketPath :'/Applications/MAMP/tmp/mysql/mysql.sock',
+>>>>>>> 70ddafb44e72510d915f29365a754879d9ddc3ae
 });
 connection.connect();
 
