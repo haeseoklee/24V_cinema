@@ -6,6 +6,19 @@
     </head>
     <body>
         <% include ./nav.ejs %>
+        총매출 : <%= data.totalSelling %>
+        <br>
+        <% data.arr.forEach(function(item, index){ %>
+            <%= item.cinemaName %>
+            지점별 총매출:
+            <% if (item.cinemaSelling) { %>
+                <%= item.cinemaSelling %>원
+            <% } else {%>
+                0원
+            <% } %>
+            <br>
+        <% }) %>
+        
         <aside id="admin-aside">
             <ul>
                 <li><a href="#seoul"> 서울 </a></li>
