@@ -117,11 +117,12 @@ router.get('/payment', function(req, res){
 
 
 router.post('/payment', function(req, res){
-    var sql = 'select pw from customer where id = ?'
+    var sql = 'select point, pw from customer where id = ?';
     var query = db.query(sql, [req.user], function(err, rows){
         if (err) throw err
         else{
             var pw = JSON.parse(JSON.stringify(rows))[0].pw;
+            var point = JSON.parse(JSON.stringify(rows))[0].point;
             if(pw.substring(0, 2) === req.body.password_two){
                 if (req.body.couponId !== "0"){
                     sql = 'DELETE FROM customer_coupon WHERE customer_id=? AND coupon_id=?';
@@ -140,8 +141,19 @@ router.post('/payment', function(req, res){
                         var data = {origin_pay, disc_pay, customer_id, resv_id}
                         sql = 'insert into ticket_pay set ?';
                         var query = db.query(sql, data, function(err, rows){
-                            console.log('1');
                             if(err) throw err
+                            else{
+                                var sql = `update customer set ? where id=${req.user}`;
+                                var temp = {
+                                    point: point + ((Number(req.body.origin_pay) - Number(req.body.disc_pay)) * 0.05)
+                                }
+                                var query = db.query(sql, temp, function(err, rows){
+                                    if (err) throw err;
+                                    else {
+                                        //console.log((Number(req.body.origin_pay) - Number(req.body.disc_pay)) * 0.05); 
+                                    }
+                                })
+                            }
                         })
                     }
                 })
