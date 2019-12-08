@@ -39,10 +39,19 @@ passport.use('local-join', new LocalStrategy({
                     return done(null, false, {message: '이미 존재하는 메일입니다.'});
                 } else {
                     if (pw === pw2){
-                        var sql = {name, email, pw, ph}
-                        var query = db.query('insert into customer set ?', sql, function(err, rows){
+                        var data = {name, email, pw, ph}
+                        var query = db.query('insert into customer set ?', data, function(err, rows){
                             if (err) throw err;
-                            return done(null, {'email': email, 'id': rows.insertId });
+                            else{
+                                var data = {
+                                    customer_id: rows.insertId,
+                                    coupon_id: 2
+                                }
+                                var query = db.query('insert into customer_coupon set ?', data, function(err, rows){
+                                    if(err) throw err;
+                                    return done(null, {'email': email, 'id': rows.insertId });
+                                })
+                            }
                         })
                     }else{
                         return done(null, false, {message: '비밀번호가 일치하지 않습니다.'});
