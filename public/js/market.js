@@ -1,11 +1,22 @@
 var visit = [];
+var checked = null;
 window.onload = function(){
-    var chkbox = document.getElementsByName('img'); 
-
+    var chkbox = document.getElementsByName('img');
     for(var i=0;i<chkbox.length;++i){
         chkbox[i].addEventListener("change",check);
     }
 }
+
+
+function cinemaChecked(e) {
+    var cinemas = document.getElementsByName('cinema');
+    for(var i=0;i<cinemas.length;i++){
+        if (cinemas[i].checked === true){
+            checked = cinemas[i].value;
+        }
+    }
+}
+
 function check(){
     var chkbox = document.getElementsByName('img');
     var menuname = document.getElementById('menuname');
@@ -38,7 +49,6 @@ function check(){
                 var index = i + 1
                 var re_p = document.getElementById('name'+index);
                 var re_in = document.getElementById(index);
-                //console.log(re);
                 re_p.remove();
                 re_in.remove();
             }
@@ -47,21 +57,23 @@ function check(){
 }
 
 document.getElementById("purchase").addEventListener('click', function(){
-    var menu = document.querySelectorAll(".menu")
-    var str = "{";
-    for(var i=0;i<menu.length;++i){
-        str += '"' + menu[i].id + '":' +menu[i].value;
-        if(i < menu.length-1) str+=","
-        // console.log(menu[i]);
+    var data = {}
+    var menu = document.querySelectorAll(".menu");
+    data.arr = [];
+    for(var i=0;i < menu.length; ++i){
+        info = {}
+        info.id = Number(menu[i].id);
+        info.value = Number(menu[i].value);
+        data.arr.push(info)
     }
-    str +="}"
-    var inputData = JSON.parse(str);
-    console.log(inputData)
-    sendAjax('/market',inputData);
-    // order('/market/order',inputData)
+    data.cinemaChecked = checked;
+    if(checked){
+        sendAjax('/market', data, showOrderedMenu);
+    }
+    
 })
 
-function sendAjax(url, data){
+function sendAjax(url, data, fn){
     data = JSON.stringify(data);
     var xhr = new XMLHttpRequest();
     xhr.open('post', url);
@@ -69,15 +81,19 @@ function sendAjax(url, data){
     xhr.send(data);
     
     xhr.addEventListener('load', function(){
-        // console.log(xhr.responseText);
         var result = JSON.parse(xhr.responseText);
-        // console.log(result.reqData.data)
+        fn(result);
+    });
+}
 
+function showOrderedMenu (result){
+    var data = result.resData
+    alert('결제가 완료되었습니다');
+    if(data.resArr.length){
         var receipt = document.getElementById("receipt")
         receipt.innerHTML = "";
-        var da = result.reqData.data
+        var da = data.resArr
         var total = 0;
-        console.log(da)
         for( menu_ in da){
             var p = document.createElement("p");
             var num = document.getElementById(da[menu_].id).value;
@@ -90,25 +106,5 @@ function sendAjax(url, data){
         var text = document.createTextNode("총 "+total +"원");
         p.appendChild(text)
         receipt.appendChild(p);
-    });
+    }
 }
-
-// function order(url,data){
-//     var answer = confirm(`구매 하시겠습니까?`);
-//     if (answer){
-//         if (selected_seats_arr.size){
-//             var in_timetable_id = document.getElementById('in_timetable_id');
-//             var in_number_of_seats = document.getElementById('in_number_of_seats');
-//             var in_selected_seats_arr = document.getElementById('in_selected_seats_arr')
-//             in_timetable_id.value = timetable_id;
-//             in_number_of_seats.value = selected_seats_arr.size;
-//             in_selected_seats_arr.value = Array.from(selected_seats_arr);
-//             result_form.submit();
-//         }
-//     } 
-// }
-
-
-// function selectSeat(e) {
-//     var idx = Number(e.target.id);
-// }

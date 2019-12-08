@@ -38,7 +38,7 @@
             <%  
                 var i =0;
                 cinemas.forEach(function(cinema){ %>
-                    <label><input type="radio" name="cinema" value="<%=cinema.cinema%>"/><%=cinema.cinema%></label>     
+                    <input class="cinema" type="radio" name="cinema" value="<%=cinema.cinema%>" onclick="cinemaChecked()"/><%=cinema.cinema%></label> 
                 <% i=i+1 }) %>
             </div>
             <div id="purchase"><button>구매하기</button></div>
