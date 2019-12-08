@@ -71,7 +71,7 @@
                 <% data.reserv_list.forEach(function(element, index){ %>
                 <p>
                     예매번호 : <%= element.resv_id %><br />
-                    예매날짜 : <%= element.startdate.split('T')[0] %><br />
+                    예매날짜 : <%= element.startdate %> <%= element.starttime %><br />
                     영화제목 : <%= element.title %><br />
                     상영관 : <%= element.cinema %>점 <%= element.screen %>관<br />
                     좌석번호 : <%= data.reserv_seat.map((e)=>e.seat_no).join(', ')%><br />
@@ -86,7 +86,7 @@
                 <% data.reserv_order.forEach(function(element, index){ %>
                 <p>
                     예매번호 : <%= element.order_id %><br />
-                    예매날짜 : <%= element.order_date %><br />
+                    결제날짜 : <%= element.order_date %><br />
                     예매 메뉴 : <%= data.reserv_menu[0].name %> <%= data.reserv_menu[0].amount %>개<br />
                     지점 : <%= element.cinema %>점<br />
                 <!--  <button type="button">매점예매취소</button> -->
