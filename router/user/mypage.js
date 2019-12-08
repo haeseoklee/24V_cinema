@@ -19,7 +19,8 @@ router.get('/', function(req, res){
                 data.coupon = JSON.parse(JSON.stringify(rows));
                 data.coupon_len = rows.length;
                 sql = 'SELECT CONCAT("RS00000",reservation.id) as resv_id, ' +
-                'date_format(resv_date, "%Y-%m-%d") as resv_date, customer.name, title, startdate, starttime, ' +
+                'date_format(resv_date, "%Y-%m-%d") as resv_date, customer.name, title,'+
+                ' date_format(startdate, "%Y-%m-%d") as startdate, date_format(starttime, "%h시%i분")starttime, ' +
                 'cinema, screen.name as screen FROM reservation ' +
                 'JOIN timetable ON reservation.timetable_id = timetable.id ' +
                 'JOIN customer ON reservation.customer_id = customer.id ' +
