@@ -10,16 +10,21 @@
         <% data.arr.forEach(function(item, index){ %>
             <div class="admin-cinema-name">
                 <%= item.cinemaName %>
+                
             </div>
             <div class="admin-cinema-sales">
             <% if (item.cinemaSelling) { %>
-                ￦<%= item.cinemaSelling %>
-            
+                <sapn>￦<%= item.cinemaSelling %></sapn>
+                ￦￦<%= item.cinemaMenuSelling %>
             <% } else {%>
             
                 ￦0
             </div>
             <% } %>
+            <!-- <%= item.cinemaName %>
+            지점별 예매 총매출: <%= item.cinemaSelling %>원
+            지점별 매점 총매출: <%= item.cinemaMenuSelling %>원 -->
+            <br>
         <% }) %>
         
         <div>
