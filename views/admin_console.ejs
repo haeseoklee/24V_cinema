@@ -7,28 +7,31 @@
     <body>
         <% include ./nav.ejs %>
     <div id="admin-page">
-        <% data.arr.forEach(function(item, index){ %>
-            <div class="admin-cinema-name">
-                <%= item.cinemaName %>
-                
+        <h1 id="admin-top"> 24V시네마 매출현황</h1>
+        <div id="admin-wrap">
+            <% data.arr.forEach(function(item, index){ %>
+            <div class="admin-contents">
+                <div class="admin-cinema-name">
+                    <%= item.cinemaName %>
+                </div>
+                <div class="admin-cinema-sales">
+                <% if (item.cinemaSelling) { %>
+                    <div>예매 총매출 : ￦<%= item.cinemaSelling %></div>
+                <%} else{ %>
+                    <div>예매 총매출 : ￦0 </div>
+                <% } %>
+                <% if (item.cinemaSelling) { %>
+                    <div>매점 총매출 : ￦<%= item.cinemaMenuSelling %></div>
+                <%} else{ %>
+                    <div>매점 총매출 : ￦0 </div>
+                <% } %>
+                </div>
+            </div> <!-- admin-contents-->
+            <% }) %>
+          
+            <div id="admin-sum-sales">
+            총매출 ￦<%= data.totalSelling %>
             </div>
-            <div class="admin-cinema-sales">
-            <% if (item.cinemaSelling) { %>
-                <sapn>￦<%= item.cinemaSelling %></sapn>
-                ￦￦<%= item.cinemaMenuSelling %>
-            <% } else {%>
-            
-                ￦0
-            </div>
-            <% } %>
-            <!-- <%= item.cinemaName %>
-            지점별 예매 총매출: <%= item.cinemaSelling %>원
-            지점별 매점 총매출: <%= item.cinemaMenuSelling %>원 -->
-            <br>
-        <% }) %>
-        
-        <div>
-        총매출 ￦<%= data.totalSelling %>
         </div>
     </div> <!-- admin-page -->
     </body>
