@@ -20,15 +20,26 @@ router.get('/', function(req, res){
             var query = db.query(sql, [cinemaName], function(err, rows){
                 if (err) throw err;
                 else{
-                    info = {}
-                    info.cinemaName = cinemaName;
-                    info.cinemaSelling = JSON.parse(JSON.stringify(rows))[0]['selling'];
-                    data.arr.push(info);
+                    var info = {}
+                    info.cinemaName = element;
+                    info.cinemaSelling = Number(JSON.parse(JSON.stringify(rows))[0]['selling']);
                     totalSelling += Number(info.cinemaSelling);
-                    if (index === array.length-1){
-                        data.totalSelling = totalSelling;
-                        res.render('admin_console.ejs', {data: data});
-                    }
+                    sql = 'SELECT sum(origin_pay-disc_pay) as selling FROM snack_pay ' +
+                    'JOIN orderlist ON snack_pay.orderlist_id = orderlist.id ' +
+                    'JOIN cinema ON orderlist.cinema = cinema.cinema ' +
+                    'WHERE cinema.cinema=?'
+                    var query = db.query(sql, [element], function(err, rows){
+                        if (err) throw err;
+                        else{
+                            info.cinemaMenuSelling = Number(JSON.parse(JSON.stringify(rows))[0]['selling']);
+                            totalSelling += Number(info.cinemaMenuSelling);
+                            data.arr.push(info);
+                            if (index === array.length-1){
+                                data.totalSelling = totalSelling;
+                                res.render('admin_console.ejs', {data: data});
+                            }
+                        }
+                    })
                 }
             })
         })

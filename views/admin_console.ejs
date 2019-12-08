@@ -10,12 +10,8 @@
         <br>
         <% data.arr.forEach(function(item, index){ %>
             <%= item.cinemaName %>
-            지점별 총매출:
-            <% if (item.cinemaSelling) { %>
-                <%= item.cinemaSelling %>원
-            <% } else {%>
-                0원
-            <% } %>
+            지점별 예매 총매출: <%= item.cinemaSelling %>원
+            지점별 매점 총매출: <%= item.cinemaMenuSelling %>원
             <br>
         <% }) %>
         
