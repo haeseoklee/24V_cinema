@@ -88,6 +88,7 @@ function sendAjax(url, data, fn){
 
 function showOrderedMenu (result){
     var data = result.resData
+    alert('결제가 완료되었습니다');
     if(data.resArr.length){
         var receipt = document.getElementById("receipt")
         receipt.innerHTML = "";
