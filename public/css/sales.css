@@ -1,67 +1,21 @@
 body{
     font-size: 20px;
 }
-
-#admin-aside{
-    border : 2px solid green;
-    width: 10%;
-    min-height: 300px; 
-    float: left;
-    position: fixed;
-}
-#admin-aside ul{
-    font-weight: bold;
-    font-size: 20px;
-    list-style : none;
-    padding : 10px;
-}
-#admin-aside li{
-    display: block;
-}
-
-}
-.nested_ul{
-    font-size : 15px;
-}
-
-#admin-aside a{
-    color :red;
-    text-decoration: none;
-}
-
 /* sales */
-.sales{
-    overflow: hidden;
-    width: 800px;
-    margin-left:auto;
-    margin-right: auto;
-    position: relative;
-}
-
-.local_sales table{
-    border-collapse: collapse;
-    width: 40%;
+#admin-page{
+    width: 860px;
+    background-color: rgba(200,200,200,0.3);
     margin-left: auto;
     margin-right: auto;
-}
-.local_sales caption{
-    font-size: 30px;
-}
-.local_sales table, td, th{
-    border: 2px solid black;
-    text-align: center;
-}
-.local_sales{
-    margin-bottom: 0px;
+
 }
 
-.total_sales{
-    margin-top: 0px;
-    text-align: center;
-    margin-bottom: 30px;
+#admin-cinema-sales{
+    width: 200px;
+    float: left;
 }
 
-.total_sales h2{
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+#admin-cinema-name{
+    width: 200px;
+    float: right;
 }
