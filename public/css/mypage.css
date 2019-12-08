@@ -20,12 +20,19 @@ p{
     padding-left:20px;
     line-height: 2;
 }
-#point, #movie_res{
+
+#movie_res{
     border-right: 2px solid rgb(224, 103, 103);
+    height: 260px;
 
 }
+#point {
+    border-right: 2px solid rgb(224, 103, 103);
+    height: 200px;
+}
+
 h3{
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
     color : black;
     background-color : rgb(231, 131, 131);
@@ -34,6 +41,7 @@ h3{
     margin : 5px;
     width : 94%;
     padding-top: 20px;
+    
 }
 table{
     width: 750px;
@@ -46,6 +54,7 @@ th{
     border-bottom : 1px solid gray;
     background-color: rgb(245, 188, 188);
     color : black;
+    text-align: center;
 }
 h4{
     font-size : 13pt;
