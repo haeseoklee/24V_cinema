@@ -55,11 +55,12 @@ router.get('/', function(req, res){
                             'JOIN customer ON customer_id = customer.id ' +
                             'JOIN menu_order ON orderlist_id = orderlist.id ' +
                             'JOIN menu ON menu_id = menu.id ' +
-                            'WHERE customer.id=1 ' +
+                            `WHERE customer.id=${req.user} ` +
                             'ORDER BY orderlist.id DESC LIMIT 1'
                             var query = db.query(sql, function(err, rows){
                                 if (err) throw err;
                                 data.reserv_menu = JSON.parse(JSON.stringify(rows));
+                                console.log(data);
                                 res.render('mypage.ejs', {'data': data});
                             })
                         })
