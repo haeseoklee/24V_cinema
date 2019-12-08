@@ -61,7 +61,6 @@ router.get('/', function(req, res){
                             var query = db.query(sql, function(err, rows){
                                 if (err) throw err;
                                 data.reserv_menu = JSON.parse(JSON.stringify(rows));
-                                console.log(data);
                                 res.render('mypage.ejs', {'data': data});
                             })
                         })
