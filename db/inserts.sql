@@ -6,11 +6,11 @@ INSERT INTO membership(ranking,benefit) VALUES ("PLATINUM",2000);
 INSERT INTO membership(ranking,benefit) VALUES ("VIP",3000);
 
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('haeseok','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
+VALUES ('이해석','interpret96@gmail.com', '1234', 15000,'01079794949', "SILVER");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('jonghoon','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
+VALUES ('김종훈','haeseoklee.dev@gmail.com', '2345', 8000,'01079794949', "GOLD");
 INSERT INTO customer (name, email, pw, point, ph, membership_id) 
-VALUES ('heejae','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
+VALUES ('정희재','jhj967878@naver.com', '123123', 4000,'01064398402', "VIP");
 
 INSERT INTO coupon (name,benefit)
 VALUES ('수험생할인',3000);
@@ -33,7 +33,7 @@ INSERT INTO customer_coupon (customer_id,coupon_id)
 VALUES (2,2);
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00", "2019-12-24", "15세 관람가",
+VALUES ('신의 한 수: 귀수편', '/movies/images/godshansu.jpg', "리건", "액션","01:46:00", "2019-11-07", "15세 관람가",
 "'세상은 둘 중 하나야
 놀이터가 되던가, 생지옥이 되던가'
 바둑으로 모든 것을 잃은 아이 ‘귀수’
@@ -55,7 +55,7 @@ VALUES ('조커', '/movies/images/joker.jpg', "토드 필립스", "스릴러", "
  이제껏 본 적 없는 진짜 ‘조커’를 만나라!");
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00", "2019-12-24", "전체 관람가",
+VALUES ('겨울왕국 2', '/movies/images/winterkingdom.jpg', "크리스 벅", "애니메이션", "01:43:00", "2019-11-21", "전체 관람가",
 "내 마법의 힘은 어디서 왔을까?
 나를 부르는 저 목소리는 누구지?
 어느 날 부턴가 의문의 목소리가 엘사를 부르고, 평화로운 아렌델 왕국을 위협한다.
@@ -84,7 +84,7 @@ VALUES ('82년생 김지영', '/movies/images/kimjiyoung.jpg', "김도영", "드
  당신과 나의 이야기");
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00", "2019-12-24", "12세 관람가",
+VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", "01:53:00", "2019-11-13", "12세 관람가",
 "고발은 의무! 수사는 직진!
 할말은 하고 깔 건 깐다!
 일명 서울지검 ‘막프로’! 검찰 내에서 거침없이 막 나가는 문제적 검사로
@@ -99,7 +99,7 @@ VALUES ('블랙머니', '/movies/images/blackmoney.jpg', "정지영", "범죄", 
  대한민국 최대의 금융스캔들, 사건은 아직 끝나지 않았다!");
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00", "2019-12-24", "12세 관람가",
+VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "01:45:00", "2019-11-14", "12세 관람가",
 "다시 날 가슴 뛰게 만든 그 말
 '윤희에게, 잘 지내니?'
 평범한 일상을 살아가던 '윤희' 앞으로 도착한 한 통의 편지.
@@ -111,7 +111,7 @@ VALUES ('윤희에게', '/movies/images/yunhee.jpg', "임대형", "로맨스", "
  첫사랑을 만날지도 모른다는 기대를 품는데…");
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00", "2019-12-24", "15세 관람가",
+VALUES ('좀비랜드: 더블탭', '/movies/images/zombieland.jpg', "루벤 플레셔", "액션", "01:39:00", "2019-11-13", "15세 관람가",
 "좀비로 세상이 망한지 10년,
  자신들만의 재능을 발휘하고 생존 규칙을 지키며
  여전히 꿋꿋하게 살아가고 있는 희한한 가족
@@ -140,7 +140,7 @@ VALUES ('날씨의 아이', '/movies/images/nalssi.jpg', "신카이 마코토", 
  흐리기만 했던 세상이 빛나기 시작했고, 그 끝에는 네가 있었다.");
 
 INSERT INTO movie (title, img, director, genre, runtime, releaseday, agelimit, story)
-VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00","2019-12-24", "15세 관람가",
+VALUES ('나를 찾아줘', '/movies/images/findme.jpg', "김승우", "스릴러", "01:48:00","2019-11-27", "15세 관람가",
 "6년 전 실종된 아들을 봤다는 연락을 받은 ‘정연’(이영애).
  숱하게 반복되던 거짓 제보와 달리
  생김새부터 흉터까지 똑같은 아이를 봤다는 낯선 이의 이야기에
