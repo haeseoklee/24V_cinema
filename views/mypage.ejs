@@ -28,8 +28,8 @@
                 <h3>개인정보</h3>
                 <hr />
                 <p>
+                    이메일 : <%= data[0].email %><br /> 
                     휴대전화 : <input user_id="<%= data[0].id %>" type="text" name="ph" id="ph" value="<%= data[0].ph %>"><br /> 
-                    이메일 : <input user_id="<%= data[0].id %>" type="text" name="email" id="email" value="<%= data[0].email %>"><br /> 
                     <button type="button" id="adjustMyInfo">수정하기</button>
                 </p>
             </div>
@@ -99,10 +99,10 @@
     var adjustMyInfo = document.getElementById('adjustMyInfo');
     adjustMyInfo.addEventListener('click', sendMyInfo);
     function sendMyInfo() {
-        var user_id = document.getElementById('email').getAttribute('user_id');
+        //var user_id = document.getElementById('email').getAttribute('user_id');
         var ph = document.getElementById('ph').value;
-        var email = document.getElementById('email').value;
-        var data = {user_id, ph, email};
+        //var email = document.getElementById('email').value;
+        var data = {user_id, ph};
         sendAjax(`/api/myinfo/${user_id}`, 'POST', data, refreshMyInfo);
     }
     
