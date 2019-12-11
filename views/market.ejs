@@ -41,6 +41,49 @@
                     <input class="cinema" type="radio" name="cinema" value="<%=cinema.cinema%>" onclick="cinemaChecked()"/><%=cinema.cinema%></label> 
                 <% i=i+1 }) %>
             </div>
+            <form >
+        <div id="payment-page">
+            <div id="payment-form-overall">
+                <div>
+                    <select name="credit-kind">
+                        <option value="sinhan">신한카드</option>
+                        <option value="hyundai">현대카드</option>
+                        <option value="samsung">삼성카드</option>
+                        <option value="kb">KB국민카드</option>
+                        <option value="lotte">롯데카드</option>
+                        <option value="hana">하나카드</option>
+                        <option value="woori">우리카드</option>
+                        <option value="city">씨티카드</option>
+                        <option value="nh">NH농협카드</option>
+                        <option value="ibk">IBK기업카드</option>
+                        <option value="bc">비씨카드</option>
+                    </select>
+                </div>
+                
+                <div class="payment-form">
+                    <span> 카드번호 </span>
+                        <input type="text" name="credit-number-1" pattern="\d{4}" maxlength="4" size="4"> -
+                        <input type="text" name="credit-number-2" pattern="\d{4}" maxlength="4" size="4"> -
+                        <input type="password" name="credit-number-3" pattern="\d{4}" maxlength="4" size="4"> -
+                        <input type="password" name="credit-number-4" pattern="\d{4}" maxlength="4" size="4">
+                </div>
+                
+                <div class="payment-form">
+                    <span> 유효기간 </span>
+                        <input type="text" name="credit-valid-year" pattern="\d{2}" maxlength="2" size="2" placeholder="YY"> /
+                        <input type="text" name="credit-valid-month" pattern="\d{2}" maxlength="2" size="2" placeholder="MM">
+                </div>
+                <div class="payment-form">
+                    <span> CVC번호(뒤에 3자리)</span>
+                        <input type="password" name="credit-cvc" pattern="\d{3}" maxlength="3" size="3">
+                </div>
+                <div class="payment-form">
+                    <span> 비밀번호(앞에 2자리)</span>    
+                        <input id="password_two" type="password" name="credit-password" pattern="\d{2}" maxlength="2" size="2">
+                </div>
+            </div> <!-- payment-form -->
+        </div> <!-- payment-page -->
+    </form>
             <div id="purchase"><button>구매하기</button></div>
         </div>
 
