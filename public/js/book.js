@@ -42,17 +42,13 @@ function getAbleScreen (result) {
    
     if (result.data) {
         result.data.forEach(function(element){
-            var tr = document.createElement('tr');
-            var td1 = document.createElement('td');
-            var td2 = document.createElement('td');
-            tr.setAttribute('class', 'ableScreen');
-            td1.setAttribute('name', element.name);
-            td1.setAttribute('id', element.id);
-            td1.innerHTML = element.cinema;
-            td2.innerHTML = element.name;
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            resultScreen.appendChild(tr);
+            const screenInfo = `
+                <tr class="ableScreen">
+                    <td name=${element.name} id=${element.id}>${element.cinema}</td>
+                    <td>${element.name}</td>
+                </tr>
+            `
+            resultScreen.innerHTML += screenInfo;
         });
         var screens = document.querySelectorAll('.ableScreen');
         [].forEach.call(screens,function(screen){ 
@@ -98,29 +94,22 @@ function getAbleTimetable(result){
         resultTimetable.appendChild(dt);
 
         result.data.forEach(function(element){
-            var dd = document.createElement('dd');
-            var ul = document.createElement('ul');
-            ul.setAttribute('id', 'time_table');
-            var li = document.createElement('li');
-            var span1 = document.createElement('span');
-            span1.setAttribute('class', 'ttb');
-            var em = document.createElement('em');
-            em.innerHTML = element.name + '관';
-            span1.append(em);
-            var span2 = document.createElement('span');
-            span2.innerHTML = element.starttime + ' ~ ' + element.endtime;
-            span2.setAttribute('class', 'clock');
-            var span3 = document.createElement('span');
-            span3.setAttribute('class', 'ppNum');
-            span3.innerHTML = element.startdate.split('T')[0];
-            li.appendChild(span1);
-            li.appendChild(span2);
-            li.appendChild(span3);
-            ul.appendChild(li);
-            dd.appendChild(ul);
-            span2.setAttribute('class', 'ableTimetable');
-            span2.setAttribute('timetable_id', element.id);
-            resultTimetable.appendChild(dd);
+            const timetableInfo = `
+                <dd>
+                    <ul id="time_table">
+                        <li>
+                            <span class="ttb">
+                                <em>${element.name}관</em>
+                            </span>
+                            <span class="ableTimetable" timetable_id=${element.id}>
+                            ${element.starttime} ~ ${element.endtime}
+                            </span>
+                            <span class="ppNum">${element.startdate.split('T')[0]}</span>
+                        </li>
+                    </ul>
+                </dd>
+            `
+            resultTimetable.innerHTML += timetableInfo;
         });
 
         var timetables = document.querySelectorAll('.ableTimetable');
