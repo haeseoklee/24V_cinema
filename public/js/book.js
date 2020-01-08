@@ -151,37 +151,30 @@ function showSeats(result){
     
     if (result){
         var ol = document.querySelector('.cabin');
-        var li = null;
-        var ol2 = null;
-        result.data.forEach(function(item, index){
-            if (index > 0){
-                ol.appendChild(li);
-                ol.appendChild(ol2);
-            }
+        let seatInfo = [];
+        result.data.forEach((item, index) => {
             if (index % 10 === 0){
-                li = document.createElement('li');
-                li.setAttribute('class', `row row--${Number(index/10)+1}`);
-                ol2 = document.createElement('ol');
-                ol2.setAttribute('class', 'seats');
-                ol2.setAttribute('type', 'A');
-                
+                if (seatInfo.length !== 0 ){
+                    seatInfo = [...seatInfo, `</ol>`]
+                }
+                seatInfo = [...seatInfo, `
+                    <li class="row row--${Number(index/10)+1}"></li>
+                    <ol class="seats" type="A">
+                `]
             }
-            var li2 = document.createElement('li');
-            li2.setAttribute('class', 'seat');
-            var label = document.createElement('label');
-            label.setAttribute('for', item.seat_no);
-            label.setAttribute('class', 'seat_label');
-            label.setAttribute('seat_no', item.seat_no);
-            label.setAttribute('is_able', item.is_able);
-            label.innerHTML = item.seat_no;
-            if (!(Number(item.is_able))){
-                label.style.backgroundColor = 'red';
-            }else{
-                label.style.backgroundColor = 'black';
-            }
-            li2.appendChild(label);
-            ol2.appendChild(li2);
-        });
+            seatInfo = [...seatInfo, `
+                <li class="seat">
+                    <label for=${item.seat_no}
+                        class="seat_label" 
+                        seat_no=${item.seat_no}
+                        is_able=${item.is_able}
+                        style="background-color: ${!(Number(item.is_able)) ? 'red': 'black'}">
+                    ${item.seat_no}
+                    </label>
+                </li>
+            `]
+        })
+        ol.innerHTML += seatInfo.join('');
         ol.setAttribute('class', 'seat_table');
         ol.setAttribute('id', result.timetable_id);
 
