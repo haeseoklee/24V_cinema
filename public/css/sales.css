@@ -2,20 +2,39 @@ body{
     font-size: 20px;
 }
 /* sales */
+
+#admin-top{
+    color: gray;
+    font-size: 23pt;
+    margin-top: 3%;
+    font-weight: bold;
+}
 #admin-page{
     width: 860px;
     background-color: rgba(200,200,200,0.3);
     margin-left: auto;
     margin-right: auto;
-
+    overflow: hidden;
+    border: 2px solid rgba(200,200,200,0.3);
 }
 
-#admin-cinema-sales{
-    width: 200px;
-    float: left;
+.admin-cinema-name{
+    margin-top: 10px;
+}
+#admin-wrap{
+    margin-top: 3%;
+    overflow: hidden;
+}
+.admin-contents{
+    width: 400px;
+    margin: 20px;
+    margin-top: 10px;
+    background-color: rgba(150,150,150,0.4);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
 }
 
-#admin-cinema-name{
-    width: 200px;
-    float: right;
+#admin-sum-sales{
+    font-size: 18pt;
 }
