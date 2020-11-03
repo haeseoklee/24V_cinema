@@ -1,9 +1,9 @@
-var express = require('express');
-var router = require('./router/index');
-var passport = require('passport');
-var session = require('express-session');
-var flash = require('connect-flash');
-var app = express();
+let express = require('express');
+let router = require('./router/index');
+let passport = require('passport');
+let session = require('express-session');
+let flash = require('connect-flash');
+let app = express();
 
 
 app.listen('3000', function() {
